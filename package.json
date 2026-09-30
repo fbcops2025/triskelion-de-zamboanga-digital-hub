@@ -10,5 +10,8 @@
     "test": "node scripts/test.mjs",
     "build": "node scripts/build.mjs",
     "preview": "node scripts/serve.mjs"
+  },
+  "dependencies": {
+    "firebase": "^12.19.0"
   }
 }

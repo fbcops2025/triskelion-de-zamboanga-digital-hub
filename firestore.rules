@@ -1,0 +1,148 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default deny all access
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        (request.auth.token.email == 'hello@weforgeweb.com' && request.auth.token.email_verified == true) ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    function isVerifierOrAdmin() {
+      return isAdmin() || (isSignedIn() && exists(/databases/$(database)/documents/leadership_users/$(request.auth.uid)));
+    }
+
+    function isValidBloodDonation(data) {
+      return data.keys().hasAll(['donorName', 'bloodType', 'contactNumber', 'city', 'causeCampaign', 'status', 'createdAt']) &&
+             data.keys().hasOnly(['donorName', 'bloodType', 'contactNumber', 'city', 'chapter', 'causeCampaign', 'availabilityDate', 'notes', 'status', 'submittedBy', 'createdAt']) &&
+             data.donorName is string && data.donorName.size() >= 2 && data.donorName.size() <= 100 &&
+             data.bloodType is string && data.bloodType in ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'] &&
+             data.contactNumber is string && data.contactNumber.size() >= 7 && data.contactNumber.size() <= 25 &&
+             data.city is string && data.city.size() >= 2 && data.city.size() <= 80 &&
+             data.causeCampaign is string && data.causeCampaign.size() <= 150 &&
+             data.status is string && data.status in ['pending', 'verified', 'scheduled', 'completed'] &&
+             (!('chapter' in data) || (data.chapter is string && data.chapter.size() <= 100)) &&
+             (!('availabilityDate' in data) || (data.availabilityDate is string && data.availabilityDate.size() <= 30)) &&
+             (!('notes' in data) || (data.notes is string && data.notes.size() <= 500)) &&
+             (!('submittedBy' in data) || (data.submittedBy is string && data.submittedBy.size() <= 128));
+    }
+
+    function isValidHistoricalContribution(data) {
+      return data.keys().hasAll(['contributorName', 'category', 'title', 'description', 'status', 'createdAt']) &&
+             data.keys().hasOnly(['contributorName', 'contributorEmail', 'category', 'chapterCouncil', 'estimatedYear', 'title', 'description', 'sourceProvenance', 'status', 'submittedBy', 'createdAt']) &&
+             data.contributorName is string && data.contributorName.size() >= 2 && data.contributorName.size() <= 100 &&
+             data.category is string && data.category in ['photo', 'document', 'chapter_history', 'brotherhood_story', 'artifact', 'correction_proposal'] &&
+             data.title is string && data.title.size() >= 3 && data.title.size() <= 150 &&
+             data.description is string && data.description.size() >= 10 && data.description.size() <= 1500 &&
+             data.status is string && data.status in ['submitted', 'evidence_attached', 'under_review', 'corroborated', 'verified', 'approved_for_publication', 'published', 'disputed', 'unverified'] &&
+             (!('contributorEmail' in data) || (data.contributorEmail is string && data.contributorEmail.size() <= 120)) &&
+             (!('chapterCouncil' in data) || (data.chapterCouncil is string && data.chapterCouncil.size() <= 120)) &&
+             (!('estimatedYear' in data) || (data.estimatedYear is string && data.estimatedYear.size() <= 20)) &&
+             (!('sourceProvenance' in data) || (data.sourceProvenance is string && data.sourceProvenance.size() <= 300)) &&
+             (!('submittedBy' in data) || (data.submittedBy is string && data.submittedBy.size() <= 128));
+    }
+
+    function isValidSafetyReport(data) {
+      return data.keys().hasAll(['incidentType', 'description', 'status', 'createdAt']) &&
+             data.keys().hasOnly(['incidentType', 'cityChapter', 'description', 'contactMethod', 'status', 'createdAt']) &&
+             data.incidentType is string && data.incidentType in ['hazing_concern', 'member_safety', 'unauthorized_activity', 'rights_violation', 'other'] &&
+             data.description is string && data.description.size() >= 10 && data.description.size() <= 2000 &&
+             data.status is string && data.status in ['received', 'under_investigation', 'action_taken', 'closed'] &&
+             (!('cityChapter' in data) || (data.cityChapter is string && data.cityChapter.size() <= 120)) &&
+             (!('contactMethod' in data) || (data.contactMethod is string && data.contactMethod.size() <= 120));
+    }
+
+    // Chapters Directory
+    match /chapters/{chapterId} {
+      allow read: if true;
+      allow create, update, delete: if isVerifierOrAdmin() && isValidId(chapterId);
+    }
+
+    // Impact Projects Ledger
+    match /impact_projects/{projectId} {
+      allow read: if true;
+      allow create, update, delete: if isVerifierOrAdmin() && isValidId(projectId);
+    }
+
+    // Brotherhood Mutual Aid (Restricted PII)
+    match /brotherhood_aid/{caseId} {
+      allow read: if isVerifierOrAdmin();
+      allow create, update: if isVerifierOrAdmin() && isValidId(caseId);
+      allow delete: if isAdmin() && isValidId(caseId);
+    }
+
+    // Blood donations collection
+    match /blood_donations/{donationId} {
+      allow read: if isVerifierOrAdmin() || (isSignedIn() && resource.data.submittedBy == request.auth.uid);
+      allow create: if isValidId(donationId) &&
+                       isValidBloodDonation(incoming()) &&
+                       incoming().status == 'pending' &&
+                       incoming().createdAt == request.time;
+      allow update: if isValidId(donationId) &&
+                       isAdmin() &&
+                       incoming().diff(existing()).affectedKeys().hasOnly(['status', 'notes']);
+      allow delete: if isValidId(donationId) && isAdmin();
+    }
+
+    // Historical contributions & archive intake
+    match /historical_contributions/{contributionId} {
+      allow read: if isVerifierOrAdmin() || (isSignedIn() && resource.data.submittedBy == request.auth.uid);
+      allow create: if isValidId(contributionId) &&
+                       isValidHistoricalContribution(incoming()) &&
+                       incoming().status == 'submitted' &&
+                       incoming().createdAt == request.time;
+      allow update: if isValidId(contributionId) &&
+                       isVerifierOrAdmin() &&
+                       incoming().diff(existing()).affectedKeys().hasOnly(['status', 'sourceProvenance']);
+      allow delete: if isValidId(contributionId) && isAdmin();
+    }
+
+    // Confidential safety & anti-hazing reports (RA 11053)
+    match /safety_reports/{reportId} {
+      allow read: if isAdmin();
+      allow create: if isValidId(reportId) &&
+                       isValidSafetyReport(incoming()) &&
+                       incoming().status == 'received' &&
+                       incoming().createdAt == request.time;
+      allow update: if isValidId(reportId) &&
+                       isAdmin() &&
+                       incoming().diff(existing()).affectedKeys().hasOnly(['status']);
+      allow delete: if isValidId(reportId) && isAdmin();
+    }
+
+    // Leadership directory & council roles
+    match /leadership_users/{userId} {
+      allow read: if isSignedIn();
+      allow create, update: if isSignedIn() && (request.auth.uid == userId || isAdmin()) && isValidId(userId);
+      allow delete: if isAdmin() && isValidId(userId);
+    }
+
+    // Admin authorization roster
+    match /admins/{userId} {
+      allow read: if isSignedIn();
+      allow write: if isAdmin() && isValidId(userId);
+    }
+  }
+}

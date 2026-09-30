@@ -1,0 +1,160 @@
+{
+  "entities": {
+    "BloodDonation": {
+      "title": "Blood Donation Pledge",
+      "description": "Community and fraternal blood donation pledges for national emergency reserves.",
+      "type": "object",
+      "properties": {
+        "donorName": { "type": "string", "minLength": 2, "maxLength": 100 },
+        "bloodType": { "type": "string", "enum": ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"] },
+        "contactNumber": { "type": "string", "minLength": 7, "maxLength": 25 },
+        "city": { "type": "string", "minLength": 2, "maxLength": 80 },
+        "chapter": { "type": "string", "maxLength": 100 },
+        "causeCampaign": { "type": "string", "maxLength": 150 },
+        "availabilityDate": { "type": "string", "maxLength": 30 },
+        "status": { "type": "string", "enum": ["pending", "verified", "scheduled", "completed"] },
+        "notes": { "type": "string", "maxLength": 500 },
+        "submittedBy": { "type": "string", "maxLength": 128 },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["donorName", "bloodType", "contactNumber", "city", "causeCampaign", "status"]
+    },
+    "Chapter": {
+      "title": "Fraternity Chapter & Council Record",
+      "description": "Official institutional record of a collegiate, community, or council chapter.",
+      "type": "object",
+      "properties": {
+        "chapterCode": { "type": "string", "minLength": 5, "maxLength": 50 },
+        "name": { "type": "string", "minLength": 3, "maxLength": 120 },
+        "institution": { "type": "string", "maxLength": 120 },
+        "council": { "type": "string", "maxLength": 120 },
+        "city": { "type": "string", "minLength": 2, "maxLength": 80 },
+        "region": { "type": "string", "maxLength": 80 },
+        "standing": { "type": "string", "enum": ["active_good_standing", "probationary", "under_review", "charter_pending"] },
+        "grandTriskelion": { "type": "string", "maxLength": 100 },
+        "safetyOfficer": { "type": "string", "maxLength": 100 },
+        "foundedYear": { "type": "string", "maxLength": 20 },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["chapterCode", "name", "council", "city", "standing"]
+    },
+    "ImpactProject": {
+      "title": "Audited Community Service Project",
+      "description": "Verified service project record with volunteer hours, cause category, and direct beneficiaries.",
+      "type": "object",
+      "properties": {
+        "projectCode": { "type": "string", "minLength": 5, "maxLength": 50 },
+        "title": { "type": "string", "minLength": 3, "maxLength": 150 },
+        "causeDomain": { "type": "string", "enum": ["health", "blood_drive", "disaster_relief", "education", "environment", "brotherhood_aid", "livelihood", "public_safety"] },
+        "chapterCode": { "type": "string", "maxLength": 50 },
+        "location": { "type": "string", "maxLength": 100 },
+        "projectDate": { "type": "string", "maxLength": 30 },
+        "volunteerHours": { "type": "string", "maxLength": 20 },
+        "beneficiaries": { "type": "string", "maxLength": 20 },
+        "partnerOrg": { "type": "string", "maxLength": 120 },
+        "status": { "type": "string", "enum": ["pending_review", "verified", "published"] },
+        "reportedBy": { "type": "string", "maxLength": 128 },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["projectCode", "title", "causeDomain", "location", "status"]
+    },
+    "BrotherhoodAid": {
+      "title": "Brotherhood Mutual Aid Case",
+      "description": "Emergency fraternal assistance record for medical aid, calamity response, or scholarship.",
+      "type": "object",
+      "properties": {
+        "caseCode": { "type": "string", "minLength": 5, "maxLength": 50 },
+        "recipientName": { "type": "string", "minLength": 2, "maxLength": 100 },
+        "chapter": { "type": "string", "maxLength": 120 },
+        "aidType": { "type": "string", "enum": ["medical_emergency", "disaster_calamity", "educational_scholarship", "bereavement_family", "employment_network"] },
+        "description": { "type": "string", "minLength": 10, "maxLength": 1000 },
+        "status": { "type": "string", "enum": ["open_triage", "mobilizing_funds", "aid_delivered", "resolved"] },
+        "coordinator": { "type": "string", "maxLength": 100 },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["caseCode", "recipientName", "aidType", "description", "status"]
+    },
+    "HistoricalContribution": {
+      "title": "Historical Contribution Submission",
+      "description": "Community submission of historical artifacts, photos, chapter genealogy, oral memories, or correction proposals.",
+      "type": "object",
+      "properties": {
+        "contributorName": { "type": "string", "minLength": 2, "maxLength": 100 },
+        "contributorEmail": { "type": "string", "maxLength": 120 },
+        "category": { "type": "string", "enum": ["photo", "document", "chapter_history", "brotherhood_story", "artifact", "correction_proposal"] },
+        "chapterCouncil": { "type": "string", "maxLength": 120 },
+        "estimatedYear": { "type": "string", "maxLength": 20 },
+        "title": { "type": "string", "minLength": 3, "maxLength": 150 },
+        "description": { "type": "string", "minLength": 10, "maxLength": 1500 },
+        "sourceProvenance": { "type": "string", "maxLength": 300 },
+        "status": { "type": "string", "enum": ["submitted", "evidence_attached", "under_review", "corroborated", "verified", "approved_for_publication", "published", "disputed", "unverified"] },
+        "submittedBy": { "type": "string", "maxLength": 128 },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["contributorName", "category", "title", "description", "status"]
+    },
+    "SafetyReport": {
+      "title": "Confidential Safety & Anti-Hazing Report",
+      "description": "Private compliance and safety disclosure under RA 11053 protocols, strictly restricted to authorized Safety Officers.",
+      "type": "object",
+      "properties": {
+        "incidentType": { "type": "string", "enum": ["hazing_concern", "member_safety", "unauthorized_activity", "rights_violation", "other"] },
+        "cityChapter": { "type": "string", "maxLength": 120 },
+        "description": { "type": "string", "minLength": 10, "maxLength": 2000 },
+        "contactMethod": { "type": "string", "maxLength": 120 },
+        "status": { "type": "string", "enum": ["received", "under_investigation", "action_taken", "closed"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["incidentType", "description", "status"]
+    },
+    "LeadershipUser": {
+      "title": "Leadership & Historian Member Profile",
+      "description": "Authorized fraternity council administrator, historian, or verifier profile.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "email": { "type": "string", "maxLength": 120 },
+        "displayName": { "type": "string", "maxLength": 100 },
+        "role": { "type": "string", "enum": ["national_officer", "council_president", "chapter_head", "historian", "verifier", "safety_officer", "admin"] },
+        "council": { "type": "string", "maxLength": 120 },
+        "verified": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "email", "role"]
+    }
+  },
+  "firestore": {
+    "/chapters/{chapterId}": {
+      "schema": "Chapter",
+      "description": "Official registry of recognized chapters, councils, and standing."
+    },
+    "/impact_projects/{projectId}": {
+      "schema": "ImpactProject",
+      "description": "National impact ledger of audited service projects and volunteer metrics."
+    },
+    "/brotherhood_aid/{caseId}": {
+      "schema": "BrotherhoodAid",
+      "description": "Fraternal mutual assistance and crisis aid cases."
+    },
+    "/blood_donations/{donationId}": {
+      "schema": "BloodDonation",
+      "description": "Collection of blood donation pledges submitted for national cause drives."
+    },
+    "/historical_contributions/{contributionId}": {
+      "schema": "HistoricalContribution",
+      "description": "Submissions for historical preservation, chapter genealogical documents, and archive records."
+    },
+    "/safety_reports/{reportId}": {
+      "schema": "SafetyReport",
+      "description": "Confidential reports under RA 11053 Anti-Hazing compliance protocols."
+    },
+    "/leadership_users/{userId}": {
+      "schema": "LeadershipUser",
+      "description": "Registered leadership profiles, historians, and council officers."
+    },
+    "/admins/{userId}": {
+      "schema": "LeadershipUser",
+      "description": "Designated administrator documents for role verification."
+    }
+  }
+}
