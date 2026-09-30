@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <!-- Outer Arc for TAU GAMMA PHI -->
+    <path id="topArc" d="M 70 250 A 180 180 0 0 1 430 250" fill="none" />
+    <!-- Bottom Arc for FORTIS VOLUNTAS FRATERNITAS -->
+    <path id="bottomArc" d="M 430 250 A 180 180 0 0 1 70 250" fill="none" />
+    <radialGradient id="goldSheen" cx="35%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#FFE042" />
+      <stop offset="60%" stop-color="#FFC000" />
+      <stop offset="100%" stop-color="#E5A600" />
+    </radialGradient>
+  </defs>
+
+  <!-- Outer Black Rim -->
+  <circle cx="250" cy="250" r="246" fill="#0c0d0e" stroke="#000000" stroke-width="4" />
+  <!-- Main Golden Ring -->
+  <circle cx="250" cy="250" r="240" fill="url(#goldSheen)" stroke="#0c0d0e" stroke-width="6" />
+  
+  <!-- Outer Typography: TAU GAMMA PHI -->
+  <text font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-size="44" fill="#0c0d0e" letter-spacing="4">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">TAU GAMMA PHI</textPath>
+  </text>
+  
+  <!-- 19 and 68 on the flanks -->
+  <text x="36" y="264" font-family="Georgia, serif" font-weight="bold" font-size="34" fill="#0c0d0e" text-anchor="middle">19</text>
+  <text x="464" y="264" font-family="Georgia, serif" font-weight="bold" font-size="34" fill="#0c0d0e" text-anchor="middle">68</text>
+
+  <!-- Bottom Typography: FORTIS VOLUNTAS FRATERNITAS -->
+  <text font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-size="25" fill="#0c0d0e" letter-spacing="3.5">
+    <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">FORTIS VOLUNTAS FRATERNITAS</textPath>
+  </text>
+
+  <!-- Inner Black Disc -->
+  <circle cx="250" cy="250" r="162" fill="#0c0d0e" stroke="#0c0d0e" stroke-width="4" />
+  <circle cx="250" cy="250" r="160" fill="#0c0d0e" stroke="url(#goldSheen)" stroke-width="3" />
+
+  <!-- Iconic Three-Legged Triskelion Arms in Gold -->
+  <!-- Center Hub: (250, 250) -->
+  <!-- Top Arm -->
+  <path d="M 250 250 L 210 130 L 330 130" fill="none" stroke="url(#goldSheen)" stroke-width="15" stroke-linecap="square" stroke-linejoin="miter" />
+  <!-- Right-Bottom Arm -->
+  <path d="M 250 250 L 350 310 L 305 405" fill="none" stroke="url(#goldSheen)" stroke-width="15" stroke-linecap="square" stroke-linejoin="miter" />
+  <!-- Left-Bottom Arm -->
+  <path d="M 250 250 L 140 290 L 180 395" fill="none" stroke="url(#goldSheen)" stroke-width="15" stroke-linecap="square" stroke-linejoin="miter" />
+
+  <!-- Greek Letters: T, Γ, Φ in Gold -->
+  <!-- Gamma (Γ) in Upper Right Sector -->
+  <text x="312" y="222" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-size="78" fill="url(#goldSheen)" text-anchor="middle">Γ</text>
+  <!-- Tau (T) in Left Sector -->
+  <text x="182" y="280" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-size="78" fill="url(#goldSheen)" text-anchor="middle">T</text>
+  <!-- Phi (Φ) in Bottom Sector -->
+  <text x="274" y="342" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-size="74" fill="url(#goldSheen)" text-anchor="middle">Φ</text>
+</svg>

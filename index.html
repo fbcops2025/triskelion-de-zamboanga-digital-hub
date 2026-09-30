@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="National Triskelion Legacy & Impact Platform — Documenting, preserving, verifying, and measuring history, brotherhood, service, and social contribution." />
-  <meta property="og:title" content="National Triskelion Legacy & Impact Platform | Digital Archive & Zamboanga Pilot" />
+  <meta name="description" content="National Triskelion Legacy & Impact Platform — Official digital archive of the Triskelions’ Grand Fraternity (Tau Gamma Phi), founded October 4, 1968 at UP Diliman." />
+  <meta property="og:title" content="National Triskelion Legacy & Impact Platform | Tau Gamma Phi" />
   <meta property="og:description" content="Preserving who we were, measuring what we do, and proving what Brotherhood looks like when practiced." />
-  <title>National Triskelion Legacy &amp; Impact Platform | Digital Archive</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23126a69'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia,serif' font-size='28' font-weight='700' fill='%23f8e1b6'%3ET%CE%94%3C/text%3E%3C/svg%3E" />
+  <title>National Triskelion Legacy &amp; Impact Platform | Tau Gamma Phi</title>
+  <link rel="icon" type="image/svg+xml" href="./src/assets/tgp-seal.svg" />
   <script type="importmap">
   {
     "imports": {
@@ -23,10 +23,10 @@
   <header class="site-header">
     <div id="scroll-progress" class="scroll-progress-bar" aria-hidden="true"></div>
     <a class="brand" href="#home" aria-label="National Triskelion Legacy and Impact Platform home">
-      <span class="brand-mark">TΔ</span>
+      <span class="brand-mark"><img src="./src/assets/tgp-seal.svg" alt="Tau Gamma Phi Official Seal" width="42" height="42" /></span>
       <span>
         <strong>TRISKELION LEGACY &amp; IMPACT</strong>
-        <small>NATIONAL DIGITAL ARCHIVE · ZAMBOANGA FLAGSHIP PILOT</small>
+        <small>OFFICIAL NATIONAL PLATFORM · EST. 1968 UP DILIMAN</small>
       </span>
     </a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
@@ -50,7 +50,7 @@
       <div class="hero-copy">
         <div class="hero-kicker-cluster">
           <span class="eyebrow">NATIONAL TRISKELION LEGACY &amp; IMPACT PLATFORM · EST. OCTOBER 4, 1968</span>
-          <span class="pilot-badge">Zamboanga Regional Pilot Active</span>
+          <span class="pilot-badge">UP Diliman Genesis · National Council of the Philippines</span>
         </div>
         <h1>Who were we?<br /><em>What did we</em><br />accomplish?</h1>
         <p class="lede">A permanent digital institution that documents, preserves, verifies, measures, and publicly communicates the history, brotherhood, service, and social contributions of the Triskelion — proving what Brotherhood actually looks like when practiced.</p>
@@ -64,12 +64,14 @@
         </div>
       </div>
       <div class="hero-card">
-        <span class="seal">TΔ</span>
+        <div class="hero-seal-center">
+          <img src="./src/assets/tgp-seal.svg" alt="Tau Gamma Phi Official Seal 1968" class="hero-seal-img" />
+        </div>
         <div class="hero-card-content">
           <p>“We do not preserve Triskelion history simply to remember who we were. We preserve it so every generation understands what Brotherhood requires of them next.”</p>
           <div class="hero-card-meta">
-            <span class="status-pill">Canonical Archive Standard</span>
-            <span class="hero-subtext">UP Diliman Genesis · National Councils · Global Diaspora</span>
+            <span class="status-pill">Canonical National Archive</span>
+            <span class="hero-subtext">UP Diliman Genesis (1968) · Nationwide Councils · Global Diaspora</span>
           </div>
         </div>
       </div>
@@ -189,10 +191,10 @@
         <p class="section-note">A permanent lineage tracking mother chapters, sponsoring councils, and regional expansion.</p>
       </div>
       <div class="pilot-callout-card">
-        <div class="pilot-callout-icon">📍</div>
+        <div class="pilot-callout-icon">🏛</div>
         <div>
-          <strong>Zamboanga Peninsula (Region IX) — Flagship Pilot Proof of Concept</strong>
-          <p>Demonstrating how local councils document every collegiate batch, barangay chapter, and community service project into the canonical national framework before nationwide rollout.</p>
+          <strong>National Council of the Philippines &amp; UP Diliman Alpha Genesis</strong>
+          <p>Documenting the genealogical lineage from the 1968 UP Diliman Mother Chapter to regional collegiate and community councils across Luzon, Visayas, Mindanao, and international diaspora councils.</p>
         </div>
       </div>
       <div id="genealogy-tree" class="genealogy-tree-pane">
@@ -423,7 +425,7 @@
       </div>
       <div class="search-box">
         <label for="archive-search">Search by chapter, founder, cause, city, or year</label>
-        <input id="archive-search" type="search" placeholder="Try “Zamboanga”, “Roy Ordinario”, “Blood Donation”, “1968”, or “Relief”" />
+        <input id="archive-search" type="search" placeholder="Try “UP Diliman”, “Roy Ordinario”, “Blood Donation”, “1968”, or “Relief”" />
         <span aria-hidden="true">⌕</span>
       </div>
       <div id="search-results-pane" class="search-results-container">
@@ -608,17 +610,17 @@
                 <label for="new-chap-code" class="floating-label">Permanent Chapter Code</label>
               </div>
               <div class="form-field">
-                <input id="new-chap-name" class="form-input" type="text" required placeholder="e.g. Western Mindanao Chapter" />
+                <input id="new-chap-name" class="form-input" type="text" required placeholder="e.g. Diliman Community Chapter" />
                 <label for="new-chap-name" class="floating-label">Chapter Name</label>
               </div>
             </div>
             <div class="form-row-2">
               <div class="form-field">
-                <input id="new-chap-council" class="form-input" type="text" required placeholder="e.g. Zamboanga City Council" />
+                <input id="new-chap-council" class="form-input" type="text" required placeholder="e.g. Metro Manila Regional Council" />
                 <label for="new-chap-council" class="floating-label">Governing Council</label>
               </div>
               <div class="form-field">
-                <input id="new-chap-city" class="form-input" type="text" required placeholder="e.g. Zamboanga City" />
+                <input id="new-chap-city" class="form-input" type="text" required placeholder="e.g. Quezon City / Manila" />
                 <label for="new-chap-city" class="floating-label">City / Municipality</label>
               </div>
             </div>
@@ -710,7 +712,7 @@
                 <span class="select-indicator" aria-hidden="true">▾</span>
               </div>
               <div class="form-field">
-                <input id="new-proj-location" class="form-input" type="text" required placeholder="e.g. Zamboanga City Coastal Zone" />
+                <input id="new-proj-location" class="form-input" type="text" required placeholder="e.g. Sierra Madre / Metro Manila Corridor" />
                 <label for="new-proj-location" class="floating-label">Project Location</label>
               </div>
             </div>
@@ -773,6 +775,7 @@
                 <option value="AB+">Type AB+</option>
                 <option value="AB-">Type AB-</option>
               </select>
+              <button id="btn-export-donors-csv" class="button button-gold" style="padding:6px 14px;font-size:0.78rem;" title="Export verified donors for offline council coordination">📥 Export Verified CSV</button>
               <button id="btn-refresh-registry" class="button text-link refresh-btn">↻ Refresh</button>
             </div>
           </div>
@@ -816,11 +819,12 @@
                   <th>Chapter/City</th>
                   <th>Year</th>
                   <th>Provenance</th>
+                  <th>Audit Log</th>
                   <th>Lifecycle Stage &amp; Action</th>
                 </tr>
               </thead>
               <tbody id="portal-contribs-tbody">
-                <tr><td colspan="7" class="loading-td">Loading historical submissions from Firestore...</td></tr>
+                <tr><td colspan="8" class="loading-td">Loading historical submissions from Firestore...</td></tr>
               </tbody>
             </table>
           </div>
@@ -865,7 +869,7 @@
                 <span class="select-indicator" aria-hidden="true">▾</span>
               </div>
               <div class="form-field">
-                <input id="new-aid-chapter" class="form-input" type="text" placeholder="e.g. Zamboanga City Council" />
+                <input id="new-aid-chapter" class="form-input" type="text" placeholder="e.g. UP Diliman Alpha Chapter" />
                 <label for="new-aid-chapter" class="floating-label">Affiliated Chapter / City</label>
               </div>
             </div>
@@ -977,46 +981,50 @@
       </div>
     </section>
 
-    <!-- Contextual Assets Section (Preserved) -->
-    <section id="context" class="section-wrap context-section">
+    <!-- National Heritage & UP Diliman Genesis Section -->
+    <section id="national-heritage" class="section-wrap context-section dark-section">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">ZAMBOANGA PILOT CONTEXT</p>
-          <h2>Regional Geographic Context</h2>
+          <p class="eyebrow">NATIONAL HERITAGE &amp; UP DILIMAN GENESIS</p>
+          <h2>The UP Diliman Mother Chapter (Alpha)</h2>
         </div>
-        <p class="section-note">Research-stage geographic context illustrating the flagship pilot jurisdiction in Western Mindanao.</p>
+        <p class="section-note">Conceived on October 4, 1968 at the University of the Philippines Diliman, Palma Hall (Arts &amp; Sciences), Quezon City, establishing an egalitarian fraternity for the Filipino nation.</p>
       </div>
-      <div class="context-grid">
-        <figure class="context-card context-hero">
-          <img src="./src/assets/context/zamboanga-city-sunset.jpg" alt="Sunset over Zamboanga City, used as general geographic context" loading="lazy" />
-          <figcaption>
-            <strong>Zamboanga City Pilot Context</strong>
-            <span>“Zamboanga City’s Sunset” by Akhmad Jaafar Albeso via Wikimedia Commons, CC BY-SA 2.0.</span>
-          </figcaption>
-        </figure>
-        <figure class="context-card context-map">
-          <img src="./src/assets/context/zamboanga-peninsula-map.png" alt="Map showing the Zamboanga Peninsula in the Philippines" loading="lazy" />
-          <figcaption>
-            <strong>Regional Peninsula Context</strong>
-            <span>“Zamboanga Peninsula in Philippines” by TUBS via Wikimedia Commons, CC BY-SA 3.0.</span>
-          </figcaption>
-        </figure>
+      <div class="national-heritage-grid">
+        <div class="national-heritage-card">
+          <div class="heritage-icon">🏛</div>
+          <h3>The Four UP Diliman Founders</h3>
+          <p>Founded by student visionaries <strong>Talek J. Pablo</strong>, <strong>Vedasto “Sito” Venida</strong>, <strong>Rodolfo “Rod” Confesor</strong>, and <strong>Roy Alolor Ordinario</strong> at UP Diliman, departing from traditional elitist fraternal culture to create a universal brotherhood anchored in character, civic dedication, and personal freewill.</p>
+          <div class="heritage-meta">
+            <span class="status-pill">Founding Date: October 4, 1968</span>
+            <span class="heritage-subtext">University of the Philippines Diliman · AS Palma Hall</span>
+          </div>
+        </div>
+        <div class="national-heritage-card">
+          <div class="heritage-icon">⚖</div>
+          <h3>Fortis Voluntas Fraternitas</h3>
+          <p>The Latin motto emblazoned across the Triskelion seal embodies <strong>Strength, Free Will, and Brotherhood</strong>. Guided by the Tenets and Code of Conduct, the fraternity grew from its academic UP roots into the largest fraternal movement in the Philippines, encompassing hundreds of collegiate councils, community chapters, and worldwide diaspora councils.</p>
+          <div class="heritage-meta">
+            <span class="status-pill">Official Motto &amp; Seal</span>
+            <span class="heritage-subtext">Gold &amp; Jet Black · Triskeles Emblem</span>
+          </div>
+        </div>
       </div>
-      <p class="rights-note"><strong>Rights and attribution note:</strong> Creative Commons attribution is strictly preserved. Research-stage geographic context only; no official organizational coverage or jurisdiction is inferred.</p>
+      <p class="rights-note"><strong>Historical Canon note:</strong> Tau Gamma Phi (Triskelions’ Grand Fraternity) historical records are curated in partnership with national collegiate registries, pioneer rosters, and council historians across the Philippines.</p>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="section-wrap footer-inner">
       <div class="brand">
-        <span class="brand-mark">TΔ</span>
+        <span class="brand-mark"><img src="./src/assets/tgp-seal.svg" alt="Tau Gamma Phi Official Seal" width="42" height="42" /></span>
         <span>
           <strong>NATIONAL TRISKELION LEGACY &amp; IMPACT PLATFORM</strong>
-          <small>PHILIPPINE TRISKELION DIGITAL ARCHIVE · TAU GAMMA PHI</small>
+          <small>OFFICIAL PHILIPPINE TRISKELION DIGITAL ARCHIVE · EST. 1968 UP DILIMAN</small>
         </span>
       </div>
-      <p>Dedicated to the Founders, Pioneers, and all Brothers &amp; Sisters who practice true Brotherhood through civic service.</p>
-      <span>© <span id="year"></span> Triskelion Legacy &amp; Impact Project · All Rights Preserved</span>
+      <p>Dedicated to the Four Founders, UP Diliman Pioneers, and all Brothers &amp; Sisters who practice true Brotherhood through auditable civic service.</p>
+      <span>© <span id="year"></span> National Triskelion Legacy &amp; Impact Project · Fortis Voluntas Fraternitas · All Rights Preserved</span>
     </div>
   </footer>
 

@@ -51,7 +51,7 @@ service cloud.firestore {
 
     function isValidHistoricalContribution(data) {
       return data.keys().hasAll(['contributorName', 'category', 'title', 'description', 'status', 'createdAt']) &&
-             data.keys().hasOnly(['contributorName', 'contributorEmail', 'category', 'chapterCouncil', 'estimatedYear', 'title', 'description', 'sourceProvenance', 'status', 'submittedBy', 'createdAt']) &&
+             data.keys().hasOnly(['contributorName', 'contributorEmail', 'category', 'chapterCouncil', 'estimatedYear', 'title', 'description', 'sourceProvenance', 'status', 'submittedBy', 'auditLog', 'createdAt']) &&
              data.contributorName is string && data.contributorName.size() >= 2 && data.contributorName.size() <= 100 &&
              data.category is string && data.category in ['photo', 'document', 'chapter_history', 'brotherhood_story', 'artifact', 'correction_proposal'] &&
              data.title is string && data.title.size() >= 3 && data.title.size() <= 150 &&
@@ -115,7 +115,7 @@ service cloud.firestore {
                        incoming().createdAt == request.time;
       allow update: if isValidId(contributionId) &&
                        isVerifierOrAdmin() &&
-                       incoming().diff(existing()).affectedKeys().hasOnly(['status', 'sourceProvenance']);
+                       incoming().diff(existing()).affectedKeys().hasOnly(['status', 'sourceProvenance', 'auditLog']);
       allow delete: if isValidId(contributionId) && isAdmin();
     }
 

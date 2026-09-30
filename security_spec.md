@@ -1,7 +1,7 @@
-# Security Specification: Official Triskelion Philippines & Zamboanga Hub
+# Security Specification: National Triskelion Legacy & Impact Platform
 
 ## 1. Architectural Overview & Data Invariants
-- **Platform Scope**: Official Triskelion Philippines national gateway and regional councils (including Triskelion de Zamboanga).
+- **Platform Scope**: Official National Triskelion platform and regional councils across the Philippines and international chapters.
 - **Core Entities**:
   1. `blood_donations/{donationId}`: Public community & fraternal blood donation drive submissions for humanitarian cause campaigns (Dugong Alay, Dugtong Buhay).
   2. `leadership_users/{userId}`: Verified leadership records for National Council Officers, Regional Directors, and Chapter Heads.

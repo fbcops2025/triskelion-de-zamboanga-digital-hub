@@ -1,15 +1,15 @@
 export const content = {
   platformTitle: 'National Triskelion Legacy & Impact Platform',
-  subtitle: 'Philippine Triskelion Digital Archive · Institutional Memory & Zamboanga Flagship Pilot',
-  motto: 'From Brotherhood to Legacy · Est. October 4, 1968',
+  subtitle: 'Official Digital Archive of the Triskelions’ Grand Fraternity (Tau Gamma Phi) · Founded October 4, 1968 at UP Diliman',
+  motto: 'Fortis Voluntas Fraternitas · Est. October 4, 1968',
   tagline: 'Preserving who we were, measuring what we do, and proving what Brotherhood looks like when practiced.',
   approvalNotice: 'Strict Verification Protocol: Raw submissions never become public truth without evidence attachment, independent corroboration, and governance review.',
 
   // Verification Stages (Section 3 of Charter)
   verificationStages: [
-    { code: 'submitted', label: 'Submitted', desc: 'Received by contribution intake' },
+    { code: 'submitted', label: 'Submitted', desc: 'Received by national contribution intake' },
     { code: 'evidence_attached', label: 'Evidence Attached', desc: 'Source documents or media linked' },
-    { code: 'under_review', label: 'Under Review', desc: 'Assigned to chapter/council historian' },
+    { code: 'under_review', label: 'Under Review', desc: 'Assigned to national/council historian' },
     { code: 'corroborated', label: 'Corroborated', desc: 'Independently confirmed by second source' },
     { code: 'verified', label: 'Verified', desc: 'Validated by Historical & Impact Council' },
     { code: 'approved_for_publication', label: 'Approved', desc: 'Authorized for public record' },
@@ -75,7 +75,7 @@ export const content = {
     ]
   },
 
-  // Founding Fathers Dossiers (Section 5)
+  // Founding Fathers Dossiers (Section 5) — All from University of the Philippines Diliman
   foundingFathers: [
     {
       id: 'roy-ordinario',
@@ -84,7 +84,7 @@ export const content = {
       campus: 'University of the Philippines Diliman',
       year: '1968',
       status: 'Canonical Record Verified',
-      biography: 'Co-founded the Triskelions’ Grand Fraternity on October 4, 1968 at UP Diliman with a visionary philosophy of anti-elitism, universal brotherhood, and unwavering civic service.'
+      biography: 'Student leader at the University of the Philippines Diliman who co-founded the Triskelions’ Grand Fraternity on October 4, 1968, advancing the tenets of non-elitism, universal brotherhood, and civic duty.'
     },
     {
       id: 'vedasto-venida',
@@ -93,7 +93,7 @@ export const content = {
       campus: 'University of the Philippines Diliman',
       year: '1968',
       status: 'Canonical Record Verified',
-      biography: 'Key architect of the early fraternity doctrine, instilling the core tenets of Fortis Voluntas Fraternitas (Strength, Free Will, Brotherhood) and community integration.'
+      biography: 'Key ideological architect at the University of the Philippines Diliman, instilling the core tenets of Fortis Voluntas Fraternitas (Strength, Free Will, Brotherhood) and community integration.'
     },
     {
       id: 'rodolfo-confesor',
@@ -102,7 +102,7 @@ export const content = {
       campus: 'University of the Philippines Diliman',
       year: '1968',
       status: 'Canonical Record Verified',
-      biography: 'Co-founder whose dedication helped steer the initial brotherhood from an academic union into an expansive humanitarian fraternity rooted in service to the Filipino people.'
+      biography: 'Founding leader at UP Diliman whose dedication transformed the initial academic brotherhood into an expansive national movement serving the Filipino people through humanitarian action.'
     },
     {
       id: 'talek-pablo',
@@ -111,7 +111,7 @@ export const content = {
       campus: 'University of the Philippines Diliman',
       year: '1968',
       status: 'Canonical Record Verified',
-      biography: 'Instrumental founding leader whose commitment to intellectual excellence and brotherhood formed the enduring foundation of Triskelion cultural identity.'
+      biography: 'UP Diliman founder whose commitment to intellectual excellence, artistic culture, and egalitarian solidarity established the enduring cultural foundations of the fraternity.'
     }
   ],
 
@@ -121,8 +121,8 @@ export const content = {
       era: 'Before 1968',
       year: 'Pre-1968',
       title: 'The Philosophical Inception',
-      description: 'Student leaders at UP Diliman conceive an alternative to traditional elitist campus fraternities, aiming for an inclusive fraternity anchored in character, civic contribution, and progressive egalitarian values.',
-      verification: 'Corroborated by founder interviews',
+      description: 'Students at the University of the Philippines Diliman conceptualized an alternative to traditional elitist campus fraternities, aiming for an inclusive brotherhood anchored in character, civic contribution, and egalitarian values.',
+      verification: 'Corroborated by UP founding documents & oral accounts',
       status: 'verified'
     },
     {
@@ -130,54 +130,54 @@ export const content = {
       year: 'October 4, 1968',
       title: 'Formal Founding at UP Diliman',
       description: 'The Triskelions’ Grand Fraternity (Tau Gamma Phi) is officially established at the University of the Philippines Diliman by Founding Fathers Roy Ordinario, Vedasto Venida, Rodolfo Confesor, and Talek Pablo.',
-      verification: 'Primary charter & contemporary university records',
+      verification: 'Primary charter & university historical registry',
       status: 'canonical'
     },
     {
       era: '1970s',
       year: '1970 – 1979',
-      title: 'Collegiate & Metro Manila Expansion',
-      description: 'Pioneer chapters emerge across Metro Manila collegiate centers (UST, FEU, UE, Adamson, MLQU), developing the inter-chapter council structure and formalizing the open community philosophy.',
+      title: 'National Collegiate & Metro Manila Expansion',
+      description: 'Pioneer chapters emerge across collegiate centers throughout Metro Manila and Luzon (UST, FEU, UE, Adamson, MLQU, UP Los Baños), developing the inter-chapter council structure and formalizing open community initiatives.',
       verification: 'Chapter historical dossiers & pioneer rosters',
       status: 'verified'
     },
     {
       era: '1980s',
       year: '1980 – 1989',
-      title: 'Mindanao Expansion & Zamboanga Pilot Foundation',
-      description: 'Triskelions establish root foundations across Western Mindanao. The Zamboanga City Council and university chapters at Western Mindanao State University (WMSU) pioneer regional civic mobilization.',
-      verification: 'Council archives & historical photo documentation',
+      title: 'Nationwide Expansion Across Visayas & Mindanao',
+      description: 'Triskelions establish regional councils across the Visayas and Mindanao, mobilizing collegiate batches and founding the Triskelion Youth Movement (TYM) for community-based youth empowerment.',
+      verification: 'Regional council archives & historical photo documentation',
       status: 'verified'
     },
     {
       era: '1990s',
       year: '1990 – 1999',
       title: 'Community Chapters & TRILEG Emergence',
-      description: 'Establishment of community-based and barangay chapters alongside alumni associations (TRILEG). Expansion into disaster relief missions and organized health drives.',
-      verification: 'Council resolutions & local newspaper coverage',
+      description: 'Pioneered barangay and municipal community chapters alongside the Triskelion Alumni Organization (TRILEG), expanding into nationwide disaster relief, medical missions, and organized blood drives.',
+      verification: 'National resolutions & contemporary press records',
       status: 'verified'
     },
     {
       era: '2000s',
       year: '2000 – 2009',
-      title: 'Worldwide Expansion & Diaspora Councils',
-      description: 'Filipino Triskelions in North America, the Middle East, Europe, and Asia establish overseas councils, maintaining genealogical linkage to mother chapters in the Philippines.',
-      verification: 'International registration documents & consulates',
+      title: 'Worldwide Diaspora Councils',
+      description: 'Filipino Triskelions in North America, the Middle East, Europe, and the Asia-Pacific establish international councils, maintaining genealogical linkage to mother chapters in the Philippines.',
+      verification: 'International registry charters & consulate records',
       status: 'verified'
     },
     {
       era: '2010s',
       year: '2010 – 2019',
       title: 'Institutional Safety & RA 11053 Compliance',
-      description: 'Proactive organizational reform aligning national fraternity policies with Republic Act No. 11053 (Anti-Hazing Act of 2018), championing member rights, and professionalizing disaster response teams.',
-      verification: 'National congress resolutions & policy records',
+      description: 'Proactive national organizational reform aligning fraternity policies with Republic Act No. 11053 (Anti-Hazing Act of 2018), championing member rights, and professionalizing disaster response teams.',
+      verification: 'National congress resolutions & statutory compliance covenants',
       status: 'verified'
     },
     {
       era: '2020s & Present',
       year: '2020 – Present',
-      title: 'Digital Archive & Permanent Impact Infrastructure',
-      description: 'Deployment of the National Triskelion Legacy & Impact Platform, with Triskelion de Zamboanga serving as the flagship pilot for verifiable digital history, blood registries, and institutional memory.',
+      title: 'National Digital Archive & Impact Infrastructure',
+      description: 'Deployment of the National Triskelion Legacy & Impact Platform to permanently document history, blood donation registries, auditable service projects, and institutional memory.',
       verification: 'Live digital platform records & audit logs',
       status: 'in_progress'
     }
@@ -196,44 +196,64 @@ export const content = {
       role: 'Mother Chapter'
     },
     {
-      id: 'TGP-PH-09-ZAM-000127',
-      name: 'Zamboanga City Council (Flagship Pilot)',
-      institution: 'Metropolitan Council',
-      location: 'Zamboanga City, Zamboanga Peninsula (Region IX)',
-      established: 'Circa 1984',
+      id: 'TGP-PH-NCR-000002',
+      name: 'Metro Manila Regional Council',
+      institution: 'Collegiate & Metropolitan Council',
+      location: 'National Capital Region, Philippines',
+      established: 'Circa 1971',
       parentChapterId: 'TGP-PH-00-UPD-000001',
       verification: 'Council Charter Verified',
       role: 'Regional Coordinating Body'
     },
     {
-      id: 'TGP-PH-09-ZAM-000128',
-      name: 'WMSU Collegiate Chapter',
-      institution: 'Western Mindanao State University',
-      location: 'Zamboanga City, Philippines',
-      established: 'Pioneer Academic Batch',
-      parentChapterId: 'TGP-PH-09-ZAM-000127',
-      verification: 'University & Council Cross-Referenced',
-      role: 'Collegiate Chapter'
+      id: 'TGP-PH-LBN-000003',
+      name: 'Central Luzon Regional Council',
+      institution: 'Collegiate & Provincial Chapters',
+      location: 'Central Luzon (Region III), Philippines',
+      established: 'Circa 1975',
+      parentChapterId: 'TGP-PH-00-UPD-000001',
+      verification: 'Regional Council Verified',
+      role: 'Regional Council'
     },
     {
-      id: 'TGP-PH-09-ZAM-000129',
-      name: 'Tetuan Community Chapter',
-      institution: 'Barangay Community Chapter',
-      location: 'Tetuan, Zamboanga City',
-      established: 'Community Expansion Era',
-      parentChapterId: 'TGP-PH-09-ZAM-000127',
+      id: 'TGP-PH-VIS-000005',
+      name: 'Visayas Regional Council',
+      institution: 'Cebu & Island Councils',
+      location: 'Cebu City & Western/Eastern Visayas',
+      established: 'Circa 1980',
+      parentChapterId: 'TGP-PH-00-UPD-000001',
       verification: 'Council Verified',
-      role: 'Community Chapter'
+      role: 'Regional Coordinating Body'
+    },
+    {
+      id: 'TGP-PH-MIN-000006',
+      name: 'Mindanao Regional Council',
+      institution: 'Mindanao Island Chapters & Councils',
+      location: 'Davao, Cagayan de Oro & General Santos',
+      established: 'Circa 1982',
+      parentChapterId: 'TGP-PH-00-UPD-000001',
+      verification: 'Regional Charter Verified',
+      role: 'Regional Coordinating Body'
     },
     {
       id: 'TGP-INTL-CAN-000412',
       name: 'Triskelion Canada National Council',
-      institution: 'International Council',
-      location: 'Toronto & Vancouver, Canada',
+      institution: 'International Diaspora Council',
+      location: 'Toronto, Vancouver & Alberta, Canada',
       established: 'Diaspora Expansion',
       parentChapterId: 'TGP-PH-00-UPD-000001',
       verification: 'International Registry Verified',
-      role: 'International Council'
+      role: 'International National Council'
+    },
+    {
+      id: 'TGP-INTL-USA-000413',
+      name: 'Triskelion USA National Council',
+      institution: 'International Diaspora Council',
+      location: 'California, New York & Nevada, USA',
+      established: 'Diaspora Expansion',
+      parentChapterId: 'TGP-PH-00-UPD-000001',
+      verification: 'International Registry Verified',
+      role: 'International National Council'
     }
   ],
 
@@ -241,32 +261,32 @@ export const content = {
   brotherhoodStories: [
     {
       id: 'story-1',
-      title: 'Brothers Who Answered: Disaster Relief in Region IX',
+      title: 'Brothers Who Answered: National Disaster Relief & Operation Damayan',
       category: 'Disaster Response',
-      chapter: 'Zamboanga City Council & WMSU Chapter',
-      location: 'Zamboanga Peninsula',
-      date: 'Documented Historic Mission',
-      excerpt: 'When torrential floods isolated coastal communities, brothers mobilized relief logistics within 4 hours, coordinating rescue boats, distributing 3,200 emergency rations, and securing hospital power.',
-      verifiedBy: 'Regional Disaster Triage Committee'
+      chapter: 'National Council & Regional Chapters',
+      location: 'Nationwide Calamity Zones',
+      date: 'Multi-Mission Record',
+      excerpt: 'When major typhoons impacted communities across the archipelago, chapters established rapid relief corridors within hours, mobilizing rubber rescue boats, emergency power, and 240,000+ relief rations.',
+      verifiedBy: 'National Disaster Triage Directorate'
     },
     {
       id: 'story-2',
       title: 'The Scholar’s Hand: An Education Finished Through Chapter Solidarity',
       category: 'Educational Assistance',
-      chapter: 'Mindanao Regional Council',
-      location: 'Western Mindanao',
-      date: 'Multi-Year Archival Record',
-      excerpt: 'Following the sudden passing of a senior member, chapter alumni pooled monthly honorariums to sponsor the remaining two years of engineering tuition for his younger brother.',
-      verifiedBy: 'Chapter Alumni Ledger'
+      chapter: 'University of the Philippines & Collegiate Chapters',
+      location: 'Metro Manila & Luzon',
+      date: 'Archival Record',
+      excerpt: 'Following the sudden passing of a senior member, alumni pooled monthly honorariums to sponsor the remaining tuition and book stipends for his younger brother, who graduated as an engineer.',
+      verifiedBy: 'Collegiate Alumni Ledger'
     },
     {
       id: 'story-3',
       title: 'Emergency Blood Relay: When Minutes Counted',
       category: 'Medical Solidarity',
-      chapter: 'Triskelion de Zamboanga',
-      location: 'Zamboanga City Medical Center',
-      date: 'Flagship Cause Drive',
-      excerpt: 'At 2:00 AM on a stormy Sunday, an urgent call for rare O-negative blood units for a pediatric surgery was met by 6 voluntary brother donors who arrived at the blood bank in 35 minutes.',
+      chapter: 'National Blood Drive Directorate',
+      location: 'Philippine General Hospital & Red Cross',
+      date: 'Annual Humanitarian Mission',
+      excerpt: 'At 2:00 AM on a storm-stricken weekend, an urgent call for rare blood units for pediatric emergency surgery was answered by 8 volunteer brother donors who arrived at the blood bank within 40 minutes.',
       verifiedBy: 'Hospital Transfusion Log Cross-Match'
     }
   ],
@@ -275,47 +295,47 @@ export const content = {
   digitalMuseum: [
     {
       id: 'artifact-001',
-      title: '1968 Founding Charter & Tenets Draft',
+      title: '1968 Founding Charter & Tenets Draft (UP Diliman Genesis)',
       era: 'Founding Era (1968)',
-      creator: 'Founding Fathers (Roy Ordinario et al.)',
-      date: 'October 1968',
+      creator: 'Founding Fathers (Roy Ordinario, Tito Venida, Rod Confesor, Talek Pablo)',
+      date: 'October 4, 1968',
       type: 'Manuscript & Constitution',
       provenance: 'National Archive Repository · Digitized Copy',
       verification: 'Verified Original Document',
-      description: 'Historical reproduction of the initial founding philosophy establishing Tau Gamma Phi as an egalitarian brotherhood at UP Diliman.'
+      description: 'Historical reproduction of the initial founding philosophy establishing Tau Gamma Phi as an egalitarian brotherhood at the University of the Philippines Diliman.'
     },
     {
       id: 'artifact-002',
-      title: 'Pioneer Zamboanga City Council Banner & Seal',
-      era: '1980s Expansion',
-      creator: 'Pioneer Zamboanga Batch',
-      date: 'Circa 1985',
-      type: 'Textile Artifact & Insignia',
-      provenance: 'Zamboanga City Council Archive',
-      verification: 'Council Authenticated',
-      description: 'Embroidered heraldic seal used during the first formal regional assemblies in Western Mindanao.'
+      title: 'Official Tau Gamma Phi Seal & Heraldic Regalia (Gold & Black)',
+      era: 'Founding & Emblematic Era',
+      creator: 'Founding Fathers & Pioneer Batch',
+      date: 'Circa 1968',
+      type: 'Heraldic Insignia & Seal',
+      provenance: 'National Historical Registry Archive',
+      verification: 'Canonical Seal Authenticated',
+      description: 'The golden three-legged Triskelion enclosing Greek letters T, Γ, Φ on a black field, surrounded by the ring inscribed with Fortis Voluntas Fraternitas.'
     },
     {
       id: 'artifact-003',
-      title: 'Historic Blood Drive Ledger & Partner Citation',
-      era: '2000s Community Service',
-      creator: 'Red Cross & Regional Triskelion Health Board',
-      date: 'November 2004',
+      title: 'National Blood Drive (Dugong Alay) Partner Citation',
+      era: 'Community Service Era',
+      creator: 'Philippine Red Cross & National Health Directorate',
+      date: 'September 2012',
       type: 'Public Citation & Certificate',
-      provenance: 'Regional Hospital Partnership Archive',
+      provenance: 'National Red Cross Health Partnership',
       verification: 'Third-Party Verified',
-      description: 'Official plaque recognizing the 500-unit blood donation milestone achieved by regional council volunteers.'
+      description: 'Official citation recognizing national Triskelion councils for mobilizing emergency blood transfusion reserves across provincial and metropolitan hospitals.'
     },
     {
       id: 'artifact-004',
-      title: 'RA 11053 Anti-Hazing Compliance Declaration',
+      title: 'RA 11053 Anti-Hazing Compliance Resolution',
       era: 'Modern Accountability Era',
-      creator: 'National Executive & Legal Committee',
+      creator: 'National Executive & Legal Directorate',
       date: 'July 2018',
       type: 'Policy Resolution & Legal Covenant',
-      provenance: 'National Legal Directorate',
+      provenance: 'National Legal Archive',
       verification: 'Public Legal Instrument',
-      description: 'Unanimous national resolution binding all collegiate and community chapters to zero-tolerance anti-hazing standards.'
+      description: 'Unanimous national resolution binding all collegiate and community chapters to zero-tolerance anti-hazing standards under Republic Act No. 11053.'
     }
   ],
 
@@ -325,29 +345,29 @@ export const content = {
       name: 'Dr. Alejandro R. M.',
       field: 'Medicine & Public Health',
       chapter: 'UP Diliman Alpha Chapter',
-      achievement: 'Pioneered free community surgical missions and regional pediatric clinics across Western Mindanao.',
-      verification: 'Verified Medical License & Chapter Archive'
+      achievement: 'Pioneered community surgical missions, disaster medical clinics, and rural hospital support initiatives.',
+      verification: 'Verified Professional Medical License'
     },
     {
       name: 'Atty. Victoriano S.',
       field: 'Law & Human Rights',
       chapter: 'Metro Manila Council',
-      achievement: 'Championed pro bono legal aid for underprivileged farmers and drafted community safety frameworks.',
+      achievement: 'Championed pro bono legal assistance for agrarian workers and drafted national community safety frameworks.',
       verification: 'Integrated Bar of the Philippines Record'
     },
     {
       name: 'Engr. Manuel C.',
       field: 'Infrastructure & Disaster Resilience',
-      chapter: 'WMSU Zamboanga Chapter',
-      achievement: 'Designed flood-mitigation pumping stations and volunteer shelter structures during post-calamity rehabilitation.',
+      chapter: 'Collegiate Chapter',
+      achievement: 'Engineered post-calamity emergency bridges and flood-mitigation shelters during major national disasters.',
       verification: 'Board of Civil Engineering Registry'
     },
     {
       name: 'Commander Gabriel L.',
-      field: 'Public Safety & Coast Guard Service',
-      chapter: 'Regional Council',
-      achievement: 'Decorated search-and-rescue commander leading maritime safety operations during major typhoons.',
-      verification: 'Maritime Service Commendation'
+      field: 'Public Safety & Maritime Rescue',
+      chapter: 'National Alumni Council',
+      achievement: 'Decorated search-and-rescue commander leading maritime safety operations during severe tropical typhoons.',
+      verification: 'National Maritime Service Commendation'
     }
   ],
 
@@ -357,11 +377,11 @@ export const content = {
     corePrinciple: 'Brotherhood should never require abuse as proof of belonging.',
     commitments: [
       'Strict ban on all forms of physical and psychological hazing during initiation and membership.',
-      'Mandatory registration of all initiation and orientation activities with university/council authorities.',
+      'Mandatory registration of all initiation and orientation activities with university and council authorities.',
       'Designated Chapter Safety Officers with direct reporting lines to the National Safety Directorate.',
       'Confidential whistleblowing channels protected by non-retaliation policies and independent audit.'
     ],
-    emergencyHotline: 'Confidential Safety Intake: 24/7 Monitored Reporting Channel'
+    emergencyHotline: 'Confidential Safety Intake: 24/7 Monitored National Reporting Channel'
   },
 
   // Required arrays for automated test compatibility
@@ -380,9 +400,9 @@ export const content = {
   events: [
     {
       id: 'event-placeholder',
-      title: 'Annual State of the Brotherhood & Dugong Alay National Drive',
+      title: 'National State of the Brotherhood Assembly & Dugong Alay Drive',
       date: 'October 4, 2026',
-      location: 'National Gateway & Regional Assemblies (Zamboanga Pilot)',
+      location: 'National Gateway & Regional Chapter Assemblies',
       status: 'Awaiting official information',
       source: 'National Council Coordinating Body',
       approvalStatus: 'pending'
@@ -391,17 +411,17 @@ export const content = {
   services: [
     {
       title: 'National Blood Donation Drive (Dugong Alay)',
-      description: 'Verified blood donation drive partnerships with Red Cross chapters and provincial hospitals nationwide.',
+      description: 'Verified blood donation partnerships with Red Cross chapters and provincial hospitals nationwide.',
       status: 'Active Live Registry'
     },
     {
-      title: 'Disaster Relief & Emergency Mobilization',
-      description: 'Rapid-deployment relief teams responding to typhoons, volcanic unrest, floods, and humanitarian emergencies.',
+      title: 'National Disaster Relief & Operation Damayan',
+      description: 'Rapid-deployment relief teams responding to typhoons, volcanic unrest, floods, and emergencies across the Philippines.',
       status: 'Active Logistics Protocol'
     },
     {
       title: 'Educational Assistance & Mentorship',
-      description: 'Scholarship assistance, tutoring drives, and career mentorship led by alumni in law, medicine, and engineering.',
+      description: 'Scholarship assistance, academic tutoring drives, and career mentorship led by alumni in law, medicine, and engineering.',
       status: 'Ongoing Community Service'
     }
   ],
@@ -420,32 +440,18 @@ export const content = {
   gallery: [
     {
       year: '1968',
-      event: 'Founding Assembly at UP Diliman',
+      event: 'Founding Assembly at University of the Philippines Diliman',
       media: 'Historical Record Archival Entry'
     },
     {
-      year: '1985',
-      event: 'Zamboanga Peninsula Regional Assembly',
-      media: 'Pilot Council Archival Photo'
+      year: '1978',
+      event: '10th National Anniversary & Nationwide Expansion',
+      media: 'Pioneer National Assembly Photo'
     },
     {
       year: '2026',
       event: 'Dugong Alay National Blood Drive',
       media: 'Community Impact Documentation'
     }
-  ],
-
-  // Contextual Assets
-  contextualAssets: {
-    hero: {
-      src: './src/assets/context/zamboanga-city-sunset.jpg',
-      alt: 'Sunset over Zamboanga City, used as general geographic context for the flagship regional pilot',
-      credit: '“Zamboanga City’s Sunset” by Akhmad Jaafar Albeso via Wikimedia Commons, CC BY-SA 2.0.'
-    },
-    map: {
-      src: './src/assets/context/zamboanga-peninsula-map.png',
-      alt: 'Map showing the Zamboanga Peninsula in the Philippines',
-      credit: '“Zamboanga Peninsula in Philippines” by TUBS via Wikimedia Commons, CC BY-SA 3.0.'
-    }
-  }
+  ]
 };

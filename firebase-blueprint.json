@@ -87,6 +87,7 @@
         "title": { "type": "string", "minLength": 3, "maxLength": 150 },
         "description": { "type": "string", "minLength": 10, "maxLength": 1500 },
         "sourceProvenance": { "type": "string", "maxLength": 300 },
+        "auditLog": { "type": "array", "description": "Structured trail of verification lifecycle stage transitions" },
         "status": { "type": "string", "enum": ["submitted", "evidence_attached", "under_review", "corroborated", "verified", "approved_for_publication", "published", "disputed", "unverified"] },
         "submittedBy": { "type": "string", "maxLength": 128 },
         "createdAt": { "type": "string", "format": "date-time" }

@@ -312,8 +312,8 @@ async function loadLiveBloodDonations() {
         recentPledgesList.innerHTML = `
           <div class="pledge-card-mini">
             <div>
-              <span class="pledge-mini-donor">Brother Donor · Pilot Council</span>
-              <span class="pledge-mini-location">Zamboanga City Council · Flagship Drive</span>
+              <span class="pledge-mini-donor">Brother Donor · National Drive</span>
+              <span class="pledge-mini-location">UP Diliman Alpha Chapter · National Blood Relay</span>
             </div>
             <span class="blood-pill">O+</span>
           </div>
@@ -339,7 +339,7 @@ async function loadLiveBloodDonations() {
         <div class="pledge-card-mini">
           <div>
             <span class="pledge-mini-donor">Brother Participant</span>
-            <span class="pledge-mini-location">Zamboanga City Council · Regional Drive</span>
+            <span class="pledge-mini-location">Metro Manila Regional Council · Dugong Alay</span>
           </div>
           <span class="blood-pill">O+</span>
         </div>
@@ -360,7 +360,7 @@ if (bloodForm && donorSubmitBtn) {
     const bloodType = $('#donor-blood-type')?.value;
     const contactNumber = $('#donor-contact')?.value?.trim();
     const city = $('#donor-city')?.value?.trim();
-    const chapter = $('#donor-chapter')?.value?.trim() || 'Triskelion de Zamboanga';
+    const chapter = $('#donor-chapter')?.value?.trim() || 'Alpha Chapter (UP Diliman)';
     const availabilityDate = $('#donor-date')?.value || new Date().toISOString().split('T')[0];
     const notes = $('#donor-notes')?.value?.trim() || '';
 
@@ -759,9 +759,9 @@ async function loadChaptersData() {
 
     if (cachedChapters.length === 0) {
       cachedChapters = [
-        { id: 'chap-1', chapterCode: 'TGP-PH-00-UPD-000001', name: 'Alpha (Mother) Chapter', council: 'National Council', city: 'Quezon City', grandTriskelion: 'Bro. GT Alpha', safetyOfficer: 'Bro. Safety Officer', standing: 'active_good_standing' },
-        { id: 'chap-2', chapterCode: 'TGP-PH-09-ZAM-000127', name: 'Zamboanga City Council', council: 'Region IX Council', city: 'Zamboanga City', grandTriskelion: 'Bro. Council President', safetyOfficer: 'Bro. Regional Safety Chair', standing: 'active_good_standing' },
-        { id: 'chap-3', chapterCode: 'TGP-PH-09-ZAM-000128', name: 'WMSU Collegiate Chapter', council: 'Zamboanga City Council', city: 'Zamboanga City', grandTriskelion: 'Bro. Collegiate GT', safetyOfficer: 'Bro. Campus Safety Officer', standing: 'active_good_standing' }
+        { id: 'chap-1', chapterCode: 'TGP-PH-00-UPD-000001', name: 'Alpha (Mother) Chapter', council: 'National Council of the Philippines', city: 'Quezon City (UP Diliman)', grandTriskelion: 'Bro. GT Alpha', safetyOfficer: 'Bro. UP Diliman Safety Chair', standing: 'active_good_standing' },
+        { id: 'chap-2', chapterCode: 'TGP-PH-NCR-000002', name: 'Metro Manila Regional Council', council: 'National Capital Region Council', city: 'Metro Manila', grandTriskelion: 'Bro. Regional President', safetyOfficer: 'Bro. Regional Safety Chair', standing: 'active_good_standing' },
+        { id: 'chap-3', chapterCode: 'TGP-PH-VIS-000005', name: 'Cebu Provincial Council', council: 'Visayas Regional Coordinating Body', city: 'Cebu City', grandTriskelion: 'Bro. Council President', safetyOfficer: 'Bro. Visayas Safety Officer', standing: 'active_good_standing' }
       ];
     }
     renderChaptersTable(cachedChapters);
@@ -848,9 +848,9 @@ async function loadProjectsData() {
 
     if (cachedProjects.length === 0) {
       cachedProjects = [
-        { id: 'p-1', projectCode: 'TGP-PROJECT-2026-009381', title: 'Zamboanga Blood Donation Drive (Dugong Alay)', causeDomain: 'blood_drive', location: 'Zamboanga City Medical Center', volunteerHours: '320 hours', beneficiaries: '180 units', partnerOrg: 'Philippine Red Cross', status: 'verified' },
-        { id: 'p-2', projectCode: 'TGP-PROJECT-2026-009382', title: 'Peninsula Mangrove & Coastal Reforestation', causeDomain: 'environment', location: 'Zamboanga Peninsula Coast', volunteerHours: '450 hours', beneficiaries: 'Coastal Community', partnerOrg: 'CENRO', status: 'verified' },
-        { id: 'p-3', projectCode: 'TGP-PROJECT-2026-009383', title: 'Emergency Post-Flood Disaster Relief Mission', causeDomain: 'disaster_relief', location: 'Region IX Evacuation Centers', volunteerHours: '680 hours', beneficiaries: '1,200 families', partnerOrg: 'City Disaster Risk Council', status: 'verified' }
+        { id: 'p-1', projectCode: 'TGP-PROJECT-2026-009381', title: 'National Blood Donation Relay (Dugong Alay)', causeDomain: 'blood_drive', location: 'Philippine Red Cross National HQ & Regional Centers', volunteerHours: '1,420 hours', beneficiaries: '850 units', partnerOrg: 'Philippine Red Cross', status: 'verified' },
+        { id: 'p-2', projectCode: 'TGP-PROJECT-2026-009382', title: 'Sierra Madre Reforestation & Watershed Protection', causeDomain: 'environment', location: 'Sierra Madre Mountain Range', volunteerHours: '980 hours', beneficiaries: 'National Watershed', partnerOrg: 'DENR-PENRO', status: 'verified' },
+        { id: 'p-3', projectCode: 'TGP-PROJECT-2026-009383', title: 'Operation Damayan National Disaster Relief Mission', causeDomain: 'disaster_relief', location: 'Calamity Evacuation Hubs (Luzon/Visayas/Mindanao)', volunteerHours: '1,860 hours', beneficiaries: '3,400 families', partnerOrg: 'National Disaster Risk Reduction Council', status: 'verified' }
       ];
     }
     renderProjectsTable(cachedProjects);
