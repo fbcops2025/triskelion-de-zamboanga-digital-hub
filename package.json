@@ -4,6 +4,8 @@
   "private": true,
   "description": "Phase 1 public information hub scaffold for Triskelion de Zamboanga.",
   "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "start": "node scripts/serve.mjs",
     "lint": "node scripts/lint.mjs",
     "test": "node scripts/test.mjs",
     "build": "node scripts/build.mjs",
