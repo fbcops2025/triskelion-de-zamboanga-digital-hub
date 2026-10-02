@@ -415,7 +415,6 @@ if (archiveSearch && searchStatus && searchDynamicResults) {
 
 // Navigation Toggle
 const navToggle = $('.menu-toggle');
-const siteNav = $('#site-nav');
 if (navToggle && siteNav) {
   let lastMenuFocus = navToggle;
   const closeMenu = ({ restoreFocus = false } = {}) => {
