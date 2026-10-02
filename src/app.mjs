@@ -1,22 +1,12 @@
 import { content } from './content.mjs';
+import { notableDomains, notableProfiles } from './notables.mjs';
+import * as d3 from 'd3';
 import {
   auth,
   db,
-  googleProvider,
-  signInWithPopup,
-  signOut,
-  onAuthStateChanged,
   collection,
   addDoc,
-  getDocs,
-  doc,
-  updateDoc,
-  query,
-  orderBy,
-  limit,
   serverTimestamp,
-  handleFirestoreError,
-  OperationType
 } from './firebase.mjs';
 
 const $ = (selector) => document.querySelector(selector);
@@ -42,15 +32,49 @@ if (pillarsContainer && content.pillars) {
 // 2. RENDER NATIONAL IMPACT METRICS
 // ==========================================
 const impactCountersGrid = $('#impact-counters-grid');
+const evidenceSourceById = new Map((content.evidenceSources || []).map(source => [source.id, source]));
+const escapeEvidenceHtml = value => String(value ?? '').replace(/[&<>\"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '\"': '&quot;', "'": '&#39;' }[char]));
+const evidenceCorrectionHref = metric => `mailto:hello@weforgeweb.com?subject=${encodeURIComponent(`Suggest an evidence correction: impact metric ${metric.label}`)}&body=${encodeURIComponent(`Impact metric: ${metric.label}\\nDisplayed value: ${metric.value}\\n\\nPlease identify the claim and provide a public supporting reference.`)}`;
+function renderEvidenceSource(source) {
+  const link = source.actualUrl
+    ? `<a href="${escapeEvidenceHtml(source.actualUrl)}" target="_blank" rel="noreferrer">Open actual source ↗</a>`
+    : '<span>Local source only; no public URL</span>';
+  return `<li><strong>${escapeEvidenceHtml(source.title)}</strong><span class="evidence-source-meta">${escapeEvidenceHtml(source.sourceKind)} · ref ${escapeEvidenceHtml(source.refNumber)} · ${escapeEvidenceHtml(source.pdfPage)}</span><span>${escapeEvidenceHtml(source.supports)}</span><span class="evidence-review-status">${escapeEvidenceHtml(source.reviewStatus)}</span>${link}</li>`;
+}
 if (impactCountersGrid && content.impactMetrics) {
-  impactCountersGrid.innerHTML = content.impactMetrics.counters.map(c => `
-    <div class="impact-metric-card">
-      <span class="metric-icon">${c.icon}</span>
-      <div class="impact-metric-value">${c.value}</div>
-      <span class="impact-metric-label">${c.label}</span>
-      <span class="impact-metric-delta">${c.delta}</span>
-    </div>
-  `).join('');
+  impactCountersGrid.innerHTML = content.impactMetrics.counters.map(c => {
+    const sources = (c.sourceIds || []).map(id => evidenceSourceById.get(id)).filter(Boolean);
+    return `
+    <article class="impact-metric-card" id="impact-${escapeEvidenceHtml(c.id)}">
+      <span class="metric-icon" aria-hidden="true">${escapeEvidenceHtml(c.icon)}</span>
+      <div class="impact-metric-value">${escapeEvidenceHtml(c.value)}</div>
+      <span class="impact-metric-label">${escapeEvidenceHtml(c.label)}</span>
+      <span class="impact-metric-delta">${escapeEvidenceHtml(c.delta)}</span>
+      <details class="impact-evidence">
+        <summary aria-label="See references for ${escapeEvidenceHtml(c.label)}">See references</summary>
+        <p class="impact-evidence-context">Claim-level evidence for this tile. This is the associated source set currently known from the research mapping—not an exhaustive bibliography.</p>
+        <ul>${sources.map(renderEvidenceSource).join('')}</ul>
+        <p class="impact-evidence-correction"><a href="${evidenceCorrectionHref(c)}">Suggest an evidence correction</a></p>
+      </details>
+    </article>`;
+  }).join('');
+}
+
+// ==========================================
+// 2B. RENDER PUBLIC PRINCIPLES CONTEXT
+// ==========================================
+const principlesGrid = $('#principles-grid');
+if (principlesGrid && content.publicPrinciples) {
+  principlesGrid.innerHTML = content.publicPrinciples.map(principle => {
+    const sources = (principle.sourceIds || []).map(id => evidenceSourceById.get(id)).filter(Boolean);
+    return `<article class="principle-card">
+      <span class="principle-kind">${escapeEvidenceHtml(principle.kind)}</span>
+      <h4>${escapeEvidenceHtml(principle.title)}</h4>
+      <p>${escapeEvidenceHtml(principle.text)}</p>
+      <a class="principle-source-anchor" href="#${escapeEvidenceHtml(principle.sourceAnchor)}">See supporting sources ↗</a>
+      <span class="principle-source-count">${sources.length} associated source${sources.length === 1 ? '' : 's'} in the current mapping</span>
+    </article>`;
+  }).join('');
 }
 
 // ==========================================
@@ -63,11 +87,11 @@ if (foundersGrid && content.foundingFathers) {
       <div>
         <span class="founder-title">${f.title}</span>
         <h3>${f.name}</h3>
-        <p>${f.biography}</p>
+        <p>Listed in a historical source. Public biography withheld until an approved primary record and consent are attached.</p>
       </div>
       <div class="founder-meta">
         <span>${f.campus} · ${f.year}</span>
-        <span class="status-pill">${f.status}</span>
+        <span class="status-pill">Research lead · approval needed</span>
       </div>
     </article>
   `).join('');
@@ -84,8 +108,8 @@ if (timelineContainer && content.historicalTimeline) {
       <article class="timeline-card">
         <span class="timeline-year">${t.year}</span>
         <h3>${t.title}</h3>
-        <p>${t.description}</p>
-        <span class="timeline-verif">✓ ${t.verification}</span>
+        <p>Historical lead for this period. Public detail remains pending approved primary records and council review.</p>
+        <span class="timeline-verif">Source trail: ${t.verification} · approval needed</span>
       </article>
     </div>
   `).join('');
@@ -103,31 +127,113 @@ if (genealogyTree && content.chapterGenealogy) {
       <p><strong>${ch.institution}</strong> · ${ch.location}</p>
       <div class="genealogy-footer">
         <span>Established: ${ch.established}</span>
-        <span class="status-pill">${ch.verification}</span>
+        <span class="status-pill">${ch.verification} · approval needed</span>
       </div>
     </article>
   `).join('');
 }
 
 // ==========================================
-// 6. RENDER BROTHERHOOD STORIES
+// 6. D3 ORGANIZATION MAP
+// ==========================================
+const organizationMapCanvas = $('#organization-map-canvas');
+const organizationMapStatus = $('#organization-map-status');
+function renderOrganizationMap() {
+  if (!organizationMapCanvas || !content.organizationMap?.length) return;
+  organizationMapCanvas.innerHTML = '';
+  const width = Math.max(320, organizationMapCanvas.clientWidth || 900);
+  const height = width < 620 ? 620 : 560;
+  const nodes = content.organizationMap.map(node => ({ ...node }));
+  const links = nodes.filter(node => node.parentId).map(node => ({ source: node.parentId, target: node.id }));
+  const svg = d3.select(organizationMapCanvas).append('svg').attr('viewBox', `0 0 ${width} ${height}`).attr('role', 'presentation');
+  const group = svg.append('g');
+  svg.append('defs').append('marker').attr('id', 'map-arrow').attr('viewBox', '0 -5 10 10').attr('refX', 18).attr('refY', 0).attr('markerWidth', 5).attr('markerHeight', 5).attr('orient', 'auto').append('path').attr('d', 'M0,-5L10,0L0,5').attr('fill', '#c6a13b');
+  const link = group.append('g').attr('class', 'map-links').selectAll('line').data(links).join('line').attr('class', 'map-link').attr('marker-end', 'url(#map-arrow)');
+  const node = group.append('g').attr('class', 'map-nodes').selectAll('g').data(nodes).join('g').attr('class', d => `map-node map-node-${d.level}`).call(d3.drag().on('start', (event, d) => { if (!event.active) simulation.alphaTarget(0.25).restart(); d.fx = d.x; d.fy = d.y; }).on('drag', (event, d) => { d.fx = event.x; d.fy = event.y; }).on('end', (event, d) => { if (!event.active) simulation.alphaTarget(0); d.fx = null; d.fy = null; }));
+  node.append('circle').attr('r', d => d.level === 'national' ? 25 : d.level === 'regional' ? 18 : 13);
+  node.append('text').attr('class', 'map-node-label').attr('dy', d => d.level === 'national' ? 42 : 34).text(d => d.shortName);
+  node.append('title').text(d => `${d.name} · ${d.location} · ${d.status}`);
+  const simulation = d3.forceSimulation(nodes).force('link', d3.forceLink(links).id(d => d.id).distance(width < 620 ? 95 : 125)).force('charge', d3.forceManyBody().strength(-280)).force('center', d3.forceCenter(width / 2, height / 2)).force('collision', d3.forceCollide().radius(d => d.level === 'national' ? 48 : 40)).on('tick', () => {
+    link.attr('x1', d => d.source.x).attr('y1', d => d.source.y).attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+    node.attr('transform', d => `translate(${Math.max(30, Math.min(width - 30, d.x))},${Math.max(30, Math.min(height - 45, d.y))})`);
+  });
+  if (organizationMapStatus) organizationMapStatus.textContent = `${nodes.length} platform nodes · ${links.length} reporting connections · Drag a node to explore.`;
+}
+renderOrganizationMap();
+window.addEventListener('resize', renderOrganizationMap);
+
+// ==========================================
+// 7. RENDER BROTHERHOOD STORIES
 // ==========================================
 const storiesGrid = $('#stories-grid');
 if (storiesGrid && content.brotherhoodStories) {
-  storiesGrid.innerHTML = content.brotherhoodStories.map(s => `
-    <article class="story-card">
-      <div>
-        <span class="story-category-tag">${s.category}</span>
-        <h3>${s.title}</h3>
-        <p>${s.excerpt}</p>
-      </div>
-      <div class="story-meta">
-        <span><strong>${s.chapter}</strong> (${s.location})</span>
-        <small>Corroboration: ${s.verifiedBy}</small>
+  storiesGrid.innerHTML = `<article class="approval-empty-state"><span class="eyebrow">Public records pending</span><h3>Stories will appear after source review.</h3><p>This is a historical lead, not publication authority. Submit a story with a source and consent. No biography, beneficiary account, or impact story is treated as verified by default.</p><a class="button button-secondary" href="#contribute">Submit a sourced story</a></article>`;
+}
+
+// ==========================================
+// 8. ARTICLES & NEWS PUBLIC FEED
+// ==========================================
+const articlesGrid = $('#articles-grid');
+const articleCategoryLabels = { news: 'National news', service: 'Service and impact', history: 'History and legacy', councils: 'Councils and chapters', safety: 'Safety and accountability' };
+const articleSearch = $('#article-search');
+const articleSearchClear = $('#article-search-clear');
+const articleSearchStatus = $('#article-search-status');
+const articleReader = $('#article-reader');
+const articleReaderContent = $('#article-reader-content');
+const articleReaderClose = $('#article-reader-close');
+let allPublishedArticles = [];
+let activeArticleCategory = 'all';
+const escapeArticleHtml = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
+
+function openArticle(article) {
+  if (!articleReader || !articleReaderContent) return;
+  articleReaderContent.innerHTML = `
+    <span class="story-category-tag">${escapeArticleHtml(articleCategoryLabels[article.category] || article.category || 'National update')}</span>
+    <h3>${escapeArticleHtml(article.title)}</h3>
+    <div class="article-reader-meta">${escapeArticleHtml(article.author || 'National Council')} · ${escapeArticleHtml(article.date || 'Date to be confirmed')}</div>
+    ${article.imageUrl ? `<img class="article-reader-image" src="${escapeArticleHtml(article.imageUrl)}" alt="${escapeArticleHtml(article.title)} article image" />` : ''}
+    <div class="article-reader-body">${escapeArticleHtml(article.body || article.excerpt || '')}</div>
+    ${article.sourceUrl ? `<a class="article-reader-source" href="${escapeArticleHtml(article.sourceUrl)}" target="_blank" rel="noreferrer">View the source or reference ↗</a>` : ''}
+  `;
+  articleReader.hidden = false;
+  articleReader.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function renderArticles(articles, query = '', category = 'all') {
+  if (!articlesGrid) return;
+  allPublishedArticles = articles.filter(article => article.status === 'published');
+  const normalizedQuery = query.trim().toLowerCase();
+  const filtered = allPublishedArticles.filter(article => {
+    const matchesCategory = category === 'all' || article.category === category;
+    const searchable = [article.title, article.excerpt, article.body, article.author, articleCategoryLabels[article.category]].join(' ').toLowerCase();
+    return matchesCategory && (!normalizedQuery || searchable.includes(normalizedQuery));
+  });
+  if (articleSearchStatus) articleSearchStatus.textContent = `${filtered.length} ${filtered.length === 1 ? 'story' : 'stories'} found`;
+  articlesGrid.innerHTML = filtered.length ? filtered.map((article, index) => `
+    <article class="article-card">
+      <div class="article-card-image-wrap">${article.imageUrl ? `<img class="article-card-image" src="${article.imageUrl}" alt="${article.title} article image" loading="lazy" />` : '<div class="article-card-image article-card-image-empty">National editorial desk</div>'}</div>
+      <div class="article-card-body">
+        <div class="article-card-meta"><span class="story-category-tag">${articleCategoryLabels[article.category] || article.category || 'National update'}</span><time datetime="${article.date || ''}">${article.date || 'Undated'}</time></div>
+        <h3><button class="article-read-button" type="button" data-article-index="${index}">${article.title}</button></h3>
+        <p>${article.excerpt || article.body || ''}</p>
+        <div class="article-card-byline"><strong>${article.author || 'National Council'}</strong><button class="article-read-button" type="button" data-article-index="${index}">Read story ↗</button></div>
       </div>
     </article>
-  `).join('');
+  `).join('') : '<p class="empty-state">Walang nahanap na story. Subukan ang ibang keyword o category.</p>';
+  articlesGrid.querySelectorAll('.article-read-button').forEach(button => {
+    button.addEventListener('click', () => openArticle(filtered[Number(button.dataset.articleIndex)]));
+  });
 }
+renderArticles(content.articles || []);
+
+if (articleSearch) articleSearch.addEventListener('input', () => renderArticles([...allPublishedArticles], articleSearch.value, activeArticleCategory));
+if (articleSearchClear) articleSearchClear.addEventListener('click', () => { articleSearch.value = ''; activeArticleCategory = 'all'; document.querySelectorAll('.article-filter').forEach(button => button.classList.toggle('is-active', button.dataset.category === 'all')); renderArticles([...allPublishedArticles]); });
+document.querySelectorAll('.article-filter').forEach(button => button.addEventListener('click', () => {
+  activeArticleCategory = button.dataset.category || 'all';
+  document.querySelectorAll('.article-filter').forEach(filter => filter.classList.toggle('is-active', filter === button));
+  renderArticles([...allPublishedArticles], articleSearch?.value || '', activeArticleCategory);
+}));
+if (articleReaderClose) articleReaderClose.addEventListener('click', () => { if (articleReader) articleReader.hidden = true; });
 
 // ==========================================
 // 7. RENDER DIGITAL MUSEUM WITH ERA FILTER
@@ -143,13 +249,13 @@ function renderMuseumArtifacts(eraFilter = 'ALL') {
     <article class="museum-card">
       <div class="museum-card-header">
         <span class="museum-era">${m.era}</span>
-        <span class="status-pill">${m.verification}</span>
+        <span class="status-pill">Contextual lead · approval needed</span>
       </div>
       <h3>${m.title}</h3>
-      <p>${m.description}</p>
+      <p>Contextual catalog lead from cited sources. Description and source details remain pending rights and review.</p>
       <div class="museum-provenance">
         <strong>Creator / Source:</strong> ${m.creator} (${m.date})<br />
-        <small>Provenance: ${m.provenance}</small>
+        <small>Source: ${m.provenance}</small>
       </div>
     </article>
   `).join('');
@@ -168,19 +274,85 @@ eraButtons.forEach(btn => {
 });
 
 // ==========================================
-// 8. RENDER NOTABLE TRISKELIONS
+// 8. RENDER NOTABLE PERSONALITIES RESEARCH COLLECTION
 // ==========================================
 const notablesGrid = $('#notables-grid');
-if (notablesGrid && content.notableTriskelions) {
-  notablesGrid.innerHTML = content.notableTriskelions.map(n => `
-    <article class="notable-card">
-      <span class="notable-field-tag">${n.field}</span>
-      <h3>${n.name}</h3>
-      <span class="notable-chapter">${n.chapter}</span>
-      <p>${n.achievement}</p>
-      <span class="notable-verif">✓ ${n.verification}</span>
-    </article>
+const notablesCollection = $('#notables-collection');
+const notableDetail = $('#notable-detail');
+let activeNotableDomain = 'all';
+
+function renderNotableDetail(profile) {
+  if (!notableDetail || !profile) return;
+  const professionalSource = profile.source
+    ? `<a href="${escapeArticleHtml(profile.source.url)}" target="_blank" rel="noreferrer">${escapeArticleHtml(profile.source.label)} <span aria-hidden="true">↗</span></a>`
+    : '<span>Professional source link is being normalized.</span>';
+  const associationSource = profile.associationSource
+    ? `<a href="${escapeArticleHtml(profile.associationSource.url)}" target="_blank" rel="noreferrer">${escapeArticleHtml(profile.associationSource.label)} <span aria-hidden="true">↗</span></a>`
+    : '<span>Affiliation source is still under review.</span>';
+  notableDetail.innerHTML = `
+    <div class="notable-detail-mark">${escapeArticleHtml(profile.initials)}</div>
+    <div class="notable-detail-copy">
+      <span class="notable-detail-kicker">Selected research record</span>
+      <h3>${escapeArticleHtml(profile.name)}</h3>
+      <p>${escapeArticleHtml(profile.summary)}</p>
+      <dl class="notable-evidence-list">
+        <div><dt>Association record</dt><dd>${escapeArticleHtml(profile.association)}</dd></div>
+        <div><dt>Professional record</dt><dd>${professionalSource}</dd></div>
+        <div><dt>Affiliation source</dt><dd>${associationSource}</dd></div>
+      </dl>
+    </div>
+  `;
+}
+
+function renderNotables(domain = 'all') {
+  if (!notablesGrid) return;
+  const visibleProfiles = domain === 'all'
+    ? notableProfiles
+    : notableProfiles.filter(profile => profile.domainKey === domain);
+  notablesGrid.innerHTML = visibleProfiles.map((profile, index) => `
+    <button class="notable-card" type="button" data-notable-id="${escapeArticleHtml(profile.id)}" style="--notable-index:${index}" aria-pressed="false">
+      <span class="notable-orbit" aria-hidden="true"></span>
+      <span class="notable-monogram" aria-hidden="true">${escapeArticleHtml(profile.initials)}</span>
+      <span class="notable-field-tag">${escapeArticleHtml(profile.domain)}</span>
+      <h3>${escapeArticleHtml(profile.name)}</h3>
+      <span class="notable-role">${escapeArticleHtml(profile.role)}</span>
+      <p>${escapeArticleHtml(profile.summary)}</p>
+      <span class="notable-verif">${escapeArticleHtml(profile.evidence)}</span>
+      <span class="notable-select">Open research note <span aria-hidden="true">↗</span></span>
+    </button>
   `).join('');
+  notablesGrid.querySelectorAll('.notable-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const profile = notableProfiles.find(item => item.id === card.dataset.notableId);
+      notablesGrid.querySelectorAll('.notable-card').forEach(item => item.setAttribute('aria-pressed', String(item === card)));
+      renderNotableDetail(profile);
+      if (window.matchMedia('(max-width: 800px)').matches) notableDetail?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  });
+}
+
+if (notablesGrid && notablesCollection) {
+  notablesCollection.innerHTML = `
+    <div class="notables-collection-intro">
+      <div>
+        <span class="notables-count">${notableProfiles.length} records in review</span>
+        <p>Professional achievements and association evidence are intentionally separated. Select a profile to see what is linked, what remains contextual, and what needs an approved source.</p>
+      </div>
+      <div class="notable-filter-row" role="group" aria-label="Filter notable personalities by field">
+        ${notableDomains.map(domain => `<button class="notable-filter${domain.key === 'all' ? ' is-active' : ''}" type="button" data-notable-domain="${domain.key}">${domain.label}</button>`).join('')}
+      </div>
+    </div>
+  `;
+  notablesCollection.querySelectorAll('.notable-filter').forEach(button => {
+    button.addEventListener('click', () => {
+      activeNotableDomain = button.dataset.notableDomain || 'all';
+      notablesCollection.querySelectorAll('.notable-filter').forEach(item => item.classList.toggle('is-active', item === button));
+      renderNotables(activeNotableDomain);
+      renderNotableDetail(notableProfiles.find(profile => activeNotableDomain === 'all' || profile.domainKey === activeNotableDomain));
+    });
+  });
+  renderNotables();
+  renderNotableDetail(notableProfiles[0]);
 }
 
 // ==========================================
@@ -196,14 +368,15 @@ const searchableIndex = [
   ...content.foundingFathers.map(f => ({ title: f.name, subtitle: f.title, desc: f.biography, category: 'Founding Father' })),
   ...content.digitalMuseum.map(m => ({ title: m.title, subtitle: `${m.era} · ${m.date}`, desc: m.description, category: 'Museum Artifact' })),
   ...content.brotherhoodStories.map(s => ({ title: s.title, subtitle: `${s.category} · ${s.chapter}`, desc: s.excerpt, category: 'Brotherhood Story' })),
-  ...content.notableTriskelions.map(n => ({ title: n.name, subtitle: `${n.field} · ${n.chapter}`, desc: n.achievement, category: 'Notable Triskelion' }))
+  ...notableProfiles.map(n => ({ title: n.name, subtitle: `${n.domain} · ${n.role}`, desc: `${n.summary} ${n.evidence}`, category: 'Notable Personality Research' }))
 ];
 
 if (archiveSearch && searchStatus && searchDynamicResults) {
+  const archiveRecordCount = searchableIndex.length;
   archiveSearch.addEventListener('input', (event) => {
     const queryStr = event.target.value.trim().toLowerCase();
     if (!queryStr) {
-      searchStatus.textContent = 'Archive index ready: 8,412 projects, 50+ chapters, and foundational dossiers indexed.';
+      searchStatus.textContent = `Archive index ready: ${archiveRecordCount} cited records currently indexed.`;
       searchDynamicResults.innerHTML = '';
       return;
     }
@@ -215,7 +388,7 @@ if (archiveSearch && searchStatus && searchDynamicResults) {
       item.category.toLowerCase().includes(queryStr)
     );
 
-    searchStatus.textContent = `Found ${matches.length} verified records matching “${queryStr}”:`;
+    searchStatus.textContent = `Found ${matches.length} indexed leads matching “${queryStr}”. Each result still needs source approval:`;
     if (matches.length === 0) {
       searchDynamicResults.innerHTML = `
         <div class="search-result-item" style="grid-column: 1 / -1;">
@@ -226,7 +399,7 @@ if (archiveSearch && searchStatus && searchDynamicResults) {
     } else {
       searchDynamicResults.innerHTML = matches.slice(0, 8).map(m => `
         <div class="search-result-item">
-          <span class="search-category-tag">${m.category}</span>
+          <span class="search-category-tag">Indexed lead · ${m.category}</span>
           <h4>${m.title}</h4>
           <p><strong>${m.subtitle}</strong></p>
           <p>${m.desc.slice(0, 140)}...</p>
@@ -240,16 +413,31 @@ if (archiveSearch && searchStatus && searchDynamicResults) {
 const navToggle = $('.menu-toggle');
 const siteNav = $('#site-nav');
 if (navToggle && siteNav) {
+  let lastMenuFocus = navToggle;
+  const closeMenu = ({ restoreFocus = false } = {}) => {
+    navToggle.setAttribute('aria-expanded', 'false');
+    siteNav.classList.remove('is-open');
+    document.querySelectorAll('#site-nav details').forEach(menu => { menu.open = false; });
+    if (restoreFocus) lastMenuFocus?.focus();
+  };
   navToggle.addEventListener('click', () => {
     const open = navToggle.getAttribute('aria-expanded') === 'true';
-    navToggle.setAttribute('aria-expanded', String(!open));
-    siteNav.classList.toggle('is-open', !open);
+    if (open) closeMenu({ restoreFocus: true });
+    else {
+      lastMenuFocus = document.activeElement instanceof HTMLElement ? document.activeElement : navToggle;
+      navToggle.setAttribute('aria-expanded', 'true');
+      siteNav.classList.add('is-open');
+      siteNav.querySelector('a, summary')?.focus();
+    }
   });
   document.querySelectorAll('#site-nav a').forEach(link => {
-    link.addEventListener('click', () => {
-      navToggle.setAttribute('aria-expanded', 'false');
-      siteNav.classList.remove('is-open');
-    });
+    link.addEventListener('click', () => closeMenu());
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
+      event.preventDefault();
+      closeMenu({ restoreFocus: true });
+    }
   });
 }
 
@@ -278,220 +466,10 @@ function attachFloatingLabelHandlers(formSelector) {
   });
 }
 
-attachFloatingLabelHandlers('#blood-donation-form');
-attachFloatingLabelHandlers('#safety-report-form');
 attachFloatingLabelHandlers('#contribution-form');
 
 // ==========================================
-// 10. BLOOD DONATION DRIVE & CAUSE PLEDGES
-// ==========================================
-const bloodForm = $('#blood-donation-form');
-const donorSubmitBtn = $('#donor-submit-btn');
-const donorBtnText = donorSubmitBtn?.querySelector('.btn-text');
-const donationStatus = $('#donation-form-status');
-const pledgesCountEl = $('#pledges-count');
-const recentPledgesList = $('#recent-pledges-list');
-
-async function loadLiveBloodDonations() {
-  try {
-    const donationsCol = collection(db, 'blood_donations');
-    const q = query(donationsCol, orderBy('createdAt', 'desc'), limit(15));
-    const snapshot = await getDocs(q);
-
-    const pledges = [];
-    snapshot.forEach(docSnap => {
-      pledges.push({ id: docSnap.id, ...docSnap.data() });
-    });
-
-    if (pledgesCountEl) {
-      pledgesCountEl.textContent = String(Math.max(pledges.length, 1));
-    }
-
-    if (recentPledgesList) {
-      if (pledges.length === 0) {
-        recentPledgesList.innerHTML = `
-          <div class="pledge-card-mini">
-            <div>
-              <span class="pledge-mini-donor">Brother Donor · National Drive</span>
-              <span class="pledge-mini-location">UP Diliman Alpha Chapter · National Blood Relay</span>
-            </div>
-            <span class="blood-pill">O+</span>
-          </div>
-        `;
-      } else {
-        recentPledgesList.innerHTML = pledges.slice(0, 6).map(p => `
-          <div class="pledge-card-mini">
-            <div>
-              <span class="pledge-mini-donor">${p.donorName || 'Anonymous Donor'}</span>
-              <span class="pledge-mini-location">${p.city || 'Regional Chapter'} · ${p.chapter || 'Triskelion Council'}</span>
-            </div>
-            <span class="blood-pill">${p.bloodType || 'A+'}</span>
-          </div>
-        `).join('');
-      }
-    }
-
-    return pledges;
-  } catch (error) {
-    if (pledgesCountEl) pledgesCountEl.textContent = '1';
-    if (recentPledgesList) {
-      recentPledgesList.innerHTML = `
-        <div class="pledge-card-mini">
-          <div>
-            <span class="pledge-mini-donor">Brother Participant</span>
-            <span class="pledge-mini-location">Metro Manila Regional Council · Dugong Alay</span>
-          </div>
-          <span class="blood-pill">O+</span>
-        </div>
-      `;
-    }
-    return [];
-  }
-}
-
-loadLiveBloodDonations();
-
-if (bloodForm && donorSubmitBtn) {
-  bloodForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    if (donorSubmitBtn.classList.contains('is-processing') || donorSubmitBtn.classList.contains('is-success')) return;
-
-    const donorName = $('#donor-name')?.value?.trim();
-    const bloodType = $('#donor-blood-type')?.value;
-    const contactNumber = $('#donor-contact')?.value?.trim();
-    const city = $('#donor-city')?.value?.trim();
-    const chapter = $('#donor-chapter')?.value?.trim() || 'Alpha Chapter (UP Diliman)';
-    const availabilityDate = $('#donor-date')?.value || new Date().toISOString().split('T')[0];
-    const notes = $('#donor-notes')?.value?.trim() || '';
-
-    if (!donorName || !bloodType || !contactNumber || !city) return;
-
-    donorSubmitBtn.classList.add('is-processing');
-    donorSubmitBtn.disabled = true;
-    if (donorBtnText) donorBtnText.textContent = 'Registering Blood Pledge...';
-    if (donationStatus) donationStatus.textContent = '';
-
-    try {
-      const payload = {
-        donorName,
-        bloodType,
-        contactNumber,
-        city,
-        chapter,
-        causeCampaign: 'National Triskelion Blood Drive 2026',
-        availabilityDate,
-        notes,
-        status: 'pending',
-        submittedBy: auth.currentUser?.uid || 'community_donor',
-        createdAt: serverTimestamp()
-      };
-
-      await addDoc(collection(db, 'blood_donations'), payload);
-
-      donorSubmitBtn.classList.remove('is-processing');
-      donorSubmitBtn.classList.add('is-success');
-      if (donorBtnText) donorBtnText.textContent = 'Pledge Registered!';
-
-      if (donationStatus) {
-        donationStatus.textContent = `Salute, Brother/Donor ${donorName}! Your blood donation pledge (${bloodType}) has been logged in the National Impact Ledger.`;
-        donationStatus.classList.add('status-success-fade');
-      }
-
-      bloodForm.reset();
-      document.querySelectorAll('#blood-donation-form .form-field').forEach(f => f.classList.remove('has-value', 'is-focused'));
-
-      await loadLiveBloodDonations();
-
-      setTimeout(() => {
-        donorSubmitBtn.classList.remove('is-success');
-        donorSubmitBtn.disabled = false;
-        if (donorBtnText) donorBtnText.textContent = 'Register Blood Donation Pledge';
-      }, 4000);
-    } catch (err) {
-      console.error('Blood donation error:', err);
-      donorSubmitBtn.classList.remove('is-processing');
-      donorSubmitBtn.disabled = false;
-      if (donorBtnText) donorBtnText.textContent = 'Register Blood Donation Pledge';
-      if (donationStatus) {
-        donationStatus.textContent = `Salute, Brother ${donorName}! Your pledge has been acknowledged for the National Blood Donation Drive.`;
-        donationStatus.classList.add('status-success-fade');
-      }
-      bloodForm.reset();
-      document.querySelectorAll('#blood-donation-form .form-field').forEach(f => f.classList.remove('has-value', 'is-focused'));
-    }
-  });
-}
-
-// ==========================================
-// 11. SAFE BROTHERHOOD & ANTI-HAZING INTAKE (RA 11053)
-// ==========================================
-const safetyForm = $('#safety-report-form');
-const safetySubmitBtn = $('#safety-submit-btn');
-const safetyBtnText = safetySubmitBtn?.querySelector('.btn-text');
-const safetyStatus = $('#safety-form-status');
-
-if (safetyForm && safetySubmitBtn) {
-  safetyForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (safetySubmitBtn.classList.contains('is-processing') || safetySubmitBtn.classList.contains('is-success')) return;
-
-    const incidentType = $('#safety-type')?.value;
-    const cityChapter = $('#safety-location')?.value?.trim() || '';
-    const description = $('#safety-description')?.value?.trim();
-    const contactMethod = $('#safety-contact')?.value?.trim() || 'Anonymous';
-
-    if (!incidentType || !description) return;
-
-    safetySubmitBtn.classList.add('is-processing');
-    safetySubmitBtn.disabled = true;
-    if (safetyBtnText) safetyBtnText.textContent = 'Encrypting & Logging Report...';
-
-    try {
-      const payload = {
-        incidentType,
-        cityChapter,
-        description,
-        contactMethod,
-        status: 'received',
-        createdAt: serverTimestamp()
-      };
-
-      await addDoc(collection(db, 'safety_reports'), payload);
-
-      safetySubmitBtn.classList.remove('is-processing');
-      safetySubmitBtn.classList.add('is-success');
-      if (safetyBtnText) safetyBtnText.textContent = 'Report Confidentially Logged';
-
-      if (safetyStatus) {
-        safetyStatus.textContent = 'Your safety disclosure has been received under RA 11053 confidentiality protocols. It is securely routed to Safety Officers.';
-        safetyStatus.classList.add('status-success-fade');
-      }
-
-      safetyForm.reset();
-      document.querySelectorAll('#safety-report-form .form-field').forEach(f => f.classList.remove('has-value', 'is-focused'));
-
-      setTimeout(() => {
-        safetySubmitBtn.classList.remove('is-success');
-        safetySubmitBtn.disabled = false;
-        if (safetyBtnText) safetyBtnText.textContent = 'Submit Confidential Safety Report';
-      }, 4000);
-    } catch (err) {
-      console.error('Safety report error:', err);
-      safetySubmitBtn.classList.remove('is-processing');
-      safetySubmitBtn.disabled = false;
-      if (safetyBtnText) safetyBtnText.textContent = 'Submit Confidential Safety Report';
-      if (safetyStatus) {
-        safetyStatus.textContent = 'Your safety disclosure has been recorded under RA 11053 compliance protocols.';
-        safetyStatus.classList.add('status-success-fade');
-      }
-      safetyForm.reset();
-      document.querySelectorAll('#safety-report-form .form-field').forEach(f => f.classList.remove('has-value', 'is-focused'));
-    }
-  });
-}
-
-// ==========================================
-// 12. HISTORICAL CONTRIBUTION & CORRECTIONS INTAKE
+// 10. HISTORICAL CONTRIBUTION & CORRECTIONS INTAKE
 // ==========================================
 const contribForm = $('#contribution-form');
 const contribSubmitBtn = $('#contrib-submit-btn');
@@ -516,7 +494,7 @@ if (contribForm && contribSubmitBtn) {
 
     contribSubmitBtn.classList.add('is-processing');
     contribSubmitBtn.disabled = true;
-    if (contribBtnText) contribBtnText.textContent = 'Submitting to Archive Queue...';
+    if (contribBtnText) contribBtnText.textContent = 'Submitting to the archive queue...';
 
     try {
       const payload = {
@@ -537,10 +515,10 @@ if (contribForm && contribSubmitBtn) {
 
       contribSubmitBtn.classList.remove('is-processing');
       contribSubmitBtn.classList.add('is-success');
-      if (contribBtnText) contribBtnText.textContent = 'Archival Intake Logged!';
+      if (contribBtnText) contribBtnText.textContent = 'Archival intake logged.';
 
       if (contribStatus) {
-        contribStatus.textContent = `Thank you, Brother/Researcher ${contributorName}! Your submission has entered the 7-stage verification pipeline (Stage 01: Submitted).`;
+        contribStatus.textContent = `Thank you, ${contributorName}. Your submission has entered the review process at Stage 01: Submitted.`;
         contribStatus.classList.add('status-success-fade');
       }
 
@@ -550,787 +528,17 @@ if (contribForm && contribSubmitBtn) {
       setTimeout(() => {
         contribSubmitBtn.classList.remove('is-success');
         contribSubmitBtn.disabled = false;
-        if (contribBtnText) contribBtnText.textContent = 'Submit for Historian Verification';
+        if (contribBtnText) contribBtnText.textContent = 'Submit for historian review';
       }, 4000);
     } catch (err) {
       console.error('Historical contribution error:', err);
       contribSubmitBtn.classList.remove('is-processing');
       contribSubmitBtn.disabled = false;
-      if (contribBtnText) contribBtnText.textContent = 'Submit for Historian Verification';
+      if (contribBtnText) contribBtnText.textContent = 'Submit for historian review';
       if (contribStatus) {
-        contribStatus.textContent = `Thank you, Brother ${contributorName}! Your submission has been queued for historian review.`;
-        contribStatus.classList.add('status-success-fade');
+        contribStatus.textContent = 'We could not submit this contribution. Nothing was confirmed; your entered values remain so you can retry.';
+        contribStatus.classList.remove('status-success-fade');
       }
-      contribForm.reset();
-      document.querySelectorAll('#contribution-form .form-field').forEach(f => f.classList.remove('has-value', 'is-focused'));
-    }
-  });
-}
-
-// ==========================================
-// 13. LEADERSHIP & FRATERNITY MANAGEMENT SUITE
-// ==========================================
-const portalLoggedOut = $('#portal-logged-out');
-const portalLoggedIn = $('#portal-logged-in');
-const btnPortalLogin = $('#btn-portal-login');
-const btnPortalLogout = $('#btn-portal-logout');
-const portalLoginStatus = $('#portal-login-status');
-const portalUserName = $('#portal-user-name');
-const portalUserEmail = $('#portal-user-email');
-const portalUserAvatar = $('#portal-user-avatar');
-const metricDonationsCount = $('#metric-donations-count');
-const metricContribsCount = $('#metric-contribs-count');
-
-// Tables
-const portalChaptersTbody = $('#portal-chapters-tbody');
-const portalProjectsTbody = $('#portal-projects-tbody');
-const portalDonationsTbody = $('#portal-donations-tbody');
-const portalContribsTbody = $('#portal-contribs-tbody');
-const portalAidTbody = $('#portal-aid-tbody');
-const portalSafetyTbody = $('#portal-safety-tbody');
-
-// Controls
-const filterBloodType = $('#filter-blood-type');
-const btnRefreshChapters = $('#btn-refresh-chapters');
-const btnRefreshProjects = $('#btn-refresh-projects');
-const btnRefreshRegistry = $('#btn-refresh-registry');
-const btnRefreshContribs = $('#btn-refresh-contribs');
-const btnRefreshAid = $('#btn-refresh-aid');
-const btnRefreshSafety = $('#btn-refresh-safety');
-
-// Forms & Toggles
-const btnToggleAddChapter = $('#btn-toggle-add-chapter');
-const btnCancelAddChapter = $('#btn-cancel-add-chapter');
-const portalAddChapterForm = $('#portal-add-chapter-form');
-
-const btnToggleAddProject = $('#btn-toggle-add-project');
-const btnCancelAddProject = $('#btn-cancel-add-project');
-const portalAddProjectForm = $('#portal-add-project-form');
-
-const btnToggleAddAid = $('#btn-toggle-add-aid');
-const btnCancelAddAid = $('#btn-cancel-add-aid');
-const portalAddAidForm = $('#portal-add-aid-form');
-
-// In-memory caches
-let cachedChapters = [];
-let cachedProjects = [];
-let cachedDonations = [];
-let cachedContributions = [];
-let cachedAidCases = [];
-let cachedSafetyReports = [];
-
-// Portal Tabs Management
-document.querySelectorAll('.portal-tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.portal-tab-btn').forEach(b => b.classList.remove('is-active'));
-    document.querySelectorAll('.portal-tab-pane').forEach(p => {
-      p.style.display = 'none';
-      p.classList.remove('is-active');
-    });
-
-    btn.classList.add('is-active');
-    const targetPaneId = btn.getAttribute('data-pane');
-    const targetPane = document.getElementById(targetPaneId);
-    if (targetPane) {
-      targetPane.style.display = 'block';
-      targetPane.classList.add('is-active');
-    }
-  });
-});
-
-// Tool 1: Chapter Management Table & Handlers
-function renderChaptersTable(chapters) {
-  if (!portalChaptersTbody) return;
-  if (chapters.length === 0) {
-    portalChaptersTbody.innerHTML = `<tr><td colspan="7" class="loading-td">No chapters registered yet. Use "+ Register Chapter" above to record one.</td></tr>`;
-    return;
-  }
-
-  portalChaptersTbody.innerHTML = chapters.map(ch => {
-    const standing = ch.standing || 'active_good_standing';
-    const badgeClass = standing === 'active_good_standing'
-      ? 'status-badge-active'
-      : standing === 'probationary'
-      ? 'status-badge-probationary'
-      : standing === 'under_review'
-      ? 'status-badge-review'
-      : 'status-badge-pending';
-
-    return `
-      <tr data-chapter-id="${ch.id}">
-        <td><span class="genealogy-id-tag">${ch.chapterCode || '—'}</span></td>
-        <td><strong>${ch.name || '—'}</strong><br /><small>${ch.institution || 'Community'}</small></td>
-        <td>${ch.council || '—'}</td>
-        <td>${ch.city || '—'}</td>
-        <td>${ch.grandTriskelion || 'Appointed'}</td>
-        <td>${ch.safetyOfficer || 'Assigned'}</td>
-        <td>
-          <div class="status-action-cell">
-            <span class="status-pill ${badgeClass}">${standing.replace(/_/g, ' ')}</span>
-            <select class="status-update-select chapter-standing-select" data-id="${ch.id}" aria-label="Change standing">
-              <option value="active_good_standing" ${standing === 'active_good_standing' ? 'selected' : ''}>Active Good Standing</option>
-              <option value="probationary" ${standing === 'probationary' ? 'selected' : ''}>Probationary</option>
-              <option value="under_review" ${standing === 'under_review' ? 'selected' : ''}>Under Review</option>
-              <option value="charter_pending" ${standing === 'charter_pending' ? 'selected' : ''}>Charter Pending</option>
-            </select>
-          </div>
-        </td>
-      </tr>
-    `;
-  }).join('');
-
-  portalChaptersTbody.querySelectorAll('.chapter-standing-select').forEach(sel => {
-    sel.addEventListener('change', async (e) => {
-      const chId = e.target.getAttribute('data-id');
-      const newStanding = e.target.value;
-      if (!chId || !newStanding) return;
-
-      try {
-        e.target.disabled = true;
-        const ref = doc(db, 'chapters', chId);
-        await updateDoc(ref, { standing: newStanding, updatedAt: serverTimestamp() });
-        const item = cachedChapters.find(c => c.id === chId);
-        if (item) item.standing = newStanding;
-        renderChaptersTable(cachedChapters);
-      } catch (err) {
-        console.error('Failed to update chapter standing:', err);
-      } finally {
-        e.target.disabled = false;
-      }
-    });
-  });
-}
-
-// Chapter Form Toggle & Submission
-if (btnToggleAddChapter && portalAddChapterForm) {
-  btnToggleAddChapter.addEventListener('click', () => {
-    portalAddChapterForm.style.display = portalAddChapterForm.style.display === 'none' ? 'grid' : 'none';
-  });
-}
-if (btnCancelAddChapter && portalAddChapterForm) {
-  btnCancelAddChapter.addEventListener('click', () => {
-    portalAddChapterForm.style.display = 'none';
-    portalAddChapterForm.reset();
-  });
-}
-
-if (portalAddChapterForm) {
-  portalAddChapterForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const chapterCode = $('#new-chap-code')?.value?.trim();
-    const name = $('#new-chap-name')?.value?.trim();
-    const council = $('#new-chap-council')?.value?.trim();
-    const city = $('#new-chap-city')?.value?.trim();
-    const grandTriskelion = $('#new-chap-gt')?.value?.trim() || '';
-    const safetyOfficer = $('#new-chap-safety')?.value?.trim() || '';
-    const standing = $('#new-chap-standing')?.value || 'active_good_standing';
-
-    if (!chapterCode || !name || !council || !city) return;
-
-    try {
-      const payload = {
-        chapterCode,
-        name,
-        institution: council,
-        council,
-        city,
-        region: 'Region IX',
-        grandTriskelion,
-        safetyOfficer,
-        standing,
-        updatedAt: serverTimestamp()
-      };
-      await addDoc(collection(db, 'chapters'), payload);
-      portalAddChapterForm.reset();
-      portalAddChapterForm.style.display = 'none';
-      if (auth.currentUser) await loadChaptersData();
-    } catch (err) {
-      console.error('Add chapter error:', err);
-    }
-  });
-}
-
-async function loadChaptersData() {
-  try {
-    const colRef = collection(db, 'chapters');
-    const snapshot = await getDocs(query(colRef, limit(50)));
-    cachedChapters = [];
-    snapshot.forEach(d => cachedChapters.push({ id: d.id, ...d.data() }));
-
-    if (cachedChapters.length === 0) {
-      cachedChapters = [
-        { id: 'chap-1', chapterCode: 'TGP-PH-00-UPD-000001', name: 'Alpha (Mother) Chapter', council: 'National Council of the Philippines', city: 'Quezon City (UP Diliman)', grandTriskelion: 'Bro. GT Alpha', safetyOfficer: 'Bro. UP Diliman Safety Chair', standing: 'active_good_standing' },
-        { id: 'chap-2', chapterCode: 'TGP-PH-NCR-000002', name: 'Metro Manila Regional Council', council: 'National Capital Region Council', city: 'Metro Manila', grandTriskelion: 'Bro. Regional President', safetyOfficer: 'Bro. Regional Safety Chair', standing: 'active_good_standing' },
-        { id: 'chap-3', chapterCode: 'TGP-PH-VIS-000005', name: 'Cebu Provincial Council', council: 'Visayas Regional Coordinating Body', city: 'Cebu City', grandTriskelion: 'Bro. Council President', safetyOfficer: 'Bro. Visayas Safety Officer', standing: 'active_good_standing' }
-      ];
-    }
-    renderChaptersTable(cachedChapters);
-  } catch (err) {
-    console.warn('Chapters load fallback:', err.message);
-  }
-}
-
-// Tool 2: Impact Project Logger Table & Handlers
-function renderProjectsTable(projects) {
-  if (!portalProjectsTbody) return;
-  if (projects.length === 0) {
-    portalProjectsTbody.innerHTML = `<tr><td colspan="7" class="loading-td">No service projects logged. Use "+ Log Service Project" above to record one.</td></tr>`;
-    return;
-  }
-
-  portalProjectsTbody.innerHTML = projects.map(p => `
-    <tr>
-      <td><span class="genealogy-id-tag">${p.projectCode || '—'}</span></td>
-      <td><strong>${p.title || 'Untitled'}</strong><br /><small class="eyebrow">${(p.causeDomain || '').replace(/_/g, ' ')}</small></td>
-      <td>${p.location || '—'}</td>
-      <td><strong>${p.volunteerHours || '—'}</strong></td>
-      <td>${p.beneficiaries || '—'}</td>
-      <td>${p.partnerOrg || 'Community'}</td>
-      <td><span class="status-pill status-badge-verified">${p.status || 'verified'}</span></td>
-    </tr>
-  `).join('');
-}
-
-if (btnToggleAddProject && portalAddProjectForm) {
-  btnToggleAddProject.addEventListener('click', () => {
-    portalAddProjectForm.style.display = portalAddProjectForm.style.display === 'none' ? 'grid' : 'none';
-  });
-}
-if (btnCancelAddProject && portalAddProjectForm) {
-  btnCancelAddProject.addEventListener('click', () => {
-    portalAddProjectForm.style.display = 'none';
-    portalAddProjectForm.reset();
-  });
-}
-
-if (portalAddProjectForm) {
-  portalAddProjectForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const projectCode = $('#new-proj-code')?.value?.trim();
-    const title = $('#new-proj-title')?.value?.trim();
-    const causeDomain = $('#new-proj-domain')?.value;
-    const location = $('#new-proj-location')?.value?.trim();
-    const volunteerHours = $('#new-proj-hours')?.value?.trim() || '50 hours';
-    const beneficiaries = $('#new-proj-beneficiaries')?.value?.trim() || '100 persons';
-    const partnerOrg = $('#new-proj-partner')?.value?.trim() || 'Local Partners';
-
-    if (!projectCode || !title || !causeDomain || !location) return;
-
-    try {
-      const payload = {
-        projectCode,
-        title,
-        causeDomain,
-        location,
-        volunteerHours,
-        beneficiaries,
-        partnerOrg,
-        status: 'verified',
-        reportedBy: auth.currentUser?.uid || 'council_officer',
-        createdAt: serverTimestamp()
-      };
-      await addDoc(collection(db, 'impact_projects'), payload);
-      portalAddProjectForm.reset();
-      portalAddProjectForm.style.display = 'none';
-      if (auth.currentUser) await loadProjectsData();
-    } catch (err) {
-      console.error('Add project error:', err);
-    }
-  });
-}
-
-async function loadProjectsData() {
-  try {
-    const colRef = collection(db, 'impact_projects');
-    const snapshot = await getDocs(query(colRef, limit(50)));
-    cachedProjects = [];
-    snapshot.forEach(d => cachedProjects.push({ id: d.id, ...d.data() }));
-
-    if (cachedProjects.length === 0) {
-      cachedProjects = [
-        { id: 'p-1', projectCode: 'TGP-PROJECT-2026-009381', title: 'National Blood Donation Relay (Dugong Alay)', causeDomain: 'blood_drive', location: 'Philippine Red Cross National HQ & Regional Centers', volunteerHours: '1,420 hours', beneficiaries: '850 units', partnerOrg: 'Philippine Red Cross', status: 'verified' },
-        { id: 'p-2', projectCode: 'TGP-PROJECT-2026-009382', title: 'Sierra Madre Reforestation & Watershed Protection', causeDomain: 'environment', location: 'Sierra Madre Mountain Range', volunteerHours: '980 hours', beneficiaries: 'National Watershed', partnerOrg: 'DENR-PENRO', status: 'verified' },
-        { id: 'p-3', projectCode: 'TGP-PROJECT-2026-009383', title: 'Operation Damayan National Disaster Relief Mission', causeDomain: 'disaster_relief', location: 'Calamity Evacuation Hubs (Luzon/Visayas/Mindanao)', volunteerHours: '1,860 hours', beneficiaries: '3,400 families', partnerOrg: 'National Disaster Risk Reduction Council', status: 'verified' }
-      ];
-    }
-    renderProjectsTable(cachedProjects);
-  } catch (err) {
-    console.warn('Projects load fallback:', err.message);
-  }
-}
-
-// Tool 3: Blood Donations Coordinator
-function renderDonationTableRows(donations) {
-  if (!portalDonationsTbody) return;
-
-  const filter = filterBloodType?.value || 'ALL';
-  const filtered = filter === 'ALL'
-    ? donations
-    : donations.filter(d => (d.bloodType || '').toUpperCase() === filter.toUpperCase());
-
-  if (filtered.length === 0) {
-    portalDonationsTbody.innerHTML = `
-      <tr>
-        <td colspan="7" class="loading-td">No blood donation pledges found matching filter (${filter}).</td>
-      </tr>
-    `;
-    return;
-  }
-
-  portalDonationsTbody.innerHTML = filtered.map(r => {
-    const status = r.status || 'pending';
-    const badgeClass = status === 'verified'
-      ? 'status-badge-verified'
-      : status === 'scheduled'
-      ? 'status-badge-scheduled'
-      : status === 'completed'
-      ? 'status-badge-completed'
-      : '';
-
-    return `
-      <tr data-donation-id="${r.id}">
-        <td><strong>${r.donorName || '—'}</strong></td>
-        <td><span class="blood-pill">${r.bloodType || '—'}</span></td>
-        <td><a href="tel:${r.contactNumber || ''}" style="color:var(--teal);">${r.contactNumber || '—'}</a></td>
-        <td>${r.city || '—'}</td>
-        <td>${r.chapter || '—'}</td>
-        <td>${r.availabilityDate || 'Flexible'}</td>
-        <td>
-          <div class="status-action-cell">
-            <span class="status-pill ${badgeClass}">${status}</span>
-            <select class="status-update-select" data-id="${r.id}" aria-label="Change status for ${r.donorName || 'donor'}">
-              <option value="pending" ${status === 'pending' ? 'selected' : ''}>pending</option>
-              <option value="verified" ${status === 'verified' ? 'selected' : ''}>verified</option>
-              <option value="scheduled" ${status === 'scheduled' ? 'selected' : ''}>scheduled</option>
-              <option value="completed" ${status === 'completed' ? 'selected' : ''}>completed</option>
-            </select>
-          </div>
-        </td>
-      </tr>
-    `;
-  }).join('');
-
-  portalDonationsTbody.querySelectorAll('.status-update-select').forEach(sel => {
-    sel.addEventListener('change', async (e) => {
-      const donationId = e.target.getAttribute('data-id');
-      const newStatus = e.target.value;
-      if (!donationId || !newStatus) return;
-
-      try {
-        e.target.disabled = true;
-        const donationRef = doc(db, 'blood_donations', donationId);
-        await updateDoc(donationRef, { status: newStatus });
-        const item = cachedDonations.find(d => d.id === donationId);
-        if (item) item.status = newStatus;
-        renderDonationTableRows(cachedDonations);
-      } catch (err) {
-        console.error('Failed to update blood status:', err);
-      } finally {
-        e.target.disabled = false;
-      }
-    });
-  });
-}
-
-async function loadDonationsData() {
-  try {
-    const donationsCol = collection(db, 'blood_donations');
-    const q = query(donationsCol, orderBy('createdAt', 'desc'), limit(50));
-    const snapshot = await getDocs(q);
-
-    cachedDonations = [];
-    snapshot.forEach(docSnap => {
-      cachedDonations.push({ id: docSnap.id, ...docSnap.data() });
-    });
-
-    if (metricDonationsCount) {
-      metricDonationsCount.textContent = String(cachedDonations.length);
-    }
-    renderDonationTableRows(cachedDonations);
-  } catch (err) {
-    if (metricDonationsCount) metricDonationsCount.textContent = '1';
-    cachedDonations = [
-      { id: 'pilot-1', donorName: 'Brother Volunteer', bloodType: 'O+', contactNumber: '0917-000-0000', city: 'Zamboanga City', chapter: 'Flagship Pilot Council', availabilityDate: '2026-10-04', status: 'verified' }
-    ];
-    renderDonationTableRows(cachedDonations);
-  }
-}
-
-// Tool 4: Historical 7-Stage Verifier Table
-function renderContributionsTableRows(contribs) {
-  if (!portalContribsTbody) return;
-  if (contribs.length === 0) {
-    portalContribsTbody.innerHTML = `
-      <tr>
-        <td colspan="7" class="loading-td">No historical submissions in the review queue. New contributions will appear here for verification.</td>
-      </tr>
-    `;
-    return;
-  }
-
-  portalContribsTbody.innerHTML = contribs.map(c => {
-    const status = c.status || 'submitted';
-    return `
-      <tr data-contrib-id="${c.id}">
-        <td><strong>${c.contributorName || 'Anonymous'}</strong><br /><small>${c.contributorEmail || 'No email'}</small></td>
-        <td><span class="status-pill">${(c.category || 'photo').replace(/_/g, ' ')}</span></td>
-        <td><strong>${c.title || 'Untitled'}</strong><br /><small>${(c.description || '').slice(0, 85)}...</small></td>
-        <td>${c.chapterCouncil || '—'}</td>
-        <td>${c.estimatedYear || '—'}</td>
-        <td><small>${c.sourceProvenance || 'Contributed'}</small></td>
-        <td>
-          <div class="status-action-cell">
-            <span class="status-pill status-badge-verified">${status}</span>
-            <select class="status-update-select contrib-stage-select" data-id="${c.id}" aria-label="Advance lifecycle stage">
-              <option value="submitted" ${status === 'submitted' ? 'selected' : ''}>01: Submitted</option>
-              <option value="evidence_attached" ${status === 'evidence_attached' ? 'selected' : ''}>02: Evidence Attached</option>
-              <option value="under_review" ${status === 'under_review' ? 'selected' : ''}>03: Under Review</option>
-              <option value="corroborated" ${status === 'corroborated' ? 'selected' : ''}>04: Corroborated</option>
-              <option value="verified" ${status === 'verified' ? 'selected' : ''}>05: Verified</option>
-              <option value="approved_for_publication" ${status === 'approved_for_publication' ? 'selected' : ''}>06: Approved</option>
-              <option value="published" ${status === 'published' ? 'selected' : ''}>07: Published</option>
-            </select>
-          </div>
-        </td>
-      </tr>
-    `;
-  }).join('');
-
-  portalContribsTbody.querySelectorAll('.contrib-stage-select').forEach(sel => {
-    sel.addEventListener('change', async (e) => {
-      const cId = e.target.getAttribute('data-id');
-      const newStage = e.target.value;
-      if (!cId || !newStage) return;
-
-      try {
-        e.target.disabled = true;
-        const ref = doc(db, 'historical_contributions', cId);
-        await updateDoc(ref, { status: newStage });
-        const item = cachedContributions.find(c => c.id === cId);
-        if (item) item.status = newStage;
-        renderContributionsTableRows(cachedContributions);
-      } catch (err) {
-        console.error('Failed to update stage:', err);
-      } finally {
-        e.target.disabled = false;
-      }
-    });
-  });
-}
-
-async function loadContributionsData() {
-  try {
-    const contribsCol = collection(db, 'historical_contributions');
-    const qContrib = query(contribsCol, orderBy('createdAt', 'desc'), limit(50));
-    const snapContrib = await getDocs(qContrib);
-
-    cachedContributions = [];
-    snapContrib.forEach(docSnap => {
-      cachedContributions.push({ id: docSnap.id, ...docSnap.data() });
-    });
-
-    if (metricContribsCount) {
-      metricContribsCount.textContent = String(cachedContributions.length);
-    }
-    renderContributionsTableRows(cachedContributions);
-  } catch (err) {
-    if (metricContribsCount) metricContribsCount.textContent = '1';
-    cachedContributions = [
-      {
-        id: 'contrib-mock-1',
-        contributorName: 'Brother Historian',
-        contributorEmail: 'historian@triskelion.ph',
-        category: 'chapter_history',
-        chapterCouncil: 'Zamboanga City Council',
-        estimatedYear: '1985',
-        title: 'Charter Assembly Minutes & Insignia',
-        description: 'Pioneer regional council meeting records and founding officer signatures.',
-        sourceProvenance: 'Council Filing Cabinet Archive',
-        status: 'verified'
-      }
-    ];
-    renderContributionsTableRows(cachedContributions);
-  }
-}
-
-// Tool 5: Brotherhood Mutual Aid Desk
-function renderMutualAidTable(cases) {
-  if (!portalAidTbody) return;
-  if (cases.length === 0) {
-    portalAidTbody.innerHTML = `<tr><td colspan="6" class="loading-td">No fraternal mutual aid cases logged. Use "+ File Mutual Aid Case" above.</td></tr>`;
-    return;
-  }
-
-  portalAidTbody.innerHTML = cases.map(cs => {
-    const status = cs.status || 'open_triage';
-    const badgeClass = status === 'resolved'
-      ? 'status-badge-verified'
-      : status === 'aid_delivered'
-      ? 'status-badge-delivered'
-      : status === 'mobilizing_funds'
-      ? 'status-badge-mobilizing'
-      : 'status-badge-open';
-
-    return `
-      <tr data-aid-id="${cs.id}">
-        <td><span class="genealogy-id-tag">${cs.caseCode || '—'}</span></td>
-        <td><strong>${cs.recipientName || '—'}</strong></td>
-        <td><span class="status-pill">${(cs.aidType || 'aid').replace(/_/g, ' ')}</span></td>
-        <td>${cs.chapter || '—'}</td>
-        <td><small>${cs.description || '—'}</small></td>
-        <td>
-          <div class="status-action-cell">
-            <span class="status-pill ${badgeClass}">${status.replace(/_/g, ' ')}</span>
-            <select class="status-update-select aid-status-select" data-id="${cs.id}" aria-label="Change aid status">
-              <option value="open_triage" ${status === 'open_triage' ? 'selected' : ''}>Open Triage</option>
-              <option value="mobilizing_funds" ${status === 'mobilizing_funds' ? 'selected' : ''}>Mobilizing Funds</option>
-              <option value="aid_delivered" ${status === 'aid_delivered' ? 'selected' : ''}>Aid Delivered</option>
-              <option value="resolved" ${status === 'resolved' ? 'selected' : ''}>Resolved</option>
-            </select>
-          </div>
-        </td>
-      </tr>
-    `;
-  }).join('');
-
-  portalAidTbody.querySelectorAll('.aid-status-select').forEach(sel => {
-    sel.addEventListener('change', async (e) => {
-      const aidId = e.target.getAttribute('data-id');
-      const newStatus = e.target.value;
-      if (!aidId || !newStatus) return;
-
-      try {
-        e.target.disabled = true;
-        const ref = doc(db, 'brotherhood_aid', aidId);
-        await updateDoc(ref, { status: newStatus });
-        const item = cachedAidCases.find(a => a.id === aidId);
-        if (item) item.status = newStatus;
-        renderMutualAidTable(cachedAidCases);
-      } catch (err) {
-        console.error('Failed to update aid status:', err);
-      } finally {
-        e.target.disabled = false;
-      }
-    });
-  });
-}
-
-if (btnToggleAddAid && portalAddAidForm) {
-  btnToggleAddAid.addEventListener('click', () => {
-    portalAddAidForm.style.display = portalAddAidForm.style.display === 'none' ? 'grid' : 'none';
-  });
-}
-if (btnCancelAddAid && portalAddAidForm) {
-  btnCancelAddAid.addEventListener('click', () => {
-    portalAddAidForm.style.display = 'none';
-    portalAddAidForm.reset();
-  });
-}
-
-if (portalAddAidForm) {
-  portalAddAidForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const caseCode = $('#new-aid-code')?.value?.trim();
-    const recipientName = $('#new-aid-recipient')?.value?.trim();
-    const aidType = $('#new-aid-type')?.value;
-    const chapter = $('#new-aid-chapter')?.value?.trim() || '';
-    const description = $('#new-aid-desc')?.value?.trim();
-
-    if (!caseCode || !recipientName || !aidType || !description) return;
-
-    try {
-      const payload = {
-        caseCode,
-        recipientName,
-        aidType,
-        chapter,
-        description,
-        status: 'open_triage',
-        coordinator: auth.currentUser?.displayName || 'Leadership Officer',
-        createdAt: serverTimestamp()
-      };
-      await addDoc(collection(db, 'brotherhood_aid'), payload);
-      portalAddAidForm.reset();
-      portalAddAidForm.style.display = 'none';
-      if (auth.currentUser) await loadBrotherhoodAidData();
-    } catch (err) {
-      console.error('Add aid error:', err);
-    }
-  });
-}
-
-async function loadBrotherhoodAidData() {
-  try {
-    const colRef = collection(db, 'brotherhood_aid');
-    const snapshot = await getDocs(query(colRef, limit(50)));
-    cachedAidCases = [];
-    snapshot.forEach(d => cachedAidCases.push({ id: d.id, ...d.data() }));
-
-    if (cachedAidCases.length === 0) {
-      cachedAidCases = [
-        { id: 'aid-1', caseCode: 'AID-2026-0041', recipientName: 'Brother Emergency Surgical Fund', aidType: 'medical_emergency', chapter: 'Zamboanga City Council', description: 'Emergency support for urgent orthopedic operation following motorcycle accident.', status: 'aid_delivered' },
-        { id: 'aid-2', caseCode: 'AID-2026-0042', recipientName: 'Deceased Brother Bereavement Care', aidType: 'bereavement_family', chapter: 'Mindanao Regional Council', description: 'Financial and logistical support delivered to surviving spouse and children.', status: 'resolved' }
-      ];
-    }
-    renderMutualAidTable(cachedAidCases);
-  } catch (err) {
-    console.warn('Aid load fallback:', err.message);
-  }
-}
-
-// Tool 6: Safety Triage Table & Handlers
-function renderSafetyTable(reports) {
-  if (!portalSafetyTbody) return;
-  if (reports.length === 0) {
-    portalSafetyTbody.innerHTML = `<tr><td colspan="6" class="loading-td">No safety disclosures in triage queue. All chapters reporting 100% compliance.</td></tr>`;
-    return;
-  }
-
-  portalSafetyTbody.innerHTML = reports.map(r => {
-    const status = r.status || 'received';
-    return `
-      <tr data-safety-id="${r.id}">
-        <td><span class="safe-badge-pill">${(r.incidentType || 'concern').replace(/_/g, ' ')}</span></td>
-        <td>${r.cityChapter || 'Confidential'}</td>
-        <td><small>${r.description || '—'}</small></td>
-        <td><small>${r.contactMethod || 'Anonymous'}</small></td>
-        <td><small>${r.createdAt ? new Date(r.createdAt.seconds * 1000).toLocaleDateString() : 'Recent'}</small></td>
-        <td>
-          <div class="status-action-cell">
-            <span class="status-pill status-badge-probationary">${status.replace(/_/g, ' ')}</span>
-            <select class="status-update-select safety-status-select" data-id="${r.id}" aria-label="Change safety status">
-              <option value="received" ${status === 'received' ? 'selected' : ''}>Received</option>
-              <option value="under_investigation" ${status === 'under_investigation' ? 'selected' : ''}>Under Investigation</option>
-              <option value="action_taken" ${status === 'action_taken' ? 'selected' : ''}>Action Taken</option>
-              <option value="closed" ${status === 'closed' ? 'selected' : ''}>Closed / Resolved</option>
-            </select>
-          </div>
-        </td>
-      </tr>
-    `;
-  }).join('');
-
-  portalSafetyTbody.querySelectorAll('.safety-status-select').forEach(sel => {
-    sel.addEventListener('change', async (e) => {
-      const sId = e.target.getAttribute('data-id');
-      const newStatus = e.target.value;
-      if (!sId || !newStatus) return;
-
-      try {
-        e.target.disabled = true;
-        const ref = doc(db, 'safety_reports', sId);
-        await updateDoc(ref, { status: newStatus });
-        const item = cachedSafetyReports.find(s => s.id === sId);
-        if (item) item.status = newStatus;
-        renderSafetyTable(cachedSafetyReports);
-      } catch (err) {
-        console.error('Failed to update safety status:', err);
-      } finally {
-        e.target.disabled = false;
-      }
-    });
-  });
-}
-
-async function loadSafetyReportsData() {
-  try {
-    const colRef = collection(db, 'safety_reports');
-    const snapshot = await getDocs(query(colRef, limit(50)));
-    cachedSafetyReports = [];
-    snapshot.forEach(d => cachedSafetyReports.push({ id: d.id, ...d.data() }));
-
-    if (cachedSafetyReports.length === 0) {
-      cachedSafetyReports = [
-        { id: 'sec-1', incidentType: 'unauthorized_activity', cityChapter: 'Regional Campus', description: 'Inquiry regarding unapproved orientation schedule. Verified and resolved by Chapter Safety Officer.', contactMethod: 'Whistleblowing Liaison', status: 'closed' }
-      ];
-    }
-    renderSafetyTable(cachedSafetyReports);
-  } catch (err) {
-    console.warn('Safety reports load restricted:', err.message);
-  }
-}
-
-// Master Dashboard Renderer
-async function renderLeadershipDashboard(user) {
-  if (portalUserName) portalUserName.textContent = user.displayName || 'Brother Leader';
-  if (portalUserEmail) portalUserEmail.textContent = user.email || 'Authorized Official';
-  if (portalUserAvatar) {
-    if (user.photoURL) {
-      portalUserAvatar.innerHTML = `<img src="${user.photoURL}" alt="${user.displayName || 'Leader'}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;" />`;
-    } else {
-      portalUserAvatar.textContent = user.displayName ? user.displayName.charAt(0).toUpperCase() : 'TΔ';
-    }
-  }
-
-  // Load all fraternity management tools in parallel
-  await Promise.allSettled([
-    loadChaptersData(),
-    loadProjectsData(),
-    loadDonationsData(),
-    loadContributionsData(),
-    loadBrotherhoodAidData(),
-    loadSafetyReportsData()
-  ]);
-}
-
-// Refresh Button Listeners
-if (btnRefreshChapters) btnRefreshChapters.addEventListener('click', () => loadChaptersData());
-if (btnRefreshProjects) btnRefreshProjects.addEventListener('click', () => loadProjectsData());
-if (btnRefreshRegistry) btnRefreshRegistry.addEventListener('click', () => loadDonationsData());
-if (btnRefreshContribs) btnRefreshContribs.addEventListener('click', () => loadContributionsData());
-if (btnRefreshAid) btnRefreshAid.addEventListener('click', () => loadBrotherhoodAidData());
-if (btnRefreshSafety) btnRefreshSafety.addEventListener('click', () => loadSafetyReportsData());
-
-if (filterBloodType) {
-  filterBloodType.addEventListener('change', () => {
-    renderDonationTableRows(cachedDonations);
-  });
-}
-
-// Auth State Listener
-onAuthStateChanged(auth, async (user) => {
-  if (user) {
-    if (portalLoggedOut) portalLoggedOut.style.display = 'none';
-    if (portalLoggedIn) portalLoggedIn.style.display = 'block';
-    if (portalLoginStatus) portalLoginStatus.style.display = 'none';
-    await renderLeadershipDashboard(user);
-  } else {
-    if (portalLoggedOut) portalLoggedOut.style.display = 'block';
-    if (portalLoggedIn) portalLoggedIn.style.display = 'none';
-  }
-});
-
-// Login Button Click (Zero window.alert)
-if (btnPortalLogin) {
-  btnPortalLogin.addEventListener('click', async () => {
-    if (portalLoginStatus) {
-      portalLoginStatus.style.display = 'none';
-      portalLoginStatus.textContent = '';
-    }
-    try {
-      btnPortalLogin.disabled = true;
-      btnPortalLogin.style.opacity = '0.7';
-      await signInWithPopup(auth, googleProvider);
-    } catch (err) {
-      console.error('Leadership Google Sign-In error:', err);
-      if (portalLoginStatus) {
-        portalLoginStatus.textContent = 'Authentication was not completed. Please try again with your authorized fraternity Google credentials.';
-        portalLoginStatus.style.display = 'block';
-      }
-    } finally {
-      btnPortalLogin.disabled = false;
-      btnPortalLogin.style.opacity = '1';
-    }
-  });
-}
-
-// Logout Button Click
-if (btnPortalLogout) {
-  btnPortalLogout.addEventListener('click', async () => {
-    try {
-      await signOut(auth);
-    } catch (err) {
-      console.error('Sign-out error:', err);
     }
   });
 }

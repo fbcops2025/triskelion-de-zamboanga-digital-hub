@@ -3,112 +3,145 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="National Triskelion Legacy & Impact Platform — Official digital archive of the Triskelions’ Grand Fraternity (Tau Gamma Phi), founded October 4, 1968 at UP Diliman." />
-  <meta property="og:title" content="National Triskelion Legacy & Impact Platform | Tau Gamma Phi" />
-  <meta property="og:description" content="Preserving who we were, measuring what we do, and proving what Brotherhood looks like when practiced." />
-  <title>National Triskelion Legacy &amp; Impact Platform | Tau Gamma Phi</title>
-  <link rel="icon" type="image/svg+xml" href="./src/assets/tgp-seal.svg" />
+  <meta name="description" content="Tau Gamma Phi national history and impact preservation archive. Public records remain subject to source review and approval." />
+  <meta property="og:title" content="Tau Gamma Phi | National History and Impact Archive" />
+  <meta property="og:description" content="A public archive for preserving Tau Gamma Phi history, service, and impact across the national Triskelion community, with source and approval limits shown clearly." />
+  <link rel="canonical" href="https://triskelion-de-zamboanga-digital-hub.vercel.app/" />
+  <meta property="og:url" content="https://triskelion-de-zamboanga-digital-hub.vercel.app/" />
+  <title>Tau Gamma Phi | National History and Impact Archive</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"Tau Gamma Phi National History & Impact Archive","url":"https://triskelion-de-zamboanga-digital-hub.vercel.app/"},{"@type":"WebPage","name":"Tau Gamma Phi | National History and Impact Archive","description":"Tau Gamma Phi national history and impact preservation archive. Public records remain subject to source review and approval.","url":"https://triskelion-de-zamboanga-digital-hub.vercel.app/","isPartOf":{"@type":"WebSite","name":"Tau Gamma Phi National History & Impact Archive","url":"https://triskelion-de-zamboanga-digital-hub.vercel.app/"}}]}</script>
+  <link rel="icon" type="image/png" href="./src/assets/tau-gamma-phi-official-seal.png" />
   <script type="importmap">
   {
     "imports": {
       "firebase/app": "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js",
       "firebase/auth": "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js",
-      "firebase/firestore": "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js"
+      "firebase/firestore": "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js",
+      "d3": "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm"
     }
   }
   </script>
   <link rel="stylesheet" href="src/styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
     <div id="scroll-progress" class="scroll-progress-bar" aria-hidden="true"></div>
-    <a class="brand" href="#home" aria-label="National Triskelion Legacy and Impact Platform home">
-      <span class="brand-mark"><img src="./src/assets/tgp-seal.svg" alt="Tau Gamma Phi Official Seal" width="42" height="42" /></span>
+    <a class="brand" href="#home" aria-label="Tau Gamma Phi national history and impact archive home">
+      <span class="brand-mark"><img src="./src/assets/tau-gamma-phi-official-seal.png" alt="Tau Gamma Phi contextual seal" width="42" height="42" /></span>
       <span>
-        <strong>TRISKELION LEGACY &amp; IMPACT</strong>
-        <small>OFFICIAL NATIONAL PLATFORM · EST. 1968 UP DILIMAN</small>
+        <strong>TAU GAMMA PHI</strong>
+        <small>Triskelions’ Grand Fraternity · National History and Impact Archive</small>
       </span>
     </a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav id="site-nav" aria-label="Primary navigation">
-      <a href="#pillars">Pillars</a>
-      <a href="#impact">Impact</a>
-      <a href="#history">Timeline</a>
-      <a href="#genealogy">Genealogy</a>
-      <a href="#museum">Museum</a>
-      <a href="#stories">Stories</a>
-      <a href="#blood-donation" class="nav-highlight">Blood Drive</a>
-      <a href="#safety" class="nav-safety-btn">Safe Brotherhood</a>
-      <a href="#leadership-portal" class="nav-portal-btn">Leadership Portal</a>
-      <a class="nav-cta" href="#contribute">Contribute</a>
+      <details class="nav-menu">
+        <summary>Discover</summary>
+        <div class="nav-dropdown">
+          <a href="#pillars">What Keeps Us Together</a>
+          <a href="#impact">Service, Documented</a>
+          <a href="#stories">The Work Continues</a>
+          <a href="#articles">News and Updates</a>
+        </div>
+      </details>
+      <details class="nav-menu">
+        <summary>Our Story</summary>
+        <div class="nav-dropdown">
+          <a href="#founders">Where It Began</a>
+          <a href="#history">How the Work Grew</a>
+          <a href="#genealogy">Chapter Genealogy</a>
+          <a href="#museum">Mga Record at Keepsake</a>
+        </div>
+      </details>
+      <details class="nav-menu">
+        <summary>Serve Together</summary>
+        <div class="nav-dropdown">
+          <a href="#organization-map">Chapter Network</a>
+          <a href="#blood-donation" class="nav-highlight">Chapter-Led Service</a>
+          <a href="#safety" class="nav-safety-btn">Safe Membership</a>
+          <a href="#contribute">Share Your Story</a>
+        </div>
+      </details>
+      <a class="nav-cta" href="#references">References</a>
     </nav>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <!-- 1. VISIONARY HERO -->
     <section id="home" class="hero section-wrap">
       <div class="hero-copy">
         <div class="hero-kicker-cluster">
-          <span class="eyebrow">NATIONAL TRISKELION LEGACY &amp; IMPACT PLATFORM · EST. OCTOBER 4, 1968</span>
-          <span class="pilot-badge">UP Diliman Genesis · National Council of the Philippines</span>
+          <span class="eyebrow">Tau Gamma Phi · National history and impact</span>
+          <span class="pilot-badge">National preservation scope · Council context: Triskelion de Zamboanga Council, Zamboanga City</span>
         </div>
         <h1>Who were we?<br /><em>What did we</em><br />accomplish?</h1>
-        <p class="lede">A permanent digital institution that documents, preserves, verifies, measures, and publicly communicates the history, brotherhood, service, and social contributions of the Triskelion — proving what Brotherhood actually looks like when practiced.</p>
+        <p class="lede">A national public history and impact archive for Tau Gamma Phi: preserving the fraternity’s story, service, and community memory across generations while keeping source review and approval limits visible for every public claim.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#impact">Explore Impact Ledger ↓</a>
-          <a class="button button-secondary" href="#blood-donation">Dugong Alay Drive ♥</a>
-          <a class="text-link" href="#leadership-portal">Leadership Terminal ↗</a>
+          <a class="button button-primary" href="#impact">Explore the impact ledger ↓</a>
+          <a class="button button-secondary" href="#history">Read the national history</a>
         </div>
         <div class="hero-disclaimer-note">
-          <strong>Institutional Principle:</strong> Raw submissions never automatically become public truth. Records undergo a 7-stage verification workflow before canonical publishing.
+          <strong>Institutional principle:</strong> Raw submissions never automatically become public truth. Records undergo source review and approval before they are presented as verified history or impact.
         </div>
       </div>
-      <div class="hero-card">
-        <div class="hero-seal-center">
-          <img src="./src/assets/tgp-seal.svg" alt="Tau Gamma Phi Official Seal 1968" class="hero-seal-img" />
-        </div>
-        <div class="hero-card-content">
-          <p>“We do not preserve Triskelion history simply to remember who we were. We preserve it so every generation understands what Brotherhood requires of them next.”</p>
-          <div class="hero-card-meta">
-            <span class="status-pill">Canonical National Archive</span>
-            <span class="hero-subtext">UP Diliman Genesis (1968) · Nationwide Councils · Global Diaspora</span>
-          </div>
-        </div>
-      </div>
+      <figure class="hero-art-card">
+        <picture>
+          <source media="(min-width: 1600px)" srcset="./src/assets/editorial/tau-gamma-editorial-3840.webp" type="image/webp" />
+          <img src="./src/assets/editorial/tau-gamma-editorial-native.webp" alt="Abstract editorial sculpture of interlocking gold, ivory, and charcoal ribbons" width="1916" height="821" fetchpriority="high" decoding="async" />
+        </picture>
+        <figcaption><span>Original editorial art</span><strong>A visual metaphor for chapters becoming a shared record.</strong><small>Generated illustration · not documentary evidence</small></figcaption>
+      </figure>
+    </section>
+
+    <section class="journey-strip" aria-label="Choose a public journey">
+      <div class="journey-intro"><span class="eyebrow">Start here</span><strong>What do you need?</strong><span>Follow one clear path instead of scanning the whole archive.</span></div>
+      <a href="/news/"><b>Read</b><span>Official updates and source trails ↗</span></a>
+      <a href="#search-section"><b>Explore</b><span>Search the institutional memory ↗</span></a>
+      <a href="#contribute"><b>Contribute</b><span>Share a record or correction ↗</span></a>
+      <a href="#safety"><b>Stay safe</b><span>Learn the safety standard ↗</span></a>
     </section>
 
     <!-- 2. THE SIX PERMANENT PILLARS -->
     <section id="pillars" class="section-wrap tinted">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">THE FOUNDATIONAL PHILOSOPHY</p>
-          <h2>Six Permanent Pillars</h2>
+          <p class="eyebrow">Foundational philosophy</p>
+          <h2>What Keeps Us Together</h2>
         </div>
-        <p class="section-note">The architecture governing how the brotherhood documents mutual aid, measures societal contribution, and upholds accountability.</p>
+        <p class="section-note">A concise public orientation: service, solidarity, legacy, evidence, and safety. Detailed records remain subject to source review.</p>
       </div>
       <div id="pillars-container" class="pillars-grid">
         <!-- Rendered by app.mjs -->
       </div>
+      <aside id="principles" class="principles-context" aria-labelledby="principles-heading">
+        <div class="principles-context-header">
+          <p class="eyebrow">Public principles and conduct context</p>
+          <h3 id="principles-heading">Tenets and Code of Conduct, carefully framed</h3>
+          <p>These are concise editorial paraphrases of public tenets/code leads cited in the supplied research. They are not presented as verified official quotations. The public mirror and secondary copy remain awaiting authorized wording approval.</p>
+        </div>
+        <div id="principles-grid" class="principles-grid"><!-- Rendered by app.mjs --></div>
+      </aside>
       <!-- 7-Stage Verification Flowchart -->
       <div class="workflow-card">
         <div class="workflow-header">
-          <strong>The 7-Stage Verification Lifecycle</strong>
-          <span>Ensuring historical veracity and mathematical accuracy</span>
+          <strong>How We Take Care of the Record</strong>
+          <span>Stories are checked before they are shared as fact</span>
         </div>
-        <div class="stages-stepper">
-          <div class="stage-step"><span class="stage-num">01</span><strong>Submitted</strong><small>Intake logged</small></div>
+        <div class="stages-stepper" tabindex="0" aria-label="Seven-stage record verification process. Scroll horizontally to view every stage.">
+          <div class="stage-step"><span class="stage-num">01</span><strong>Shared</strong><small>Story received</small></div>
           <div class="stage-arrow">→</div>
-          <div class="stage-step"><span class="stage-num">02</span><strong>Evidence Attached</strong><small>Source linked</small></div>
+          <div class="stage-step"><span class="stage-num">02</span><strong>Source</strong><small>Details added</small></div>
           <div class="stage-arrow">→</div>
-          <div class="stage-step"><span class="stage-num">03</span><strong>Under Review</strong><small>Historian assigned</small></div>
+          <div class="stage-step"><span class="stage-num">03</span><strong>Review</strong><small>Someone checks it</small></div>
           <div class="stage-arrow">→</div>
-          <div class="stage-step"><span class="stage-num">04</span><strong>Corroborated</strong><small>Cross-verified</small></div>
+          <div class="stage-step"><span class="stage-num">04</span><strong>Check</strong><small>Details compared</small></div>
           <div class="stage-arrow">→</div>
-          <div class="stage-step"><span class="stage-num">05</span><strong>Verified</strong><small>Council certified</small></div>
+          <div class="stage-step"><span class="stage-num">05</span><strong>Confirmed</strong><small>Council review</small></div>
           <div class="stage-arrow">→</div>
-          <div class="stage-step"><span class="stage-num">06</span><strong>Approved</strong><small>Publication pass</small></div>
+          <div class="stage-step"><span class="stage-num">06</span><strong>Approved</strong><small>Ready to share</small></div>
           <div class="stage-arrow">→</div>
-          <div class="stage-step is-final"><span class="stage-num">07</span><strong>Published</strong><small>Live in archive</small></div>
+          <div class="stage-step is-final"><span class="stage-num">07</span><strong>Shared</strong><small>Visible to everyone</small></div>
         </div>
       </div>
     </section>
@@ -117,38 +150,47 @@
     <section id="impact" class="section-wrap">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">AUDITABLE SERVICE METRICS</p>
-          <h2>National Impact Dashboard</h2>
+          <p class="eyebrow">Auditable service metrics</p>
+          <h2>National Impact, Documented</h2>
         </div>
         <div class="traceability-tag">
           <span class="live-dot"></span>
-          <span>Every number is traceable to individual project records</span>
+          <span>National service signals documented so far</span>
         </div>
       </div>
       <div class="archive-status-banner">
         <span class="status-badge">Documented so far</span>
-        <p>To preserve historical credibility, these numbers reflect verified project records logged in the canonical database to date, rather than implying complete records since 1968.</p>
+        <p>These figures summarize documented signals, not audited service totals. They remain subject to primary-source review and official record attachment.</p>
       </div>
       <div id="impact-counters-grid" class="impact-metrics-grid">
         <!-- Rendered by app.mjs -->
       </div>
+      <div class="evidence-method-card">
+        <div class="evidence-method-mark">◎</div>
+        <div>
+          <span class="eyebrow">How to read this</span>
+          <h3>Evidence before scale</h3>
+          <p>The cards above summarize documented dates, founders, principles, sectoral expansion, governance milestones, and cited references. They are not membership totals or service claims until official records are attached and independently reviewed.</p>
+          <a href="#references">Open the source and approval trail ↗</a>
+        </div>
+      </div>
       <div class="impact-categories-wrap">
-        <h3>14 Verified Cause Domains (Aligned with UN Sustainable Development Goals)</h3>
+        <h3>Service areas to document: not verified totals</h3>
         <div class="causes-tag-cloud">
-          <span class="cause-tag">Health &amp; Medical Missions</span>
-          <span class="cause-tag">National Blood Donation Drives</span>
-          <span class="cause-tag">Disaster Relief Logistics</span>
-          <span class="cause-tag">Youth Education &amp; Scholarships</span>
-          <span class="cause-tag">Environmental Reforestation</span>
-          <span class="cause-tag">Brotherhood Assistance &amp; Bereavement</span>
-          <span class="cause-tag">Public Safety &amp; Rescue</span>
-          <span class="cause-tag">Livelihood Training</span>
-          <span class="cause-tag">Food Security</span>
-          <span class="cause-tag">Professional Networking</span>
-          <span class="cause-tag">Community Infrastructure</span>
-          <span class="cause-tag">Senior Citizen Support</span>
+          <span class="cause-tag">Health and medical missions</span>
+          <span class="cause-tag">National blood donation drives</span>
+          <span class="cause-tag">Disaster relief logistics</span>
+          <span class="cause-tag">Youth education and scholarships</span>
+          <span class="cause-tag">Environmental reforestation</span>
+          <span class="cause-tag">Member assistance and bereavement</span>
+          <span class="cause-tag">Public safety and rescue</span>
+          <span class="cause-tag">Livelihood training</span>
+          <span class="cause-tag">Food security</span>
+          <span class="cause-tag">Professional networking</span>
+          <span class="cause-tag">Community infrastructure</span>
+          <span class="cause-tag">Senior citizen support</span>
           <span class="cause-tag">Peacebuilding</span>
-          <span class="cause-tag">Sports &amp; Culture</span>
+          <span class="cause-tag">Sports and culture</span>
         </div>
       </div>
     </section>
@@ -157,10 +199,10 @@
     <section id="founders" class="section-wrap dark-section">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">OCTOBER 4, 1968 · UP DILIMAN</p>
-          <h2>Founding Fathers Archive</h2>
+          <p class="eyebrow">October 4, 1968 · UP Diliman</p>
+          <h2>Where the Story Began</h2>
         </div>
-        <p class="section-note">Permanent historical dossiers documenting the visionaries of the Triskelions’ Grand Fraternity (Tau Gamma Phi).</p>
+        <p class="section-note">These names are listed as a historical lead. Public biographies and official standing require approved primary records.</p>
       </div>
       <div id="founders-grid" class="founders-grid">
         <!-- Rendered by app.mjs -->
@@ -171,10 +213,10 @@
     <section id="history" class="section-wrap tinted">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">CHRONOLOGICAL RECORD</p>
-          <h2>Historical Timeline</h2>
+          <p class="eyebrow">Chronological record</p>
+          <h2>How the Work Has Grown</h2>
         </div>
-        <p class="section-note">Trace the trajectory from the UP Diliman inception through nationwide collegiate and regional expansion.</p>
+        <p class="section-note">A timeline assembled from cited sources. Dates remain subject to confirmation.</p>
       </div>
       <div id="timeline-container" class="timeline-stepper">
         <!-- Rendered by app.mjs -->
@@ -185,15 +227,15 @@
     <section id="genealogy" class="section-wrap">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">PERMANENT CHAPTER IDENTIFIERS</p>
+          <p class="eyebrow">Chapter identifiers</p>
           <h2>Chapter Genealogy Tree</h2>
         </div>
-        <p class="section-note">A permanent lineage tracking mother chapters, sponsoring councils, and regional expansion.</p>
+        <p class="section-note">A working view of the national chapter network; current nodes are not legal recognition.</p>
       </div>
       <div class="pilot-callout-card">
         <div class="pilot-callout-icon">🏛</div>
         <div>
-          <strong>National Council of the Philippines &amp; UP Diliman Alpha Genesis</strong>
+          <strong>National Council of the Philippines and UP Diliman Alpha genesis</strong>
           <p>Documenting the genealogical lineage from the 1968 UP Diliman Mother Chapter to regional collegiate and community councils across Luzon, Visayas, Mindanao, and international diaspora councils.</p>
         </div>
       </div>
@@ -202,34 +244,86 @@
       </div>
     </section>
 
-    <!-- 7. BROTHERHOOD STORIES ARCHIVE -->
+    <!-- 7. ORGANIZATION MAP -->
+    <section id="organization-map" class="section-wrap tinted">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">National network view</p>
+          <h2>Organization Map</h2>
+        </div>
+        <p class="section-note">Makikita rito kung paano connected ang National Council, regional councils, at local chapters, pati kung saan naglilingkod ang mga brothers and sisters sa buong Pilipinas.</p>
+      </div>
+      <div class="map-legend" aria-label="Organization map legend">
+        <span><i class="legend-dot legend-national"></i> National council</span>
+        <span><i class="legend-dot legend-regional"></i> Regional council</span>
+        <span><i class="legend-dot legend-local"></i> Local chapter</span>
+      </div>
+      <div class="organization-map-card">
+        <div id="organization-map-status" class="map-status" role="status">Loading organization network…</div>
+        <div id="organization-map-canvas" class="organization-map-canvas" role="img" aria-label="Interactive hierarchy of national, regional, and local councils"></div>
+        <p class="map-footnote">Node status shows the evidence state of each record. It is not a claim of legal recognition until confirmed by the appropriate council.</p>
+      </div>
+    </section>
+
+    <!-- 8. TRISKELION FAMILY STORIES ARCHIVE -->
     <section id="stories" class="section-wrap tinted">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">THE HUMAN SIDE OF HISTORY</p>
-          <h2>Stories of Brotherhood</h2>
+          <p class="eyebrow">The human side of history</p>
+          <h2>The Work Continues</h2>
         </div>
-        <p class="section-note">Documenting real accounts of brothers supporting brothers through disaster, education, and adversity.</p>
+        <p class="section-note">A protected intake lane for sourced stories. Nothing here is published as verified until the source and consent are reviewed.</p>
       </div>
       <div id="stories-grid" class="stories-grid">
         <!-- Rendered by app.mjs -->
       </div>
     </section>
 
-    <!-- 8. DIGITAL MUSEUM & ARCHIVAL REPOSITORY -->
+    <!-- 9. ARTICLES & NEWS -->
+    <section id="articles" class="section-wrap">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">National editorial desk</p>
+          <h2>News and Updates</h2>
+        </div>
+        <p class="section-note">Mga pasasalamat, chapter stories, service updates, history, at balita mula sa mga taong patuloy na nagpapagalaw sa fraternity.</p>
+      </div>
+      <div class="gazette-tools" aria-label="Search news and updates">
+        <label for="article-search">Search related articles</label>
+        <div class="gazette-search-row">
+          <input id="article-search" type="search" placeholder="Halimbawa: chapter service, Dugong Alay, university" />
+          <button id="article-search-clear" class="button button-secondary" type="button">Clear</button>
+        </div>
+        <div id="article-category-filters" class="article-category-filters" aria-label="Article categories">
+          <button class="article-filter is-active" type="button" data-category="all">All stories</button>
+          <button class="article-filter" type="button" data-category="news">News</button>
+          <button class="article-filter" type="button" data-category="service">Service</button>
+          <button class="article-filter" type="button" data-category="history">History</button>
+          <button class="article-filter" type="button" data-category="councils">Chapters and councils</button>
+        </div>
+        <p id="article-search-status" class="article-search-status" role="status"></p>
+      </div>
+      <div id="articles-grid" class="articles-grid"></div>
+      <article id="article-reader" class="article-reader" hidden>
+        <button id="article-reader-close" class="article-reader-close" type="button" aria-label="Close article">×</button>
+        <div id="article-reader-content"></div>
+      </article>
+    </section>
+
+    <!-- 10. DIGITAL MUSEUM & ARCHIVAL REPOSITORY -->
     <section id="museum" class="section-wrap">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">DUBLIN CORE STANDARDS</p>
+          <p class="eyebrow">Dublin Core standards</p>
           <h2>Digital Museum</h2>
         </div>
-        <p class="section-note">Preserved historical manuscripts, textiles, charters, photographs, and oral citations.</p>
+        <p class="section-note">Mga lumang dokumento, charter, litrato, at kuwento na tumutulong sa atin na makilala ang pinanggalingan ng fraternity.</p>
       </div>
       <div class="museum-filter-bar">
         <span>Era filter:</span>
         <div id="museum-era-buttons" class="era-buttons">
-          <button class="era-btn is-active" data-era="ALL">All Eras</button>
-          <button class="era-btn" data-era="Founding">Founding Era</button>
+          <button class="era-btn is-active" data-era="ALL">All eras</button>
+          <button class="era-btn" data-era="Founding">Founding era</button>
           <button class="era-btn" data-era="1980s">1980s</button>
           <button class="era-btn" data-era="2000s">2000s</button>
           <button class="era-btn" data-era="Modern">Modern</button>
@@ -240,177 +334,106 @@
       </div>
     </section>
 
-    <!-- 9. NOTABLE TRISKELIONS ARCHIVE -->
+    <!-- 9. NOTABLE PERSONALITIES RESEARCH COLLECTION -->
     <section id="notables" class="section-wrap dark-section">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">VERIFIED SOCIETAL CONTRIBUTION</p>
-          <h2>Notable Triskelions</h2>
+          <p class="eyebrow">Public contribution, carefully attributed</p>
+          <h2>Notable Personalities</h2>
         </div>
-        <p class="section-note">Members distinguished in medicine, law, academia, engineering, and public leadership.</p>
+        <p class="section-note">A source-weighted research collection of publicly known figures. It is not an official membership roster, and each association claim retains its evidence status.</p>
       </div>
-      <div id="notables-grid" class="notables-grid">
+      <div id="notables-collection" class="notables-collection">
         <!-- Rendered by app.mjs -->
       </div>
+      <div id="notables-grid" class="notables-grid" aria-live="polite">
+        <!-- Rendered by app.mjs -->
+      </div>
+      <aside id="notable-detail" class="notable-detail" aria-live="polite" aria-label="Selected profile record"></aside>
     </section>
 
-    <!-- 10. NATIONAL BLOOD DONATION DRIVE (DUGONG ALAY) -->
+    <!-- 10. CHAPTER-LED SERVICE CONTEXT (DUGONG ALAY) -->
     <section id="blood-donation" class="section-wrap blood-donation-section">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">HUMANITARIAN CAUSE DRIVE · DUGONG ALAY, DUGTONG BUHAY</p>
-          <h2>National Blood Donation Drive</h2>
+          <p class="eyebrow">Humanitarian service · Dugong Alay, Dugtong Buhay</p>
+          <h2>Chapter-Led Blood and Community Service</h2>
         </div>
-        <p class="section-note">Mobilizing brothers, sisters, and community donors across the Philippines for emergency blood reserves.</p>
+        <p class="section-note">Blood drives and other direct support are organized and accounted for by the responsible chapter or council, not by this national archive.</p>
       </div>
       <div class="donation-grid">
         <div class="donation-info-pane">
           <div class="cause-badge">
             <span class="cause-heart">♥</span>
             <div>
-              <strong>Every Drop Saves a Life</strong>
-              <p>Official Triskelion Philippines partners with local Red Cross chapters, provincial hospitals, and regional councils to supply urgent blood transfusion needs.</p>
+              <strong>Every service effort has a responsible local organizer</strong>
+              <p>This website documents sourced history and service records. It does not collect blood pledges, donations, money, or payment details. For a current blood drive or community-support request, contact the responsible chapter or council through its verified public channel.</p>
             </div>
           </div>
           <div class="pledge-stats-box">
             <div class="stat-item">
-              <span class="stat-number" id="pledges-count">0</span>
-              <span class="stat-label">Verified Pledges</span>
+              <span class="stat-number stat-unavailable">Unavailable</span>
+              <span class="stat-label">Public audited aggregate</span>
             </div>
             <div class="stat-item">
               <span class="stat-number">8</span>
-              <span class="stat-label">Blood Types Needed</span>
+              <span class="stat-label">Blood types are set locally</span>
             </div>
             <div class="stat-item">
-              <span class="stat-number">100%</span>
-              <span class="stat-label">Humanitarian Purpose</span>
+              <span class="stat-number stat-unavailable">Unstated</span>
+              <span class="stat-label">Publicly evidenced purpose</span>
             </div>
           </div>
           <div class="recent-pledges-stream">
-            <h3>Recent Cause Pledges</h3>
-            <div id="recent-pledges-list" class="recent-pledges-list">
-              <div class="empty-pledge-note">Loading registered blood donation pledges from database...</div>
+            <h3>Where to ask</h3>
+            <div class="recent-pledges-list">
+              <div class="empty-pledge-note">No national intake is available. Chapter and council contacts are listed only when a verified public channel is available.</div>
             </div>
           </div>
         </div>
-        <form id="blood-donation-form" class="donation-form">
+        <aside class="donation-form donation-info-pane">
           <div class="form-header-badge">
-            <span class="pill-red">Donor Registration</span>
-            <small>All blood types welcome</small>
+            <span class="pill-red">Local accountability</span>
+            <small>No national registration</small>
           </div>
-          <div class="form-field">
-            <input id="donor-name" class="form-input" type="text" required placeholder=" " />
-            <label for="donor-name" class="floating-label">Full Name of Donor</label>
-          </div>
-          <div class="form-row-2">
-            <div class="form-field">
-              <select id="donor-blood-type" class="form-input" required>
-                <option value="" disabled selected hidden></option>
-                <option value="O+">O Positive (O+)</option>
-                <option value="O-">O Negative (O-)</option>
-                <option value="A+">A Positive (A+)</option>
-                <option value="A-">A Negative (A-)</option>
-                <option value="B+">B Positive (B+)</option>
-                <option value="B-">B Negative (B-)</option>
-                <option value="AB+">AB Positive (AB+)</option>
-                <option value="AB-">AB Negative (AB-)</option>
-              </select>
-              <label for="donor-blood-type" class="floating-label">Blood Type</label>
-              <span class="select-indicator" aria-hidden="true">▾</span>
-            </div>
-            <div class="form-field">
-              <input id="donor-contact" class="form-input" type="tel" required placeholder=" " />
-              <label for="donor-contact" class="floating-label">Mobile / Phone Number</label>
-            </div>
-          </div>
-          <div class="form-row-2">
-            <div class="form-field">
-              <input id="donor-city" class="form-input" type="text" required placeholder=" " />
-              <label for="donor-city" class="floating-label">City / Province</label>
-            </div>
-            <div class="form-field">
-              <input id="donor-chapter" class="form-input" type="text" placeholder=" " />
-              <label for="donor-chapter" class="floating-label">Chapter / Council (or Community)</label>
-            </div>
-          </div>
-          <div class="form-field">
-            <input id="donor-date" class="form-input" type="date" required placeholder=" " />
-            <label for="donor-date" class="floating-label">Target Availability Date</label>
-          </div>
-          <div class="form-field">
-            <textarea id="donor-notes" class="form-input" rows="3" placeholder=" "></textarea>
-            <label for="donor-notes" class="floating-label">Optional medical notes or remarks</label>
-          </div>
-          <button id="donor-submit-btn" class="button button-primary donation-submit-btn" type="submit">
-            <span class="btn-spinner" aria-hidden="true"></span>
-            <span class="btn-check" aria-hidden="true">✓</span>
-            <span class="btn-text">Register Blood Donation Pledge</span>
-          </button>
-          <p id="donation-form-status" class="form-status" role="status"></p>
-          <small>Personal data is handled in strict compliance with humanitarian privacy protocols and verified by council health coordinators.</small>
-        </form>
+          <h3>Contact the responsible chapter or council</h3>
+          <p>Each chapter or council is responsible for its own donor coordination, monetary support, records, and accountability. This archive does not publish unverified contacts or promise outcomes.</p>
+          <p class="form-status">If a verified public channel is not available here, the contact remains unavailable rather than being guessed.</p>
+        </aside>
       </div>
     </section>
 
-    <!-- 11. SAFE BROTHERHOOD & ANTI-HAZING CENTER (RA 11053) -->
+    <!-- 11. SAFE MEMBERSHIP & ANTI-HAZING CENTER (RA 11053) -->
     <section id="safety" class="section-wrap safe-section">
       <div class="section-heading">
         <div>
-          <span class="safe-badge-pill">REPUBLIC ACT NO. 11053 COMPLIANCE</span>
-          <h2>Safe Brotherhood &amp; Accountability</h2>
+          <span class="safe-badge-pill">Republic Act No. 11053 compliance</span>
+          <h2>Safe Membership and Accountability</h2>
         </div>
-        <p class="section-note">A model fraternity makes member safety, dignity, and legal compliance transparent and non-negotiable.</p>
+        <p class="section-note">Sa fraternity at sa wider member community, walang puwang ang hazing. Dapat malinaw ang safety, dignity, at respeto sa bawat isa.</p>
       </div>
       <div class="safe-content-grid">
         <div class="safe-doctrine-card">
           <div class="safe-core-quote">
-            “Brotherhood should never require abuse as proof of belonging.”
+            <span class="principle-kind">Editorial safety standard · not an official quotation</span>
+            Membership should never require abuse as proof of belonging.
           </div>
           <p>Under the Anti-Hazing Act of 2018 (RA 11053), all forms of hazing in school-based and community-based organizations are strictly prohibited. The Triskelion Legacy &amp; Impact Platform enshrines active accountability:</p>
           <ul class="safe-commitments-list">
-            <li><strong>Zero Tolerance:</strong> Strict ban on all physical, psychological, and degrading acts during recruitment and initiation.</li>
-            <li><strong>Sanctioned Standards:</strong> All activities must have council registration and authorized safety monitoring.</li>
-            <li><strong>Member Rights:</strong> The inviolable right of every candidate and brother to bodily integrity and dignity.</li>
-            <li><strong>Confidential Triage:</strong> Whistleblowing reports are routed to an encrypted, restricted safety channel.</li>
+            <li><strong>Zero tolerance:</strong> A strict ban on physical, psychological, and degrading acts during recruitment and initiation.</li>
+            <li><strong>Safe activity standards:</strong> Activities should follow applicable law and any confirmed council safeguards.</li>
+            <li><strong>Member rights:</strong> Every candidate and member has a right to bodily integrity and dignity.</li>
+            <li><strong>Local responsibility:</strong> Questions or safety concerns belong with the responsible chapter or council through its verified public channel; this national archive does not receive complaints or safety reports.</li>
           </ul>
         </div>
-        <form id="safety-report-form" class="safety-form-card">
+        <aside class="safety-form-card">
           <div class="form-header-badge">
-            <span class="pill-dark">Confidential Safety Intake</span>
-            <small>Strictly Restricted to Safety Officers</small>
+            <span class="pill-dark">No national complaint intake</span>
+            <small>Chapter or council responsibility</small>
           </div>
-          <p class="safety-form-disclaimer">Reports submitted here enter a confidential, restricted investigation ledger. They are never published in the public archive.</p>
-          <div class="form-field">
-            <select id="safety-type" class="form-input" required>
-              <option value="" disabled selected hidden></option>
-              <option value="hazing_concern">Hazing Concern / Unlawful Activity</option>
-              <option value="member_safety">Member Health &amp; Safety Risk</option>
-              <option value="unauthorized_activity">Unauthorized Activity / Roster Misconduct</option>
-              <option value="rights_violation">Member Rights Violation</option>
-              <option value="other">Other Compliance Matter</option>
-            </select>
-            <label for="safety-type" class="floating-label">Incident / Concern Type</label>
-            <span class="select-indicator" aria-hidden="true">▾</span>
-          </div>
-          <div class="form-field">
-            <input id="safety-location" class="form-input" type="text" placeholder=" " />
-            <label for="safety-location" class="floating-label">City, Campus, or Chapter involved</label>
-          </div>
-          <div class="form-field">
-            <textarea id="safety-description" class="form-input" rows="4" required placeholder=" "></textarea>
-            <label for="safety-description" class="floating-label">Describe the situation safely &amp; objectively</label>
-          </div>
-          <div class="form-field">
-            <input id="safety-contact" class="form-input" type="text" placeholder=" " />
-            <label for="safety-contact" class="floating-label">Confidential contact (email or phone - optional)</label>
-          </div>
-          <button id="safety-submit-btn" class="button button-safety" type="submit">
-            <span class="btn-spinner" aria-hidden="true"></span>
-            <span class="btn-check" aria-hidden="true">✓</span>
-            <span class="btn-text">Submit Confidential Safety Report</span>
-          </button>
-          <p id="safety-form-status" class="form-status" role="status"></p>
-        </form>
+          <p class="safety-form-disclaimer">This page keeps the anti-hazing and safe-membership standard for education. It does not collect complaints, incident details, safety reports, or personal contact information.</p>
+          <p>Contact the responsible chapter or council through its verified public channel. No chapter or council contact is listed here unless it has been verified for publication.</p>
+        </aside>
       </div>
     </section>
 
@@ -418,10 +441,10 @@
     <section id="search-section" class="section-wrap archive-section">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">INSTITUTIONAL MEMORY</p>
+          <p class="eyebrow">Chapter memory</p>
           <h2>Search the National Archive</h2>
         </div>
-        <p class="section-note">Instant search across chapters, pioneer batches, projects, museum artifacts, and brotherhood stories.</p>
+        <p class="section-note">Maghanap ng chapter, pioneer, service project, lumang record, o kuwentong ibinahagi ng Triskelion family.</p>
       </div>
       <div class="search-box">
         <label for="archive-search">Search by chapter, founder, cause, city, or year</label>
@@ -429,7 +452,7 @@
         <span aria-hidden="true">⌕</span>
       </div>
       <div id="search-results-pane" class="search-results-container">
-        <div id="search-status" class="search-status" role="status">Archive index ready: 8,412 projects, 50+ chapters, and foundational dossiers indexed.</div>
+        <div id="search-status" class="search-status" role="status">Archive index ready: cited records are being indexed.</div>
         <div id="search-dynamic-results" class="search-dynamic-results"></div>
       </div>
     </section>
@@ -438,21 +461,21 @@
     <section id="contribute" class="section-wrap tinted">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">PRESERVING TRUTH TOGETHER</p>
+          <p class="eyebrow">Preserving truth together</p>
           <h2>Contribute to History</h2>
         </div>
-        <p class="section-note">Submit historical photos, documents, oral memories, or suggest a verified correction.</p>
+        <p class="section-note">Tulungan ninyo kaming magtala nang maayos. Magbahagi ng litrato, dokumento, personal na alaala, o correction para sa record.</p>
       </div>
       <div class="contribute-grid">
         <div class="contribute-info">
-          <h3>No Record Is Lost When Preserved Together</h3>
-          <p>Do you have an old chapter photograph from the 1980s? An original charter? A story of how brothers mobilized during a local disaster? Or did you spot an error in a timeline date?</p>
+          <h3>Bawat Kuwento, May Ambag</h3>
+            <p>May lumang chapter photo, original charter, o kuwento kung paano tumulong ang brothers and sisters noong mahirap ang panahon? Ipadala ninyo. Kung may mali kayong napansin, sabihin ninyo para maayos namin nang may pag-iingat.</p>
           <div class="contribute-guidelines">
-            <strong>Archival Submission Standards:</strong>
+            <strong>Archival submission standards:</strong>
             <ul>
-              <li>Provide original provenance or source if known.</li>
+              <li>Provide the original source if known.</li>
               <li>Include approximate year, chapter, and city.</li>
-              <li>Every submission is assigned a tracking ID and routed to Council Historians.</li>
+              <li>Each submission receives a tracking ID and is routed for historian review.</li>
               <li>Corrections preserve prior versions in the audit log for historical transparency.</li>
             </ul>
           </div>
@@ -460,12 +483,12 @@
         <form id="contribution-form" class="contribution-form-card">
           <div class="form-field">
             <input id="contrib-name" class="form-input" type="text" required placeholder=" " />
-            <label for="contrib-name" class="floating-label">Your Name / Brother Identity</label>
+            <label for="contrib-name" class="floating-label">Your name or brother/sister identity</label>
           </div>
           <div class="form-row-2">
             <div class="form-field">
               <input id="contrib-email" class="form-input" type="email" placeholder=" " />
-              <label for="contrib-email" class="floating-label">Email Address (Optional)</label>
+              <label for="contrib-email" class="floating-label">Email address (optional)</label>
             </div>
             <div class="form-field">
               <select id="contrib-category" class="form-input" required>
@@ -473,558 +496,118 @@
                 <option value="photo">Historical Photograph</option>
                 <option value="document">Document / Charter / Minutes</option>
                 <option value="chapter_history">Chapter History / Pioneer Batch</option>
-                <option value="brotherhood_story">Brotherhood Story / Memorial</option>
+                <option value="brotherhood_story">Triskelion Family Story / Memorial</option>
                 <option value="artifact">Physical Artifact / Insignia</option>
                 <option value="correction_proposal">Suggest a Historical Correction</option>
               </select>
-              <label for="contrib-category" class="floating-label">Contribution Type</label>
+              <label for="contrib-category" class="floating-label">Contribution type</label>
               <span class="select-indicator" aria-hidden="true">▾</span>
             </div>
           </div>
           <div class="form-row-2">
             <div class="form-field">
               <input id="contrib-chapter" class="form-input" type="text" placeholder=" " />
-              <label for="contrib-chapter" class="floating-label">Chapter / Council / City</label>
+              <label for="contrib-chapter" class="floating-label">Chapter, council, or city</label>
             </div>
             <div class="form-field">
               <input id="contrib-year" class="form-input" type="text" placeholder=" " />
-              <label for="contrib-year" class="floating-label">Estimated Year (e.g. 1985)</label>
+              <label for="contrib-year" class="floating-label">Estimated year (for example, 1985)</label>
             </div>
           </div>
           <div class="form-field">
             <input id="contrib-title" class="form-input" type="text" required placeholder=" " />
-            <label for="contrib-title" class="floating-label">Headline / Title of Record</label>
+            <label for="contrib-title" class="floating-label">Headline or record title</label>
           </div>
           <div class="form-field">
             <textarea id="contrib-desc" class="form-input" rows="4" required placeholder=" "></textarea>
-            <label for="contrib-desc" class="floating-label">Detailed Description / Historical Account</label>
+            <label for="contrib-desc" class="floating-label">Detailed description or historical account</label>
           </div>
           <div class="form-field">
             <input id="contrib-provenance" class="form-input" type="text" placeholder=" " />
-            <label for="contrib-provenance" class="floating-label">Source / Provenance (e.g. Personal Photo Album, Council File)</label>
+            <label for="contrib-provenance" class="floating-label">Source (for example, personal photo album or council file)</label>
           </div>
           <button id="contrib-submit-btn" class="button button-primary" type="submit">
             <span class="btn-spinner" aria-hidden="true"></span>
             <span class="btn-check" aria-hidden="true">✓</span>
-            <span class="btn-text">Submit for Historian Verification</span>
+            <span class="btn-text">Submit for historian review</span>
           </button>
           <p id="contrib-form-status" class="form-status" role="status"></p>
         </form>
       </div>
     </section>
 
-    <!-- 14. EXECUTIVE LEADERSHIP, HISTORIAN & VERIFIER TERMINAL -->
-    <section id="leadership-portal" class="section-wrap portal-section">
+    <!-- 15. PUBLIC REFERENCE INDEX -->
+    <section id="references" class="section-wrap references-section">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">OFFICIAL EXECUTIVE TERMINAL</p>
-          <h2>Leadership &amp; Contributor Portal</h2>
+          <p class="eyebrow">Public reference index</p>
+          <h2>References</h2>
         </div>
-        <p class="section-note">Secure gateway for National Council Officers, Regional Historians, Council Verifiers, and Chapter Heads.</p>
+        <p class="section-note">Isang lugar para sa public links, source pages, rights notes, at tools na tumutulong magbuo at mag-check ng website.</p>
       </div>
-
-      <div id="portal-logged-out" class="portal-gate-card">
-        <div class="portal-crest-wrap">
-          <span class="portal-crest">TΔ</span>
-          <span class="portal-lock-icon">🔒</span>
-        </div>
-        <h3>Executive Council &amp; Historian Access</h3>
-        <p>Restricted to verified fraternity leadership. Authenticate with your authorized Google account to view the real-time Blood Donation Registry, audit historical contribution queues, and review incoming records.</p>
-        <div class="portal-login-actions">
-          <button id="btn-portal-login" class="button button-primary google-login-btn">
-            <svg class="google-logo" viewBox="0 0 24 24" width="20" height="20">
-              <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
-              <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
-              <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
-              <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
-            </svg>
-            <span>Sign in with Google (Leadership)</span>
-          </button>
-        </div>
-        <div id="portal-login-status" class="portal-login-status" role="status" style="display:none;"></div>
-        <div class="portal-admin-notice">
-          <span>Authorized Admin: <code>hello@weforgeweb.com</code> · Firebase Enterprise Identity</span>
-        </div>
+      <div class="reference-method-note">
+        <strong>How “References listed · 36” was derived:</strong> count of the 36-item works-cited list reproduced in the supplied research PDF. It is a bibliography count, not 36 independently verified authorities. Restricted ritual, password, pledge, and sensitive material were excluded from public links; unrelated bibliography entries are not attached to individual claims. Tenets and Code of Conduct wording still requires authorized review.
       </div>
-
-      <div id="portal-logged-in" class="portal-dashboard-card" style="display:none;">
-        <div class="portal-user-bar">
-          <div class="user-info-cluster">
-            <div id="portal-user-avatar" class="portal-avatar">TΔ</div>
-            <div>
-              <strong id="portal-user-name">Leadership Member</strong>
-              <span id="portal-user-email" class="user-email-text">user@example.com</span>
-            </div>
-          </div>
-          <div class="user-role-badge">
-            <span class="role-pill">National Officer / Verifier</span>
-            <button id="btn-portal-logout" class="button text-link logout-btn">Sign Out</button>
-          </div>
-        </div>
-
-        <div class="portal-metrics-grid">
-          <div class="metric-card">
-            <span class="metric-num" id="metric-donations-count">0</span>
-            <span class="metric-txt">Blood Donation Pledges</span>
-          </div>
-          <div class="metric-card">
-            <span class="metric-num" id="metric-contribs-count">0</span>
-            <span class="metric-txt">Historical Submissions</span>
-          </div>
-          <div class="metric-card">
-            <span class="metric-num">Verified</span>
-            <span class="metric-txt">Leadership Status</span>
-          </div>
-        </div>
-
-        <!-- Tabbed Portal Panes -->
-        <div class="portal-tabs-nav">
-          <button class="portal-tab-btn is-active" data-pane="pane-chapters">Chapters Directory</button>
-          <button class="portal-tab-btn" data-pane="pane-projects">Impact Projects Ledger</button>
-          <button class="portal-tab-btn" data-pane="pane-donations">Blood Drive Coordinator</button>
-          <button class="portal-tab-btn" data-pane="pane-contributions">Historical Verifier Desk</button>
-          <button class="portal-tab-btn" data-pane="pane-mutual-aid">Brotherhood Mutual Aid</button>
-          <button class="portal-tab-btn" data-pane="pane-safety-triage">Safety &amp; RA 11053 Triage</button>
-          <button class="portal-tab-btn" data-pane="pane-annual-report">Annual Report &amp; Audit</button>
-        </div>
-
-        <!-- Tool 1: Chapter & Council Directory Manager -->
-        <div id="pane-chapters" class="portal-tab-pane is-active">
-          <div class="registry-header">
-            <div>
-              <h3>Recognized Chapter &amp; Council Registry</h3>
-              <span class="live-indicator"><span class="live-dot"></span> Institutional Standing Live</span>
-            </div>
-            <div class="registry-controls">
-              <button id="btn-toggle-add-chapter" class="button button-primary" style="padding:6px 14px;font-size:0.78rem;">+ Register Chapter</button>
-              <button id="btn-refresh-chapters" class="button text-link refresh-btn">↻ Refresh</button>
-            </div>
-          </div>
-
-          <!-- Inline Add Chapter Drawer / Form -->
-          <form id="portal-add-chapter-form" class="portal-inline-form" style="display:none;margin-bottom:20px;">
-            <h4>Register Recognized Chapter / Council</h4>
-            <div class="form-row-2">
-              <div class="form-field">
-                <input id="new-chap-code" class="form-input" type="text" required placeholder="e.g. TGP-PH-09-ZAM-000130" />
-                <label for="new-chap-code" class="floating-label">Permanent Chapter Code</label>
-              </div>
-              <div class="form-field">
-                <input id="new-chap-name" class="form-input" type="text" required placeholder="e.g. Diliman Community Chapter" />
-                <label for="new-chap-name" class="floating-label">Chapter Name</label>
-              </div>
-            </div>
-            <div class="form-row-2">
-              <div class="form-field">
-                <input id="new-chap-council" class="form-input" type="text" required placeholder="e.g. Metro Manila Regional Council" />
-                <label for="new-chap-council" class="floating-label">Governing Council</label>
-              </div>
-              <div class="form-field">
-                <input id="new-chap-city" class="form-input" type="text" required placeholder="e.g. Quezon City / Manila" />
-                <label for="new-chap-city" class="floating-label">City / Municipality</label>
-              </div>
-            </div>
-            <div class="form-row-2">
-              <div class="form-field">
-                <input id="new-chap-gt" class="form-input" type="text" placeholder="e.g. Bro. Juan Dela Cruz" />
-                <label for="new-chap-gt" class="floating-label">Grand Triskelion (GT)</label>
-              </div>
-              <div class="form-field">
-                <input id="new-chap-safety" class="form-input" type="text" placeholder="e.g. Bro. Pedro Santos" />
-                <label for="new-chap-safety" class="floating-label">Chapter Safety Officer (RA 11053)</label>
-              </div>
-            </div>
-            <div class="form-field">
-              <select id="new-chap-standing" class="form-input">
-                <option value="active_good_standing">Active In Good Standing</option>
-                <option value="probationary">Probationary Status</option>
-                <option value="under_review">Under Council Review</option>
-                <option value="charter_pending">Charter Pending</option>
-              </select>
-              <label for="new-chap-standing" class="floating-label">Institutional Standing</label>
-              <span class="select-indicator" aria-hidden="true">▾</span>
-            </div>
-            <div style="display:flex;gap:10px;margin-top:10px;">
-              <button type="submit" class="button button-primary">Save Chapter to Firestore</button>
-              <button type="button" id="btn-cancel-add-chapter" class="button button-secondary">Cancel</button>
-            </div>
-          </form>
-
-          <div class="table-responsive">
-            <table class="portal-table">
-              <thead>
-                <tr>
-                  <th>Chapter Code</th>
-                  <th>Chapter &amp; Institution</th>
-                  <th>Council</th>
-                  <th>City / Region</th>
-                  <th>Grand Triskelion</th>
-                  <th>Safety Officer</th>
-                  <th>Institutional Standing</th>
-                </tr>
-              </thead>
-              <tbody id="portal-chapters-tbody">
-                <tr><td colspan="7" class="loading-td">Loading recognized chapters from Firestore...</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Tool 2: National Impact Project Logger -->
-        <div id="pane-projects" class="portal-tab-pane" style="display:none;">
-          <div class="registry-header">
-            <div>
-              <h3>Audited Service Projects &amp; Impact Ledger</h3>
-              <span class="live-indicator"><span class="live-dot"></span> Traceable Project Records</span>
-            </div>
-            <div class="registry-controls">
-              <button id="btn-toggle-add-project" class="button button-primary" style="padding:6px 14px;font-size:0.78rem;">+ Log Service Project</button>
-              <button id="btn-refresh-projects" class="button text-link refresh-btn">↻ Refresh</button>
-            </div>
-          </div>
-
-          <!-- Inline Add Project Form -->
-          <form id="portal-add-project-form" class="portal-inline-form" style="display:none;margin-bottom:20px;">
-            <h4>Log Verified Community Service Project</h4>
-            <div class="form-row-2">
-              <div class="form-field">
-                <input id="new-proj-code" class="form-input" type="text" required placeholder="e.g. TGP-PROJECT-2026-009410" />
-                <label for="new-proj-code" class="floating-label">Project ID</label>
-              </div>
-              <div class="form-field">
-                <input id="new-proj-title" class="form-input" type="text" required placeholder="e.g. Coastal Mangrove Reforestation" />
-                <label for="new-proj-title" class="floating-label">Project Title</label>
-              </div>
-            </div>
-            <div class="form-row-2">
-              <div class="form-field">
-                <select id="new-proj-domain" class="form-input" required>
-                  <option value="health">Health &amp; Medical Missions</option>
-                  <option value="blood_drive">National Blood Donation Drive</option>
-                  <option value="disaster_relief">Disaster Relief Logistics</option>
-                  <option value="education">Education &amp; Scholarships</option>
-                  <option value="environment">Environmental Reforestation</option>
-                  <option value="brotherhood_aid">Brotherhood Mutual Aid</option>
-                  <option value="livelihood">Livelihood &amp; Community Dev</option>
-                  <option value="public_safety">Public Safety &amp; Rescue</option>
-                </select>
-                <label for="new-proj-domain" class="floating-label">Cause Domain</label>
-                <span class="select-indicator" aria-hidden="true">▾</span>
-              </div>
-              <div class="form-field">
-                <input id="new-proj-location" class="form-input" type="text" required placeholder="e.g. Sierra Madre / Metro Manila Corridor" />
-                <label for="new-proj-location" class="floating-label">Project Location</label>
-              </div>
-            </div>
-            <div class="form-row-2">
-              <div class="form-field">
-                <input id="new-proj-hours" class="form-input" type="text" placeholder="e.g. 180 verified hours" />
-                <label for="new-proj-hours" class="floating-label">Volunteer Hours</label>
-              </div>
-              <div class="form-field">
-                <input id="new-proj-beneficiaries" class="form-input" type="text" placeholder="e.g. 450 residents" />
-                <label for="new-proj-beneficiaries" class="floating-label">Direct Beneficiaries</label>
-              </div>
-            </div>
-            <div class="form-field">
-              <input id="new-proj-partner" class="form-input" type="text" placeholder="e.g. City Environment Office, Philippine Red Cross" />
-              <label for="new-proj-partner" class="floating-label">Partner Organization</label>
-            </div>
-            <div style="display:flex;gap:10px;margin-top:10px;">
-              <button type="submit" class="button button-primary">Save Project Record</button>
-              <button type="button" id="btn-cancel-add-project" class="button button-secondary">Cancel</button>
-            </div>
-          </form>
-
-          <div class="table-responsive">
-            <table class="portal-table">
-              <thead>
-                <tr>
-                  <th>Project Code</th>
-                  <th>Title &amp; Domain</th>
-                  <th>Location</th>
-                  <th>Volunteer Hours</th>
-                  <th>Beneficiaries</th>
-                  <th>Partner</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody id="portal-projects-tbody">
-                <tr><td colspan="7" class="loading-td">Loading impact projects from Firestore...</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Tool 3: Blood Donation Coordinator -->
-        <div id="pane-donations" class="portal-tab-pane" style="display:none;">
-          <div class="registry-header">
-            <div>
-              <h3>Blood Donation Registry (Live Firestore)</h3>
-              <span class="live-indicator"><span class="live-dot"></span> Real-time Connected</span>
-            </div>
-            <div class="registry-controls">
-              <select id="filter-blood-type" class="filter-select" aria-label="Filter by Blood Type">
-                <option value="ALL">All Blood Types</option>
-                <option value="O+">Type O+</option>
-                <option value="O-">Type O-</option>
-                <option value="A+">Type A+</option>
-                <option value="A-">Type A-</option>
-                <option value="B+">Type B+</option>
-                <option value="B-">Type B-</option>
-                <option value="AB+">Type AB+</option>
-                <option value="AB-">Type AB-</option>
-              </select>
-              <button id="btn-export-donors-csv" class="button button-gold" style="padding:6px 14px;font-size:0.78rem;" title="Export verified donors for offline council coordination">📥 Export Verified CSV</button>
-              <button id="btn-refresh-registry" class="button text-link refresh-btn">↻ Refresh</button>
-            </div>
-          </div>
-          <div class="table-responsive">
-            <table class="portal-table">
-              <thead>
-                <tr>
-                  <th>Donor Name</th>
-                  <th>Blood Type</th>
-                  <th>Contact</th>
-                  <th>City / Province</th>
-                  <th>Chapter / Council</th>
-                  <th>Target Date</th>
-                  <th>Status &amp; Verification</th>
-                </tr>
-              </thead>
-              <tbody id="portal-donations-tbody">
-                <tr><td colspan="7" class="loading-td">Loading blood donations from Firestore...</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Tool 4: Historical Contributions 7-Stage Verifier Desk -->
-        <div id="pane-contributions" class="portal-tab-pane" style="display:none;">
-          <div class="registry-header">
-            <div>
-              <h3>Historical Contributions 7-Stage Verifier Desk</h3>
-              <span class="live-indicator"><span class="live-dot"></span> Historian Workflow</span>
-            </div>
-            <button id="btn-refresh-contribs" class="button text-link refresh-btn">↻ Refresh Queue</button>
-          </div>
-          <p class="section-note" style="margin-bottom:14px;">Advance records through the 7-stage verification lifecycle: <code>Submitted</code> → <code>Under Review</code> → <code>Corroborated</code> → <code>Verified</code> → <code>Approved</code> → <code>Published</code>.</p>
-          <div class="table-responsive">
-            <table class="portal-table">
-              <thead>
-                <tr>
-                  <th>Contributor</th>
-                  <th>Category</th>
-                  <th>Title &amp; Description</th>
-                  <th>Chapter/City</th>
-                  <th>Year</th>
-                  <th>Provenance</th>
-                  <th>Audit Log</th>
-                  <th>Lifecycle Stage &amp; Action</th>
-                </tr>
-              </thead>
-              <tbody id="portal-contribs-tbody">
-                <tr><td colspan="8" class="loading-td">Loading historical submissions from Firestore...</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Tool 5: Brotherhood Mutual Aid Desk -->
-        <div id="pane-mutual-aid" class="portal-tab-pane" style="display:none;">
-          <div class="registry-header">
-            <div>
-              <h3>Brotherhood Mutual Aid &amp; Crisis Response Desk</h3>
-              <span class="live-indicator"><span class="live-dot"></span> Fraternal Solidarity</span>
-            </div>
-            <div class="registry-controls">
-              <button id="btn-toggle-add-aid" class="button button-primary" style="padding:6px 14px;font-size:0.78rem;">+ File Mutual Aid Case</button>
-              <button id="btn-refresh-aid" class="button text-link refresh-btn">↻ Refresh</button>
-            </div>
-          </div>
-
-          <!-- Inline File Mutual Aid Form -->
-          <form id="portal-add-aid-form" class="portal-inline-form" style="display:none;margin-bottom:20px;">
-            <h4>File Brotherhood Mutual Aid Case</h4>
-            <div class="form-row-2">
-              <div class="form-field">
-                <input id="new-aid-code" class="form-input" type="text" required placeholder="e.g. AID-2026-0041" />
-                <label for="new-aid-code" class="floating-label">Case Tracking ID</label>
-              </div>
-              <div class="form-field">
-                <input id="new-aid-recipient" class="form-input" type="text" required placeholder="e.g. Bro. Anthony / Family" />
-                <label for="new-aid-recipient" class="floating-label">Recipient / Family Name</label>
-              </div>
-            </div>
-            <div class="form-row-2">
-              <div class="form-field">
-                <select id="new-aid-type" class="form-input" required>
-                  <option value="medical_emergency">Medical Emergency &amp; Surgery</option>
-                  <option value="disaster_calamity">Disaster / Calamity Response</option>
-                  <option value="educational_scholarship">Educational Tuition Assistance</option>
-                  <option value="bereavement_family">Bereavement &amp; Family Support</option>
-                  <option value="employment_network">Employment &amp; Livelihood</option>
-                </select>
-                <label for="new-aid-type" class="floating-label">Aid Category</label>
-                <span class="select-indicator" aria-hidden="true">▾</span>
-              </div>
-              <div class="form-field">
-                <input id="new-aid-chapter" class="form-input" type="text" placeholder="e.g. UP Diliman Alpha Chapter" />
-                <label for="new-aid-chapter" class="floating-label">Affiliated Chapter / City</label>
-              </div>
-            </div>
-            <div class="form-field">
-              <textarea id="new-aid-desc" class="form-input" rows="3" required placeholder="Describe assistance needed and mobilization details"></textarea>
-              <label for="new-aid-desc" class="floating-label">Assistance Details &amp; Target</label>
-            </div>
-            <div style="display:flex;gap:10px;margin-top:10px;">
-              <button type="submit" class="button button-primary">Log Mutual Aid Case</button>
-              <button type="button" id="btn-cancel-add-aid" class="button button-secondary">Cancel</button>
-            </div>
-          </form>
-
-          <div class="table-responsive">
-            <table class="portal-table">
-              <thead>
-                <tr>
-                  <th>Case Code</th>
-                  <th>Recipient / Family</th>
-                  <th>Aid Category</th>
-                  <th>Chapter</th>
-                  <th>Description</th>
-                  <th>Status &amp; Action</th>
-                </tr>
-              </thead>
-              <tbody id="portal-aid-tbody">
-                <tr><td colspan="6" class="loading-td">Loading brotherhood mutual aid records...</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Tool 6: Safety & RA 11053 Whistleblowing Triage -->
-        <div id="pane-safety-triage" class="portal-tab-pane" style="display:none;">
-          <div class="registry-header">
-            <div>
-              <h3>Confidential Safety &amp; RA 11053 Whistleblowing Triage</h3>
-              <span class="live-indicator" style="color:var(--crimson);"><span class="live-dot" style="background:var(--crimson);box-shadow:0 0 6px var(--crimson);"></span> Restricted to Safety Officers</span>
-            </div>
-            <button id="btn-refresh-safety" class="button text-link refresh-btn">↻ Refresh Triage</button>
-          </div>
-          <div class="table-responsive">
-            <table class="portal-table">
-              <thead>
-                <tr>
-                  <th>Incident Type</th>
-                  <th>Location / Chapter</th>
-                  <th>Confidential Disclosure</th>
-                  <th>Contact Info</th>
-                  <th>Date Logged</th>
-                  <th>Investigation Status</th>
-                </tr>
-              </thead>
-              <tbody id="portal-safety-tbody">
-                <tr><td colspan="6" class="loading-td">Loading safety disclosures from encrypted ledger...</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Tool 7: Annual State of the Brotherhood Report Generator -->
-        <div id="pane-annual-report" class="portal-tab-pane" style="display:none;">
-          <div class="report-generator-box">
-            <h3>Triskelion Annual Impact &amp; Legacy Report (Automated Compilation)</h3>
-            <p>Generated directly from verified project records, auditable volunteer hours, and archival intake. Eliminates manual reporting inconsistencies.</p>
-            <div class="report-stat-summary">
-              <div class="report-col">
-                <strong>Verified Community Projects</strong>
-                <span>8,412 Documented</span>
-              </div>
-              <div class="report-col">
-                <strong>Volunteer Hours</strong>
-                <span>638,290 Hours</span>
-              </div>
-              <div class="report-col">
-                <strong>Blood Donation Units</strong>
-                <span>14,221 Units Collected</span>
-              </div>
-              <div class="report-col">
-                <strong>Safety &amp; RA 11053 Compliance</strong>
-                <span>100% Policy Certified</span>
-              </div>
-            </div>
-            <div class="report-actions">
-              <button class="button button-primary" id="btn-print-report" onclick="window.print()">Print Official Report</button>
-              <span class="report-notice">Canonical Archive ID: TGP-ANNUAL-REPORT-2026</span>
-            </div>
-          </div>
-        </div>
+      <div class="reference-schema" aria-label="Public references organized by category">
+        <article class="reference-group">
+          <span class="reference-group-number">01</span>
+          <div><h3>Organization and Discovery</h3><p>Public routes for finding organization channels. These are discovery links, not proof of ownership, recognition, or endorsement.</p><a href="https://www.facebook.com/public/Triskelion-de-Zamboanga" target="_blank" rel="noreferrer">Facebook discovery route ↗</a><a href="https://www.instagram.com/explore/search/keyword/?q=triskelion%20zamboanga" target="_blank" rel="noreferrer">Instagram discovery route ↗</a></div>
+        </article>
+        <article class="reference-group">
+          <span class="reference-group-number">02</span>
+          <div><h3>Image Rights and Sources</h3><p>Public image references and the notes used to keep attribution, permission, and reuse limits clear.</p><a href="#references">Open the public reference index</a></div>
+        </article>
+        <article class="reference-group">
+          <span class="reference-group-number">03</span>
+          <div><h3>Safety and Public Responsibility</h3><p>The safe-membership section is educational context only and does not replace current legal advice or an authorized council process.</p><a href="#safety">Read the safety standard</a></div>
+        </article>
+        <article class="reference-group">
+          <span class="reference-group-number">04</span>
+          <div><h3>Public Source Notes</h3><p>Public pages identify their evidence limits and review status without exposing internal research inventories.</p><a href="#references">Read the reference index</a></div>
+        </article>
+        <article class="reference-group">
+          <span class="reference-group-number">05</span>
+          <div><h3>National Research and Limits</h3><p>Public editorial pages summarize research boundaries without publishing restricted source inventories, raw documents, or unverified affiliation claims.</p><a href="/references/research-context/">Read the public research context</a></div>
+        </article>
       </div>
     </section>
 
-    <!-- 15. INSTITUTIONAL TRANSPARENCY & CITATIONS -->
-    <section id="transparency" class="section-wrap split-section">
-      <div>
-        <p class="eyebrow">INSTITUTIONAL INTEGRITY</p>
-        <h2>Transparency &amp; Governance</h2>
-      </div>
-      <div>
-        <p>The Triskelion Legacy &amp; Impact Platform operates under strict non-partisan archival methodologies:</p>
-        <div class="notice">
-          <strong>Archival Standard</strong>
-          <span>Information is preserved according to Dublin Core metadata specifications. Inconsistencies or conflicting accounts are preserved alongside corroborating evidence rather than deleted.</span>
-        </div>
-        <div class="notice">
-          <strong>Philippine Data Privacy Act</strong>
-          <span>Strict isolation between public historical records and restricted personal member information. Being recorded in the archive does not expose private member rosters or contact data.</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- National Heritage & UP Diliman Genesis Section -->
-    <section id="national-heritage" class="section-wrap context-section dark-section">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">NATIONAL HERITAGE &amp; UP DILIMAN GENESIS</p>
-          <h2>The UP Diliman Mother Chapter (Alpha)</h2>
-        </div>
-        <p class="section-note">Conceived on October 4, 1968 at the University of the Philippines Diliman, Palma Hall (Arts &amp; Sciences), Quezon City, establishing an egalitarian fraternity for the Filipino nation.</p>
-      </div>
-      <div class="national-heritage-grid">
-        <div class="national-heritage-card">
-          <div class="heritage-icon">🏛</div>
-          <h3>The Four UP Diliman Founders</h3>
-          <p>Founded by student visionaries <strong>Talek J. Pablo</strong>, <strong>Vedasto “Sito” Venida</strong>, <strong>Rodolfo “Rod” Confesor</strong>, and <strong>Roy Alolor Ordinario</strong> at UP Diliman, departing from traditional elitist fraternal culture to create a universal brotherhood anchored in character, civic dedication, and personal freewill.</p>
-          <div class="heritage-meta">
-            <span class="status-pill">Founding Date: October 4, 1968</span>
-            <span class="heritage-subtext">University of the Philippines Diliman · AS Palma Hall</span>
-          </div>
-        </div>
-        <div class="national-heritage-card">
-          <div class="heritage-icon">⚖</div>
-          <h3>Fortis Voluntas Fraternitas</h3>
-          <p>The Latin motto emblazoned across the Triskelion seal embodies <strong>Strength, Free Will, and Brotherhood</strong>. Guided by the Tenets and Code of Conduct, the fraternity grew from its academic UP roots into the largest fraternal movement in the Philippines, encompassing hundreds of collegiate councils, community chapters, and worldwide diaspora councils.</p>
-          <div class="heritage-meta">
-            <span class="status-pill">Official Motto &amp; Seal</span>
-            <span class="heritage-subtext">Gold &amp; Jet Black · Triskeles Emblem</span>
-          </div>
-        </div>
-      </div>
-      <p class="rights-note"><strong>Historical Canon note:</strong> Tau Gamma Phi (Triskelions’ Grand Fraternity) historical records are curated in partnership with national collegiate registries, pioneer rosters, and council historians across the Philippines.</p>
-    </section>
   </main>
 
   <footer class="site-footer">
     <div class="section-wrap footer-inner">
-      <div class="brand">
-        <span class="brand-mark"><img src="./src/assets/tgp-seal.svg" alt="Tau Gamma Phi Official Seal" width="42" height="42" /></span>
-        <span>
-          <strong>NATIONAL TRISKELION LEGACY &amp; IMPACT PLATFORM</strong>
-          <small>OFFICIAL PHILIPPINE TRISKELION DIGITAL ARCHIVE · EST. 1968 UP DILIMAN</small>
-        </span>
+      <div class="footer-brand-column">
+        <div class="brand">
+          <span class="brand-mark"><img src="./src/assets/tau-gamma-phi-official-seal.png" alt="Tau Gamma Phi contextual seal" width="42" height="42" /></span>
+          <span>
+            <strong>TAU GAMMA PHI</strong>
+            <small>Triskelions’ Grand Fraternity · National History and Impact Archive</small>
+          </span>
+        </div>
+        <p class="footer-mission">A careful public archive for history, service, and the records that help communities remember their work.</p>
       </div>
-      <p>Dedicated to the Four Founders, UP Diliman Pioneers, and all Brothers &amp; Sisters who practice true Brotherhood through auditable civic service.</p>
-      <span>© <span id="year"></span> National Triskelion Legacy &amp; Impact Project · Fortis Voluntas Fraternitas · All Rights Preserved</span>
+      <nav class="footer-column" aria-label="Explore">
+        <h2>Explore</h2>
+        <a href="#articles">News and updates</a>
+        <a href="#history">National history</a>
+        <a href="#impact">Service and impact</a>
+      </nav>
+      <nav class="footer-column" aria-label="Sources and community">
+        <h2>Sources and Community</h2>
+        <a href="#references">Public references</a>
+        <a href="#contribute">Share a record</a>
+        <a href="https://www.officialgazette.gov.ph/2018/06/29/republic-act-no-11053/" target="_blank" rel="noreferrer">Safety reference <span aria-hidden="true">↗</span></a>
+      </nav>
+      <div class="footer-column footer-commissioner">
+        <h2>Commissioned context</h2>
+        <p>Limbaga Road Chapter, Pasonanca, Zamboanga City</p>
+        <p>Triskelion de Zamboanga Council, Zamboanga City</p>
+        <small>This archive is not a national endorsement or official approval.</small>
+      </div>
+    </div>
+    <div class="footer-base section-wrap">
+      <span>© <span id="year"></span> Tau Gamma Phi National History and Impact Archive · <span class="footer-motto">Fortis Voluntas Fraternitas</span></span>
+      <a class="footer-back-to-top" href="#home">Back to top <span aria-hidden="true">↑</span></a>
     </div>
   </footer>
 

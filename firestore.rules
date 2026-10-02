@@ -132,10 +132,27 @@ service cloud.firestore {
       allow delete: if isValidId(reportId) && isAdmin();
     }
 
-    // Leadership directory & council roles
+    // Editorial articles. Public readers may only see explicitly published records.
+    match /articles/{articleId} {
+      allow read: if resource.data.status == 'published' || isVerifierOrAdmin();
+      allow create: if isVerifierOrAdmin() && isValidId(articleId) &&
+        incoming().keys().hasAll(['title', 'category', 'author', 'excerpt', 'body', 'status', 'createdBy', 'createdAt', 'updatedAt']) &&
+        incoming().title is string && incoming().title.size() >= 3 && incoming().title.size() <= 150 &&
+        incoming().category is string && incoming().category in ['news', 'service', 'history', 'councils', 'safety'] &&
+        incoming().author is string && incoming().author.size() >= 2 && incoming().author.size() <= 100 &&
+        incoming().excerpt is string && incoming().excerpt.size() >= 10 && incoming().excerpt.size() <= 500 &&
+        incoming().body is string && incoming().body.size() >= 20 && incoming().body.size() <= 12000 &&
+        incoming().status in ['draft', 'published'];
+      allow update: if isVerifierOrAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // Leadership directory & council roles. This is an admin-managed authorization
+    // roster: existing records require human audit before they are trusted, and
+    // local rule changes are not deployed by this repository check.
     match /leadership_users/{userId} {
       allow read: if isSignedIn();
-      allow create, update: if isSignedIn() && (request.auth.uid == userId || isAdmin()) && isValidId(userId);
+      allow create, update: if isAdmin() && isValidId(userId);
       allow delete: if isAdmin() && isValidId(userId);
     }
 
