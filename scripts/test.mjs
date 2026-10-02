@@ -1,5 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import { content } from '../src/content.mjs';
+import { chapterRecords } from '../src/editorial/chapters-data.mjs';
+import { globalClusters, westernOverseasUnits } from '../src/editorial/global-network-data.mjs';
 const required = ['updates', 'events', 'services', 'documents', 'gallery'];
 for (const key of required) if (!Array.isArray(content[key]) || content[key].length === 0) throw new Error(`missing content collection: ${key}`);
 if (!content.updates.every(item => item.approvalStatus === 'pending')) throw new Error('unapproved update entered public content');
@@ -29,4 +31,7 @@ if (html.includes('id="blood-donation-form"') || html.includes('id="safety-repor
 if (html.includes('Register Blood Donation Pledge') || html.includes('Submit Confidential Safety Report')) throw new Error('retired intake labels remain');
 if (!html.includes('contact the responsible chapter or council through its verified public channel')) throw new Error('local accountability copy missing');
 if (app.includes('Encrypting & Logging Report') || app.includes('securely routed to Safety Officers')) throw new Error('unsupported safety promise remains');
+if (chapterRecords.length === 0 || globalClusters.length !== 12 || westernOverseasUnits.length === 0) throw new Error('global network source dataset is incomplete');
+if (!app.includes('const organizationNetwork = () =>') || !app.includes('globalClusters.map') || !app.includes('westernOverseasUnits.map')) throw new Error('network explorer does not include chapter and global source records');
+if (!html.includes('Explore the global network') || !html.includes('Global source record')) throw new Error('global network map framing is missing');
 console.log('tests passed: content approval gates, retired intake absence, local accountability copy, skip link, and keyboard stepper checks verified');

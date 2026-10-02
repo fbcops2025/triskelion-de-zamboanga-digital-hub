@@ -1,5 +1,5 @@
 export const content = {
-  platformTitle: 'Tau Gamma Phi | Triskelions Grand Fraternity Philippines',
+  platformTitle: 'Tau Gamma Phi | Triskelions’ Grand Fraternity Philippines',
   subtitle: 'History, councils, chapters, community service, notable Triskelions, events, and historical archives across the Philippines.',
   motto: 'Fortis Voluntas Fraternitas · Est. October 4, 1968',
   tagline: 'A brotherhood shaped by generations, strengthened by service, and carried forward through communities across the Philippines and beyond.',
@@ -94,42 +94,44 @@ export const content = {
   ],
 
   // Founding Fathers Dossiers (Section 5). All from University of the Philippines Diliman.
+  // Names are research leads from the supplied study. No charter, registry, or identity
+  // document has been reviewed, so no "verified" status or biography is asserted here.
   foundingFathers: [
     {
       id: 'roy-ordinario',
       name: 'Roy A. Ordinario',
-      title: 'Founding Father · Tau Gamma Phi',
+      title: 'Founding generation · research lead',
       campus: 'University of the Philippines Diliman',
       year: '1968',
-      status: 'Canonical Record Verified',
-      biography: 'Student leader at the University of the Philippines Diliman who co-founded the Triskelions’ Grand Fraternity on October 4, 1968, advancing the tenets of non-elitism, inclusive membership, and civic duty.'
+      status: 'Research lead · approval needed',
+      biography: 'Named in the supplied research as part of the 1968 founding generation at the University of the Philippines Diliman. No authorized record, confirmed name form, or approved biography has been provided.'
     },
     {
       id: 'vedasto-venida',
       name: 'Vedasto “Tito” Venida',
-      title: 'Founding Father · Tau Gamma Phi',
+      title: 'Founding generation · research lead',
       campus: 'University of the Philippines Diliman',
       year: '1968',
-      status: 'Canonical Record Verified',
-      biography: 'Key ideological architect at the University of the Philippines Diliman, instilling the core tenets of Fortis Voluntas Fraternitas (Strength, Free Will, Brotherhood) and community integration.'
+      status: 'Research lead · approval needed',
+      biography: 'Named in the supplied research as part of the 1968 founding generation at the University of the Philippines Diliman. The longer name form and any role description remain unconfirmed pending an authorized record.'
     },
     {
       id: 'rodolfo-confesor',
       name: 'Rodolfo “Rod” Confesor',
-      title: 'Founding Father · Tau Gamma Phi',
+      title: 'Founding generation · research lead',
       campus: 'University of the Philippines Diliman',
       year: '1968',
-      status: 'Canonical Record Verified',
-      biography: 'Founding leader at UP Diliman whose dedication transformed the initial academic fraternity into an expansive national movement serving the Filipino people through humanitarian action.'
+      status: 'Research lead · approval needed',
+      biography: 'Named in the supplied research as part of the 1968 founding generation at the University of the Philippines Diliman. The longer name form and any role description remain unconfirmed pending an authorized record.'
     },
     {
       id: 'talek-pablo',
       name: 'Talek J. Pablo',
-      title: 'Founding Father · Tau Gamma Phi',
+      title: 'Founding generation · research lead',
       campus: 'University of the Philippines Diliman',
       year: '1968',
-      status: 'Canonical Record Verified',
-      biography: 'UP Diliman founder whose commitment to intellectual excellence, artistic culture, and egalitarian solidarity established the enduring cultural foundations of the fraternity.'
+      status: 'Research lead · approval needed',
+      biography: 'Named in the supplied research as part of the 1968 founding generation at the University of the Philippines Diliman. The longer name form and any role description remain unconfirmed pending an authorized record.'
     }
   ],
 
@@ -140,7 +142,7 @@ export const content = {
       year: 'Pre-1968',
       title: 'The Philosophical Inception',
       description: 'Students at the University of the Philippines Diliman conceptualized an alternative to traditional elitist campus fraternities, aiming for an inclusive fraternity community anchored in character, civic contribution, and egalitarian values.',
-      verification: 'Corroborated by UP founding documents & oral accounts',
+      verification: 'Supplied research narrative; no primary document reviewed',
       status: 'verified'
     },
     {
@@ -148,7 +150,7 @@ export const content = {
       year: 'October 4, 1968',
       title: 'Formal Founding at UP Diliman',
       description: 'The Triskelions’ Grand Fraternity (Tau Gamma Phi) is officially established at the University of the Philippines Diliman by Founding Fathers Roy Ordinario, Vedasto Venida, Rodolfo Confesor, and Talek Pablo.',
-      verification: 'Primary charter & university historical registry',
+      verification: 'Supplied research narrative; no charter or registry reviewed',
       status: 'canonical'
     },
     {
@@ -156,7 +158,7 @@ export const content = {
       year: '1970 – 1979',
       title: 'National Collegiate and Metro Manila Expansion',
       description: 'Pioneer chapters emerge across collegiate centers throughout Metro Manila and Luzon (UST, FEU, UE, Adamson, MLQU, UP Los Baños), developing the inter-chapter council structure and formalizing open community initiatives.',
-      verification: 'Chapter historical dossiers & pioneer rosters',
+      verification: 'Supplied research narrative; no chapter dossier reviewed',
       status: 'verified'
     },
     {
@@ -164,7 +166,7 @@ export const content = {
       year: '1980 – 1989',
       title: 'Nationwide Expansion Across Visayas & Mindanao',
       description: 'Triskelions establish regional councils across the Visayas and Mindanao, mobilizing collegiate batches and founding the Triskelion Youth Movement (TYM) for community-based youth empowerment.',
-      verification: 'Regional council archives & historical photo documentation',
+      verification: 'Supplied research narrative; no regional archive reviewed',
       status: 'verified'
     },
     {
@@ -172,7 +174,7 @@ export const content = {
       year: '1990 – 1999',
       title: 'Community Chapters and TRILEG Emergence',
       description: 'Pioneered barangay and municipal community chapters alongside the Triskelion Alumni Organization (TRILEG), expanding into nationwide disaster relief, medical missions, and organized blood drives.',
-      verification: 'National resolutions & contemporary press records',
+      verification: 'Supplied research narrative; no resolution or press record cited',
       status: 'verified'
     },
     {
@@ -180,7 +182,7 @@ export const content = {
       year: '2000 – 2009',
       title: 'Worldwide Diaspora Councils',
       description: 'Filipino Triskelions in North America, the Middle East, Europe, and the Asia-Pacific establish international councils, maintaining genealogical linkage to mother chapters in the Philippines.',
-      verification: 'International registry charters & consulate records',
+      verification: 'Supplied research narrative; no registry or consulate record reviewed',
       status: 'verified'
     },
     {
@@ -188,15 +190,15 @@ export const content = {
       year: '2010 – 2019',
       title: 'Institutional Safety and RA 11053 Compliance',
       description: 'Proactive national organizational reform aligning fraternity policies with Republic Act No. 11053 (Anti-Hazing Act of 2018), championing member rights, and professionalizing disaster response teams.',
-      verification: 'National congress resolutions & statutory compliance covenants',
+      verification: 'Supplied research narrative; no resolution or covenant reviewed',
       status: 'verified'
     },
     {
       era: '2020s & Present',
       year: '2020 – Present',
       title: 'National Digital Archive and Impact Infrastructure',
-      description: 'Deployment of the National Triskelion Legacy & Impact Platform to permanently document history, blood donation registries, auditable service projects, and institutional memory.',
-      verification: 'Live digital platform records & audit logs',
+      description: 'This public archive is an editorial project documenting history and service context with visible source limits. It is not an official organizational registry, and it holds no blood donation or service audit records.',
+      verification: 'Editorial statement about this website; not an organizational record',
       status: 'in_progress'
     }
   ],
@@ -210,7 +212,7 @@ export const content = {
       location: 'Quezon City, Philippines',
       established: 'October 4, 1968',
       parentChapterId: null,
-      verification: 'Canonical Genesis',
+      verification: 'Research lead',
       role: 'Mother Chapter'
     },
     {
@@ -220,7 +222,7 @@ export const content = {
       location: 'National Capital Region, Philippines',
       established: 'Circa 1971',
       parentChapterId: 'TGP-PH-00-UPD-000001',
-      verification: 'Council Charter Verified',
+      verification: 'Research lead',
       role: 'Regional Coordinating Body'
     },
     {
@@ -230,7 +232,7 @@ export const content = {
       location: 'Central Luzon (Region III), Philippines',
       established: 'Circa 1975',
       parentChapterId: 'TGP-PH-00-UPD-000001',
-      verification: 'Regional Council Verified',
+      verification: 'Research lead',
       role: 'Regional Council'
     },
     {
@@ -240,7 +242,7 @@ export const content = {
       location: 'Cebu City & Western/Eastern Visayas',
       established: 'Circa 1980',
       parentChapterId: 'TGP-PH-00-UPD-000001',
-      verification: 'Council Verified',
+      verification: 'Research lead',
       role: 'Regional Coordinating Body'
     },
     {
@@ -250,7 +252,7 @@ export const content = {
       location: 'Davao, Cagayan de Oro & General Santos',
       established: 'Circa 1982',
       parentChapterId: 'TGP-PH-00-UPD-000001',
-      verification: 'Regional Charter Verified',
+      verification: 'Research lead',
       role: 'Regional Coordinating Body'
     },
     {
@@ -260,7 +262,7 @@ export const content = {
       location: 'Toronto, Vancouver & Alberta, Canada',
       established: 'Diaspora Expansion',
       parentChapterId: 'TGP-PH-00-UPD-000001',
-      verification: 'International Registry Verified',
+      verification: 'Research lead',
       role: 'International National Council'
     },
     {
@@ -270,7 +272,7 @@ export const content = {
       location: 'California, New York & Nevada, USA',
       established: 'Diaspora Expansion',
       parentChapterId: 'TGP-PH-00-UPD-000001',
-      verification: 'International Registry Verified',
+      verification: 'Research lead',
       role: 'International National Council'
     }
   ],
@@ -278,10 +280,10 @@ export const content = {
   // Organization Map. This is platform topology; local records require council confirmation.
   organizationMap: [
     { id: 'national', parentId: null, name: 'National Council of the Philippines', shortName: 'National Council', level: 'national', location: 'Philippines', status: 'Platform root' },
-    { id: 'ncr', parentId: 'national', name: 'National Capital Region Council', shortName: 'NCR Council', level: 'regional', location: 'Metro Manila', status: 'Illustrative topology' },
-    { id: 'luzon', parentId: 'national', name: 'Luzon Regional Council', shortName: 'Luzon Council', level: 'regional', location: 'Luzon', status: 'Illustrative topology' },
-    { id: 'visayas', parentId: 'national', name: 'Visayas Regional Council', shortName: 'Visayas Council', level: 'regional', location: 'Visayas', status: 'Illustrative topology' },
-    { id: 'mindanao', parentId: 'national', name: 'Mindanao Regional Council', shortName: 'Mindanao Council', level: 'regional', location: 'Mindanao', status: 'Illustrative topology' },
+    { id: 'ncr', parentId: 'national', name: 'National Capital Region Council', shortName: 'NCR Council', level: 'regional', location: 'Metro Manila', status: 'Regional context, not a confirmed directory record' },
+    { id: 'luzon', parentId: 'national', name: 'Luzon Regional Council', shortName: 'Luzon Council', level: 'regional', location: 'Luzon', status: 'Regional context, not a confirmed directory record' },
+    { id: 'visayas', parentId: 'national', name: 'Visayas Regional Council', shortName: 'Visayas Council', level: 'regional', location: 'Visayas', status: 'Regional context, not a confirmed directory record' },
+    { id: 'mindanao', parentId: 'national', name: 'Mindanao Regional Council', shortName: 'Mindanao Council', level: 'regional', location: 'Mindanao', status: 'Regional context, not a confirmed directory record' },
     { id: 'upd', parentId: 'ncr', name: 'UP Diliman Alpha Chapter', shortName: 'UP Diliman Alpha', level: 'local', location: 'Quezon City', status: 'Historical genesis record' },
     { id: 'manila', parentId: 'ncr', name: 'Metro Manila Community Chapters', shortName: 'Metro Manila Chapters', level: 'local', location: 'Metro Manila', status: 'Pending council verification' },
     { id: 'clark', parentId: 'luzon', name: 'Central Luzon Collegiate Chapters', shortName: 'Central Luzon Chapters', level: 'local', location: 'Central Luzon', status: 'Pending council verification' },
@@ -331,45 +333,45 @@ export const content = {
       id: 'artifact-001',
       title: '1968 Founding Charter and Tenets Draft (UP Diliman Genesis)',
       era: 'Founding Era (1968)',
-      creator: 'Founding Fathers (Roy Ordinario, Tito Venida, Rod Confesor, Talek Pablo)',
+      creator: 'Attributed in supplied research; authorship unconfirmed',
       date: 'October 4, 1968',
       type: 'Manuscript & Constitution',
-      provenance: 'National Archive Repository · Digitized Copy',
-      verification: 'Verified Original Document',
-      description: 'Historical reproduction of the initial founding philosophy establishing Tau Gamma Phi as an egalitarian brotherhood at the University of the Philippines Diliman.'
+      provenance: 'Not supplied; no archive copy reviewed',
+      verification: 'Research lead · approval needed',
+      description: 'A founding-era document is described in the supplied research. No copy, date, or authorship has been verified, so no facsimile is presented as authentic.'
     },
     {
       id: 'artifact-002',
       title: 'Official Tau Gamma Phi Seal and Heraldic Regalia (Gold and Black)',
       era: 'Founding & Emblematic Era',
-      creator: 'Founding Fathers & Pioneer Batch',
+      creator: 'Attributed in supplied research; authorship unconfirmed',
       date: 'Circa 1968',
       type: 'Heraldic Insignia & Seal',
-      provenance: 'National Historical Registry Archive',
-      verification: 'Canonical Seal Authenticated',
+      provenance: 'Not supplied; no registry copy reviewed',
+      verification: 'Research lead · approval needed',
       description: 'The golden three-legged Triskelion enclosing Greek letters T, Γ, Φ on a black field, surrounded by the ring inscribed with Fortis Voluntas Fraternitas.'
     },
     {
       id: 'artifact-003',
       title: 'National Blood Drive (Dugong Alay) Partner Citation',
       era: 'Community Service Era',
-      creator: 'Philippine Red Cross & National Health Directorate',
+      creator: 'Not supplied; no partner citation reviewed',
       date: 'September 2012',
       type: 'Public Citation & Certificate',
-      provenance: 'National Red Cross Health Partnership',
-      verification: 'Third-Party Verified',
-      description: 'Official citation recognizing national Triskelion councils for mobilizing emergency blood transfusion reserves across provincial and metropolitan hospitals.'
+      provenance: 'Not supplied; no partnership record reviewed',
+      verification: 'Research lead · approval needed',
+      description: 'Community blood-drive activity is described in the supplied research. No citation, partner, date, or beneficiary total has been verified.'
     },
     {
       id: 'artifact-004',
       title: 'RA 11053 Anti-Hazing Compliance Resolution',
       era: 'Modern Accountability Era',
-      creator: 'National Executive & Legal Directorate',
+      creator: 'Not supplied; no organizational instrument reviewed',
       date: 'July 2018',
       type: 'Policy Resolution & Legal Covenant',
-      provenance: 'National Legal Archive',
-      verification: 'Public Legal Instrument',
-      description: 'Unanimous national resolution binding all collegiate and community chapters to zero-tolerance anti-hazing standards under Republic Act No. 11053.'
+      provenance: 'Not supplied; no legal archive copy reviewed',
+      verification: 'Research lead · approval needed',
+      description: 'Anti-hazing obligations are set by Republic Act No. 11053. No organizational resolution binding every chapter has been reviewed, so none is asserted.'
     }
   ],
 

@@ -5,3 +5,12 @@ dist/
 !.env.example
 .vercel/
 *.log
+
+# Local automation, temporary review output, and downloaded tooling.
+.hermes/
+.playwright-mcp/
+handy-models/
+HandyPlus_*.exe
+tmp/
+**/__pycache__/
+nul

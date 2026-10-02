@@ -1,4 +1,6 @@
 import { content } from './content.mjs';
+import { chapterRecords } from './editorial/chapters-data.mjs';
+import { globalClusters, westernOverseasUnits } from './editorial/global-network-data.mjs';
 import { notableDomains, notableProfiles } from './notables.mjs';
 import { portraitMap } from './portrait-map.mjs';
 import { initHeaderNavigation } from './header-navigation.mjs';
@@ -102,21 +104,64 @@ if (principlesGrid && content.publicPrinciples) {
 // ==========================================
 // 3. RENDER FOUNDING FATHERS DOSSIER
 // ==========================================
-const foundersGrid = $('#founders-grid');
-if (foundersGrid && content.foundingFathers) {
-  foundersGrid.innerHTML = content.foundingFathers.map(f => `
-    <article class="founder-card">
-      <div>
-        <span class="founder-title">${f.title}</span>
-        <h3>${f.name}</h3>
+const founderProfiles = {
+  'roy-ordinario': { initials: 'RO', href: '/founding-fathers/roy-ordinario/' },
+  'vedasto-venida': { initials: 'VV', href: '/founding-fathers/vedasto-tito-venida/' },
+  'rodolfo-confesor': { initials: 'RC', href: '/founding-fathers/rodolfo-rod-confesor/' },
+  'talek-pablo': { initials: 'TP', href: '/founding-fathers/talek-j-pablo/' }
+};
+
+// Hoisted so the founder renderers below can use it; the later module-scope
+// const of the same behaviour is intentionally left in place.
+function escFounder(value) {
+  return String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
+}
+
+const renderFounderCards = () => (content.foundingFathers || []).map(f => {
+  const meta = founderProfiles[f.id] || {};
+  const portrait = meta.initials
+    ? `<div class="founder-portrait" role="img" aria-label="Portrait unavailable for ${escFounder(f.name)}"><span aria-hidden="true">${escFounder(meta.initials)}</span><small>Portrait awaiting authorized asset</small></div>`
+    : '';
+  const name = meta.href
+    ? `<a href="${meta.href}">${escFounder(f.name)}</a>`
+    : escFounder(f.name);
+  const link = meta.href
+    ? `<a class="founder-card-link" href="${meta.href}">Read grounded context →</a>`
+    : '';
+  return `
+    <article class="founder-card founder-card--editorial" data-founder-id="${escFounder(f.id)}">
+      ${portrait}
+      <div class="founder-card-body">
+        <span class="founder-title">${escFounder(f.title)}</span>
+        <h3>${name}</h3>
         <p>Listed in a historical source. Public biography withheld until an approved primary record and consent are attached.</p>
-      </div>
-      <div class="founder-meta">
-        <span>${f.campus} · ${f.year}</span>
-        <span class="status-pill">Research lead · approval needed</span>
+        <div class="founder-meta">
+          <span>${escFounder(f.campus)} · ${escFounder(f.year)}</span>
+          <span class="status-pill">Research lead · approval needed</span>
+        </div>
+        ${link}
       </div>
     </article>
-  `).join('');
+  `;
+}).join('');
+
+const foundersGrid = $('#founders-grid');
+if (foundersGrid && content.foundingFathers) foundersGrid.innerHTML = renderFounderCards();
+
+// Four founders surfaced in the hero, per client request.
+const heroFounders = $('#hero-founders');
+if (heroFounders && content.foundingFathers) {
+  heroFounders.innerHTML = `
+    <p class="hero-founders-label">The founding generation · UP Diliman, October 4, 1968</p>
+    <ul class="hero-founders-list">
+      ${content.foundingFathers.map(f => {
+        const meta = founderProfiles[f.id] || {};
+        const inner = `${meta.initials ? `<span class="hero-founder-initials" aria-hidden="true">${escFounder(meta.initials)}</span>` : ''}<span class="hero-founder-name">${escFounder(f.name)}</span>`;
+        return `<li>${meta.href ? `<a href="${meta.href}">${inner}</a>` : inner}</li>`;
+      }).join('')}
+    </ul>
+    <p class="hero-founders-note">Names follow the current supplied research lead. Authorized portraits and confirmed identity details are still pending, so no likeness is invented here.</p>
+  `;
 }
 
 // ==========================================
@@ -160,26 +205,37 @@ if (genealogyTree && content.chapterGenealogy) {
 // ==========================================
 const organizationMapCanvas = $('#organization-map-canvas');
 const organizationMapStatus = $('#organization-map-status');
+const organizationNetwork = () => {
+  const nationalNodes = content.organizationMap.map(node => ({ ...node }));
+  const directory = { id: 'public-chapter-list', parentId: 'national', name: 'Public chapter-list records', shortName: 'Chapter list', level: 'directory', location: 'Philippines and Guam', status: 'Public chapter-list records. Charter dates and current recognition require confirmation.' };
+  const chapterNodes = chapterRecords.map((record, index) => ({ id: `chapter-record-${index + 1}`, parentId: 'public-chapter-list', name: record.institution, shortName: record.institution.length > 24 ? `${record.institution.slice(0, 22)}…` : record.institution, level: 'chapter-record', location: record.location || 'Location not recorded', status: `Public chapter-list record${record.charterDate ? `, dated ${record.charterDate}` : ''}. Current status and recognition require confirmation.` }));
+  const globalRoot = { id: 'global-source-root', parentId: null, name: 'Tau Gamma Phi Global source structure', shortName: 'Global source', level: 'global-root', location: 'Global', status: 'Source-described governance model. Not represented as universal authority.' };
+  const globalBoard = { id: 'global-board', parentId: 'global-source-root', name: 'Global Board', shortName: 'Global Board', level: 'global-board', location: 'Global', status: 'Source-described 15-member Board model. Current officeholders require dated confirmation.' };
+  const clusterNodes = globalClusters.map((cluster, index) => ({ id: `global-cluster-${index + 1}`, parentId: 'global-board', name: cluster, shortName: cluster.length > 24 ? `${cluster.slice(0, 22)}…` : cluster, level: 'global-cluster', location: 'Source-listed Global cluster', status: 'Listed by the Tau Gamma Phi Global Structure source. Not a replacement for the Philippine directory.' }));
+  const westernCluster = clusterNodes.find(node => node.name === 'US, Canada, Europe and Caribbean');
+  const westernNodes = westernOverseasUnits.map((unit, index) => ({ id: `western-overseas-${index + 1}`, parentId: westernCluster.id, name: unit, shortName: unit.length > 24 ? `${unit.slice(0, 22)}…` : unit, level: 'source-unit', location: 'Western Overseas', status: 'Source-listed Western Overseas unit. Current charter and leadership status require confirmation.' }));
+  return [...nationalNodes, directory, ...chapterNodes, globalRoot, globalBoard, ...clusterNodes, ...westernNodes];
+};
 function renderOrganizationMap() {
   if (!organizationMapCanvas || !content.organizationMap?.length) return;
   organizationMapCanvas.innerHTML = '';
   const width = Math.max(320, organizationMapCanvas.clientWidth || 900);
-  const height = width < 620 ? 620 : 560;
-  const nodes = content.organizationMap.map(node => ({ ...node }));
+  const nodes = organizationNetwork();
+  const height = width < 620 ? Math.max(980, nodes.length * 24) : Math.max(780, nodes.length * 16);
   const links = nodes.filter(node => node.parentId).map(node => ({ source: node.parentId, target: node.id }));
   const svg = d3.select(organizationMapCanvas).append('svg').attr('viewBox', `0 0 ${width} ${height}`).attr('role', 'presentation');
   const group = svg.append('g');
   svg.append('defs').append('marker').attr('id', 'map-arrow').attr('viewBox', '0 -5 10 10').attr('refX', 18).attr('refY', 0).attr('markerWidth', 5).attr('markerHeight', 5).attr('orient', 'auto').append('path').attr('d', 'M0,-5L10,0L0,5').attr('fill', '#c6a13b');
   const link = group.append('g').attr('class', 'map-links').selectAll('line').data(links).join('line').attr('class', 'map-link').attr('marker-end', 'url(#map-arrow)');
   const node = group.append('g').attr('class', 'map-nodes').selectAll('g').data(nodes).join('g').attr('class', d => `map-node map-node-${d.level}`).call(d3.drag().on('start', (event, d) => { if (!event.active) simulation.alphaTarget(0.25).restart(); d.fx = d.x; d.fy = d.y; }).on('drag', (event, d) => { d.fx = event.x; d.fy = event.y; }).on('end', (event, d) => { if (!event.active) simulation.alphaTarget(0); d.fx = null; d.fy = null; }));
-  node.append('circle').attr('r', d => d.level === 'national' ? 25 : d.level === 'regional' ? 18 : 13);
-  node.append('text').attr('class', 'map-node-label').attr('dy', d => d.level === 'national' ? 42 : 34).text(d => d.shortName);
+  node.append('circle').attr('r', d => ['national', 'global-root'].includes(d.level) ? 25 : ['regional', 'global-board', 'directory'].includes(d.level) ? 18 : 13);
+  node.append('text').attr('class', 'map-node-label').attr('dy', d => ['national', 'global-root'].includes(d.level) ? 42 : 34).text(d => d.shortName);
   node.append('title').text(d => `${d.name} · ${d.location} · ${d.status}`);
-  const simulation = d3.forceSimulation(nodes).force('link', d3.forceLink(links).id(d => d.id).distance(width < 620 ? 95 : 125)).force('charge', d3.forceManyBody().strength(-280)).force('center', d3.forceCenter(width / 2, height / 2)).force('collision', d3.forceCollide().radius(d => d.level === 'national' ? 48 : 40)).on('tick', () => {
+  const simulation = d3.forceSimulation(nodes).force('link', d3.forceLink(links).id(d => d.id).distance(width < 620 ? 100 : 130)).force('charge', d3.forceManyBody().strength(-300)).force('center', d3.forceCenter(width / 2, height / 2)).force('collision', d3.forceCollide().radius(d => ['national', 'global-root'].includes(d.level) ? 48 : 40)).on('tick', () => {
     link.attr('x1', d => d.source.x).attr('y1', d => d.source.y).attr('x2', d => d.target.x).attr('y2', d => d.target.y);
     node.attr('transform', d => `translate(${Math.max(30, Math.min(width - 30, d.x))},${Math.max(30, Math.min(height - 45, d.y))})`);
   });
-  if (organizationMapStatus) organizationMapStatus.textContent = `${nodes.length} platform nodes · ${links.length} reporting connections · Drag a node to explore.`;
+  if (organizationMapStatus) organizationMapStatus.textContent = `${nodes.length} network records · ${links.length} source and directory connections · Drag a node to explore.`;
 }
 renderOrganizationMap();
 window.addEventListener('resize', renderOrganizationMap);

@@ -15,10 +15,10 @@ export const founderSource = {
 };
 
 export const founders = [
-  { id: 'roy-ordinario', name: 'Roy Ordinario', initials: 'RO', profileHref: '/founders/roy-ordinario/' },
-  { id: 'vedasto-venida', name: 'Vedasto Venida', initials: 'VV', profileHref: '/founders/vedasto-venida/' },
-  { id: 'rodolfo-confesor', name: 'Rodolfo Confesor', initials: 'RC', profileHref: '/founders/rodolfo-confesor/' },
-  { id: 'talek-pablo', name: 'Talek Pablo', initials: 'TP', profileHref: '/founders/talek-pablo/' }
+  { id: 'roy-ordinario', name: 'Roy Ordinario', initials: 'RO', profileHref: '/founding-fathers/roy-ordinario/' },
+  { id: 'vedasto-venida', name: 'Vedasto Venida', initials: 'VV', profileHref: '/founding-fathers/vedasto-tito-venida/' },
+  { id: 'rodolfo-confesor', name: 'Rodolfo Confesor', initials: 'RC', profileHref: '/founding-fathers/rodolfo-rod-confesor/' },
+  { id: 'talek-pablo', name: 'Talek Pablo', initials: 'TP', profileHref: '/founding-fathers/talek-j-pablo/' }
 ];
 
 export const founderNotice = 'Authorized founder portraits are not yet available. These cards use a clearly labelled name/initials fallback rather than an invented or unlicensed likeness.';
@@ -45,15 +45,24 @@ export const historySections = [
   { kicker: '09 · An open record', heading: 'The next chapter should be contributed, not assumed', paragraphs: ['Brothers, sisters, alumni, chapters, councils, families, and community partners can contribute an authorized portrait, chapter history, dated service record, or correction.[1] Every contribution should retain provenance and approval status.', 'Until those records arrive, the archive shows the gap openly rather than filling it with a generated face, random lookalike, fake biography, or unsupported timeline.'], citation: 'source-1' }
 ];
 
+// Per-founder status lines so the four cards do not repeat one sentence.
+const founderStatus = {
+  'roy-ordinario': 'The earliest of the four names in the supplied record, and the one most often cited as first among the founding group. The record supports the name; it does not yet support a biography.',
+  'vedasto-venida': 'Cited in public reporting as having spoken about the fraternity decades later, which is why this name reaches beyond the founding era itself. Full identity details remain unconfirmed.',
+  'rodolfo-confesor': 'A name carried in the founding record whose later role in the wider expansion is described in the supplied material but not yet documented from an authorized source.',
+  'talek-pablo': 'The fourth name in the founding record. As with the others, the archive holds the name and waits for an approved record before adding biography or likeness.'
+};
+
 export function renderFounderCard(founder) {
   const fallback = `<div class="founder-portrait founder-portrait--fallback" role="img" aria-label="Portrait unavailable for ${esc(founder.name)}"><span aria-hidden="true">${esc(founder.initials)}</span><small>Portrait awaiting authorized asset</small></div>`;
   const title = founder.profileHref
     ? `<a href="${esc(founder.profileHref)}">${esc(founder.name)}</a>`
     : esc(founder.name);
   const context = founder.profileHref
-    ? `<a class="founder-card-link" href="${esc(founder.profileHref)}">Read grounded context →</a>`
-    : `<span class="founder-card-link founder-card-link--muted">Founder context page pending approved source</span>`;
-  return `<article class="founder-card founder-card--editorial" data-founder-id="${esc(founder.id)}">${fallback}<div class="founder-card-body"><p class="founder-card-kicker">Founding-generation research lead</p><h3>${title}</h3><p class="founder-card-status">Name spelling follows the current supplied research lead. Identity, biography, and portrait rights remain subject to authorized confirmation.</p>${context}</div></article>`;
+    ? `<a class="founder-card-link" href="${esc(founder.profileHref)}">Read Historical Context →</a>`
+    : `<span class="founder-card-link founder-card-link--muted">Additional historical context will be added with an authorized source.</span>`;
+  const status = founderStatus[founder.id] || 'This name is preserved as it appears in the supplied historical record. Biographical detail and an authorized portrait will be added when they can be documented.';
+  return `<article class="founder-card founder-card--editorial" data-founder-id="${esc(founder.id)}">${fallback}<div class="founder-card-body"><p class="founder-card-kicker">FOUNDING GENERATION</p><h3>${title}</h3><p class="founder-card-status">${esc(status)}</p>${context}</div></article>`;
 }
 
 export function renderFoundersGrid() {
@@ -65,7 +74,7 @@ const citeText = value => esc(value).replace(/\[(\d+)\]/g, '<sup class="history-
 export function renderHistoryPage() {
   const sections = historySections.map(section => `<section class="history-section"><p class="eyebrow">${esc(section.kicker)}</p><h2>${esc(section.heading)}</h2>${section.paragraphs.map(paragraph => `<p>${citeText(paragraph)}</p>`).join('')}<p class="history-citation"><a href="#${esc(section.citation)}">Read the linked source note →</a></p></section>`).join('');
   const sources = historyCitations.map((source, index) => `<li id="${esc(source.id)}"><a href="${esc(source.href)}"${source.href.startsWith('http') ? ' target="_blank" rel="noreferrer"' : ''}>[${index + 1}] ${esc(source.label)}</a></li>`).join('');
-  return `<article class="founders-history-page"><header class="history-hero"><p class="eyebrow">Tau Gamma Phi · history and context</p><h1>From a university beginning to a living Triskelion family</h1><p class="history-dek">A source-cited account of founding context, growth, service, and the safety responsibilities that shape the record today.</p><p class="history-notice">Research-led context. Verified founder photographs are pending; this page does not replace an authorized council publication or claim national audited totals.</p></header>${sections}<section class="history-sources" aria-labelledby="history-sources-title"><p class="eyebrow">Source trail</p><h2 id="history-sources-title">Read the references</h2><ol>${sources}</ol></section></article>`;
+  return `<article class="founders-history-page"><header class="history-hero"><p class="eyebrow">NATIONAL HISTORY</p><h1>From a University Beginning to a Living Triskelion Family</h1><p class="history-dek">At the University of the Philippines Diliman, the founding generation established what would become Tau Gamma Phi.</p><p class="history-dek">That beginning created the reference point from which later chapters, councils, and generations would trace their own place within the fraternity developing history. The pages below follow that thread through people, places, events, and the significance each period carried forward.</p><p class="history-notice">This history follows the available sources and preserves the limits of the record. Authorized founder portraits and fuller biographies have not yet been added.</p><p><a class="read-link" href="#history-sources-title">Read the Sources and Historical Record →</a></p></header>${sections}<section class="history-sources" aria-labelledby="history-sources-title"><p class="eyebrow">SOURCES AND HISTORICAL RECORD</p><h2 id="history-sources-title">Read the References</h2><ol>${sources}</ol></section></article>`;
 }
 
 export function mountFounderEditorial(root = document) {
