@@ -1,0 +1,3076 @@
+{
+  "pages": {
+    "home": {
+      "1440": {
+        "url": "http://localhost:4182/",
+        "title": "Tau Gamma Phi | National History and Impact Archive",
+        "overflow": {
+          "innerWidth": 1440,
+          "clientWidth": 1440,
+          "scrollWidth": 1440,
+          "bodyScrollWidth": 1440,
+          "offending": []
+        },
+        "footer": [
+          {
+            "caption": "Limbaga Road Chapter",
+            "figure": {
+              "x": 1104.734375,
+              "y": 22735.71875,
+              "w": 138.90625,
+              "h": 122
+            },
+            "image": {
+              "x": 1104.734375,
+              "y": 22735.71875,
+              "w": 96,
+              "h": 96,
+              "naturalWidth": 0,
+              "naturalHeight": 0,
+              "complete": false
+            },
+            "overflow": false
+          },
+          {
+            "caption": "Zamboanga City Council",
+            "figure": {
+              "x": 1104.734375,
+              "y": 22870.828125,
+              "w": 138.90625,
+              "h": 112
+            },
+            "image": {
+              "x": 1104.734375,
+              "y": 22870.828125,
+              "w": 96,
+              "h": 86,
+              "naturalWidth": 0,
+              "naturalHeight": 0,
+              "complete": false
+            },
+            "overflow": false
+          }
+        ],
+        "portraits": [
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "founder-portrait founder-portrait--fallback",
+            "box": {
+              "x": 161,
+              "y": 5001.671875,
+              "w": 546,
+              "h": 682.5
+            },
+            "objectFit": "fill",
+            "objectPosition": "50% 50%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          },
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "founder-portrait founder-portrait--fallback",
+            "box": {
+              "x": 733,
+              "y": 5001.671875,
+              "w": 546,
+              "h": 682.5
+            },
+            "objectFit": "fill",
+            "objectPosition": "50% 50%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          },
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "founder-portrait founder-portrait--fallback",
+            "box": {
+              "x": 161,
+              "y": 5939.21875,
+              "w": 546,
+              "h": 682.5
+            },
+            "objectFit": "fill",
+            "objectPosition": "50% 50%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          },
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "founder-portrait founder-portrait--fallback",
+            "box": {
+              "x": 733,
+              "y": 5939.21875,
+              "w": 546,
+              "h": 682.5
+            },
+            "objectFit": "fill",
+            "objectPosition": "50% 50%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          }
+        ],
+        "reducedMotion": {
+          "media": true,
+          "transitions": [
+            {
+              "tag": "A",
+              "cls": "skip-link",
+              "transition": "0.2s",
+              "animation": "0s"
+            },
+            {
+              "tag": "SPAN",
+              "cls": "brand-mark",
+              "transition": "0.2s, 0.2s",
+              "animation": "0s"
+            },
+            {
+              "tag": "A",
+              "cls": "nav-cta",
+              "transition": "0.2s",
+              "animation": "0s"
+            },
+            {
+              "tag": "A",
+              "cls": "nav-cta",
+              "transition": "0.2s",
+              "animation": "0s"
+            },
+            {
+              "tag": "A",
+              "cls": "button button-primary",
+              "transition": "0.25s",
+              "animation": "0s"
+            },
+            {
+              "tag": "A",
+              "cls": "button button-secondary",
+              "transition": "0.25s",
+              "animation": "0s"
+            },
+            {
+              "tag": "A",
+              "cls": "",
+              "transition": "0.2s, 0.2s, 0.2s",
+              "animation": "0s"
+            },
+            {
+              "tag": "A",
+              "cls": "",
+              "transition": "0.2s, 0.2s, 0.2s",
+              "animation": "0s"
+            },
+            {
+              "tag": "A",
+              "cls": "",
+              "transition": "0.2s, 0.2s, 0.2s",
+              "animation": "0s"
+            },
+            {
+              "tag": "A",
+              "cls": "",
+              "transition": "0.2s, 0.2s, 0.2s",
+              "animation": "0s"
+            },
+            {
+              "tag": "ARTICLE",
+              "cls": "founder-card founder-card--editorial",
+              "transition": "0.28s, 0.28s, 0.28s",
+              "animation": "0s"
+            },
+            {
+              "tag": "ARTICLE",
+              "cls": "founder-card founder-card--editorial",
+              "transition": "0.28s, 0.28s, 0.28s",
+              "animation": "0s"
+            },
+            {
+              "tag": "ARTICLE",
+              "cls": "founder-card founder-card--editorial",
+              "transition": "0.28s, 0.28s, 0.28s",
+              "animation": "0s"
+            },
+            {
+              "tag": "ARTICLE",
+              "cls": "founder-card founder-card--editorial",
+              "transition": "0.28s, 0.28s, 0.28s",
+              "animation": "0s"
+            },
+            {
+              "tag": "ARTICLE",
+              "cls": "genealogy-card",
+              "transition": "0.28s, 0.28s, 0.28s",
+              "animation": "0s"
+            }
+          ]
+        },
+        "screenshot": "C:\\Users\\Administrator\\Documents\\Client Projects\\02_Client Projects\\Triskelion de Zamboanga Digital Information & Community Hub\\artifacts\\parent-visual-qa\\home-1440.png"
+      },
+      "390": {
+        "url": "http://localhost:4182/",
+        "title": "Tau Gamma Phi | National History and Impact Archive",
+        "overflow": {
+          "innerWidth": 390,
+          "clientWidth": 390,
+          "scrollWidth": 390,
+          "bodyScrollWidth": 390,
+          "offending": [
+            {
+              "tag": "div",
+              "id": "",
+              "cls": "stage-step",
+              "text": "03\nReview\nSomeone checks it",
+              "left": 314.375,
+              "right": 419.375,
+              "width": 105,
+              "display": "flex",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "small",
+              "id": "",
+              "cls": "",
+              "text": "Someone checks it",
+              "left": 325.375,
+              "right": 408.375,
+              "width": 83,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "div",
+              "id": "",
+              "cls": "stage-arrow",
+              "text": "\u2192",
+              "left": 427.375,
+              "right": 441.0625,
+              "width": 13.6875,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "div",
+              "id": "",
+              "cls": "stage-step",
+              "text": "04\nCheck\nDetails compared",
+              "left": 449.0625,
+              "right": 554.0625,
+              "width": 105,
+              "display": "flex",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "span",
+              "id": "",
+              "cls": "stage-num",
+              "text": "04",
+              "left": 492.5,
+              "right": 510.625,
+              "width": 18.125,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "strong",
+              "id": "",
+              "cls": "",
+              "text": "Check",
+              "left": 484.359375,
+              "right": 518.75,
+              "width": 34.390625,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "small",
+              "id": "",
+              "cls": "",
+              "text": "Details compared",
+              "left": 462.4375,
+              "right": 540.6875,
+              "width": 78.25,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "div",
+              "id": "",
+              "cls": "stage-arrow",
+              "text": "\u2192",
+              "left": 562.0625,
+              "right": 575.75,
+              "width": 13.6875,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "div",
+              "id": "",
+              "cls": "stage-step",
+              "text": "05\nConfirmed\nCouncil review",
+              "left": 583.75,
+              "right": 688.75,
+              "width": 105,
+              "display": "flex",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "span",
+              "id": "",
+              "cls": "stage-num",
+              "text": "05",
+              "left": 627.53125,
+              "right": 644.96875,
+              "width": 17.4375,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "strong",
+              "id": "",
+              "cls": "",
+              "text": "Confirmed",
+              "left": 605.71875,
+              "right": 666.78125,
+              "width": 61.0625,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "small",
+              "id": "",
+              "cls": "",
+              "text": "Council review",
+              "left": 603.890625,
+              "right": 668.609375,
+              "width": 64.71875,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "div",
+              "id": "",
+              "cls": "stage-arrow",
+              "text": "\u2192",
+              "left": 696.75,
+              "right": 710.4375,
+              "width": 13.6875,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "div",
+              "id": "",
+              "cls": "stage-step",
+              "text": "06\nApproved\nReady to share",
+              "left": 718.4375,
+              "right": 823.4375,
+              "width": 105,
+              "display": "flex",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "span",
+              "id": "",
+              "cls": "stage-num",
+              "text": "06",
+              "left": 761.890625,
+              "right": 779.984375,
+              "width": 18.09375,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "strong",
+              "id": "",
+              "cls": "",
+              "text": "Approved",
+              "left": 742.484375,
+              "right": 799.390625,
+              "width": 56.90625,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "small",
+              "id": "",
+              "cls": "",
+              "text": "Ready to share",
+              "left": 737.9375,
+              "right": 803.921875,
+              "width": 65.984375,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "div",
+              "id": "",
+              "cls": "stage-arrow",
+              "text": "\u2192",
+              "left": 831.4375,
+              "right": 845.125,
+              "width": 13.6875,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "div",
+              "id": "",
+              "cls": "stage-step is-final",
+              "text": "07\nShared\nVisible to everyone",
+              "left": 853.125,
+              "right": 958.125,
+              "width": 105,
+              "display": "flex",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "span",
+              "id": "",
+              "cls": "stage-num",
+              "text": "07",
+              "left": 897.203125,
+              "right": 914.03125,
+              "width": 16.828125,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "strong",
+              "id": "",
+              "cls": "",
+              "text": "Shared",
+              "left": 885.6875,
+              "right": 925.546875,
+              "width": 39.859375,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "small",
+              "id": "",
+              "cls": "",
+              "text": "Visible to everyone",
+              "left": 864.125,
+              "right": 947.125,
+              "width": 83,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "g",
+              "id": "",
+              "cls": "[object SVGAnimatedString]",
+              "text": "",
+              "left": -6.767086029052734,
+              "right": 366.13891983032227,
+              "width": 372.906005859375,
+              "display": "inline",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "g",
+              "id": "",
+              "cls": "[object SVGAnimatedString]",
+              "text": "",
+              "left": -6.767086029052734,
+              "right": 366.13891983032227,
+              "width": 372.906005859375,
+              "display": "inline",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "line",
+              "id": "",
+              "cls": "[object SVGAnimatedString]",
+              "text": "",
+              "left": -6.767086029052734,
+              "right": 91.4457893371582,
+              "width": 98.21287536621094,
+              "display": "inline",
+              "overflowX": "visible"
+            }
+          ]
+        },
+        "footer": [
+          {
+            "caption": "Limbaga Road Chapter",
+            "figure": {
+              "x": 54,
+              "y": 40223,
+              "w": 138.90625,
+              "h": 122
+            },
+            "image": {
+              "x": 54,
+              "y": 40223,
+              "w": 96,
+              "h": 96,
+              "naturalWidth": 0,
+              "naturalHeight": 0,
+              "complete": false
+            },
+            "overflow": false
+          },
+          {
+            "caption": "Zamboanga City Council",
+            "figure": {
+              "x": 54,
+              "y": 40358.109375,
+              "w": 138.90625,
+              "h": 112
+            },
+            "image": {
+              "x": 54,
+              "y": 40358.109375,
+              "w": 96,
+              "h": 86,
+              "naturalWidth": 0,
+              "naturalHeight": 0,
+              "complete": false
+            },
+            "overflow": false
+          }
+        ],
+        "portraits": [
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "founder-portrait founder-portrait--fallback",
+            "box": {
+              "x": 29,
+              "y": 9631.4375,
+              "w": 332,
+              "h": 415
+            },
+            "objectFit": "fill",
+            "objectPosition": "50% 50%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          },
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "founder-portrait founder-portrait--fallback",
+            "box": {
+              "x": 29,
+              "y": 10370.625,
+              "w": 332,
+              "h": 415
+            },
+            "objectFit": "fill",
+            "objectPosition": "50% 50%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          },
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "founder-portrait founder-portrait--fallback",
+            "box": {
+              "x": 29,
+              "y": 11109.8125,
+              "w": 332,
+              "h": 415
+            },
+            "objectFit": "fill",
+            "objectPosition": "50% 50%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          },
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "founder-portrait founder-portrait--fallback",
+            "box": {
+              "x": 29,
+              "y": 11849,
+              "w": 332,
+              "h": 415
+            },
+            "objectFit": "fill",
+            "objectPosition": "50% 50%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          }
+        ],
+        "reducedMotion": {
+          "media": true,
+          "transitions": [
+            {
+              "tag": "A",
+              "cls": "skip-link",
+              "transition": "0.2s",
+              "animation": "0s"
+            },
+            {
+              "tag": "SPAN",
+              "cls": "brand-mark",
+              "transition": "0.2s, 0.2s",
+              "animation": "0s"
+            },
+            {
+              "tag": "A",
+              "cls": "nav-cta",
+              "transition": "0.2s",
+              "animation": "0s"
+            },
+            {
+              "tag": "A",
+              "cls": "nav-cta",
+              "transition": "0.2s",
+              "animation": "0s"
+            },
+            {
+              "tag": "A",
+              "cls": "button button-primary",
+              "transition": "0.25s",
+              "animation": "0s"
+            },
+            {
+              "tag": "A",
+              "cls": "button button-secondary",
+              "transition": "0.25s",
+              "animation": "0s"
+            },
+            {
+              "tag": "A",
+              "cls": "",
+              "transition": "0.2s, 0.2s, 0.2s",
+              "animation": "0s"
+            },
+            {
+              "tag": "A",
+              "cls": "",
+              "transition": "0.2s, 0.2s, 0.2s",
+              "animation": "0s"
+            },
+            {
+              "tag": "A",
+              "cls": "",
+              "transition": "0.2s, 0.2s, 0.2s",
+              "animation": "0s"
+            },
+            {
+              "tag": "A",
+              "cls": "",
+              "transition": "0.2s, 0.2s, 0.2s",
+              "animation": "0s"
+            },
+            {
+              "tag": "ARTICLE",
+              "cls": "founder-card founder-card--editorial",
+              "transition": "0.28s, 0.28s, 0.28s",
+              "animation": "0s"
+            },
+            {
+              "tag": "ARTICLE",
+              "cls": "founder-card founder-card--editorial",
+              "transition": "0.28s, 0.28s, 0.28s",
+              "animation": "0s"
+            },
+            {
+              "tag": "ARTICLE",
+              "cls": "founder-card founder-card--editorial",
+              "transition": "0.28s, 0.28s, 0.28s",
+              "animation": "0s"
+            },
+            {
+              "tag": "ARTICLE",
+              "cls": "founder-card founder-card--editorial",
+              "transition": "0.28s, 0.28s, 0.28s",
+              "animation": "0s"
+            },
+            {
+              "tag": "ARTICLE",
+              "cls": "genealogy-card",
+              "transition": "0.28s, 0.28s, 0.28s",
+              "animation": "0s"
+            }
+          ]
+        },
+        "screenshot": "C:\\Users\\Administrator\\Documents\\Client Projects\\02_Client Projects\\Triskelion de Zamboanga Digital Information & Community Hub\\artifacts\\parent-visual-qa\\home-390.png"
+      },
+      "320": {
+        "url": "http://localhost:4182/",
+        "title": "Tau Gamma Phi | National History and Impact Archive",
+        "overflow": {
+          "innerWidth": 320,
+          "clientWidth": 320,
+          "scrollWidth": 320,
+          "bodyScrollWidth": 320,
+          "offending": [
+            {
+              "tag": "div",
+              "id": "",
+              "cls": "stage-step",
+              "text": "03\nReview\nSomeone checks it",
+              "left": 314.375,
+              "right": 419.375,
+              "width": 105,
+              "display": "flex",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "span",
+              "id": "",
+              "cls": "stage-num",
+              "text": "03",
+              "left": 357.984375,
+              "right": 375.765625,
+              "width": 17.78125,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "strong",
+              "id": "",
+              "cls": "",
+              "text": "Review",
+              "left": 346.453125,
+              "right": 387.296875,
+              "width": 40.84375,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "small",
+              "id": "",
+              "cls": "",
+              "text": "Someone checks it",
+              "left": 325.375,
+              "right": 408.375,
+              "width": 83,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "div",
+              "id": "",
+              "cls": "stage-arrow",
+              "text": "\u2192",
+              "left": 427.375,
+              "right": 441.0625,
+              "width": 13.6875,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "div",
+              "id": "",
+              "cls": "stage-step",
+              "text": "04\nCheck\nDetails compared",
+              "left": 449.0625,
+              "right": 554.0625,
+              "width": 105,
+              "display": "flex",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "span",
+              "id": "",
+              "cls": "stage-num",
+              "text": "04",
+              "left": 492.5,
+              "right": 510.625,
+              "width": 18.125,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "strong",
+              "id": "",
+              "cls": "",
+              "text": "Check",
+              "left": 484.359375,
+              "right": 518.75,
+              "width": 34.390625,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "small",
+              "id": "",
+              "cls": "",
+              "text": "Details compared",
+              "left": 462.4375,
+              "right": 540.6875,
+              "width": 78.25,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "div",
+              "id": "",
+              "cls": "stage-arrow",
+              "text": "\u2192",
+              "left": 562.0625,
+              "right": 575.75,
+              "width": 13.6875,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "div",
+              "id": "",
+              "cls": "stage-step",
+              "text": "05\nConfirmed\nCouncil review",
+              "left": 583.75,
+              "right": 688.75,
+              "width": 105,
+              "display": "flex",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "span",
+              "id": "",
+              "cls": "stage-num",
+              "text": "05",
+              "left": 627.53125,
+              "right": 644.96875,
+              "width": 17.4375,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "strong",
+              "id": "",
+              "cls": "",
+              "text": "Confirmed",
+              "left": 605.71875,
+              "right": 666.78125,
+              "width": 61.0625,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "small",
+              "id": "",
+              "cls": "",
+              "text": "Council review",
+              "left": 603.890625,
+              "right": 668.609375,
+              "width": 64.71875,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "div",
+              "id": "",
+              "cls": "stage-arrow",
+              "text": "\u2192",
+              "left": 696.75,
+              "right": 710.4375,
+              "width": 13.6875,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "div",
+              "id": "",
+              "cls": "stage-step",
+              "text": "06\nApproved\nReady to share",
+              "left": 718.4375,
+              "right": 823.4375,
+              "width": 105,
+              "display": "flex",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "span",
+              "id": "",
+              "cls": "stage-num",
+              "text": "06",
+              "left": 761.890625,
+              "right": 779.984375,
+              "width": 18.09375,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "strong",
+              "id": "",
+              "cls": "",
+              "text": "Approved",
+              "left": 742.484375,
+              "right": 799.390625,
+              "width": 56.90625,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "small",
+              "id": "",
+              "cls": "",
+              "text": "Ready to share",
+              "left": 737.9375,
+              "right": 803.921875,
+              "width": 65.984375,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "div",
+              "id": "",
+              "cls": "stage-arrow",
+              "text": "\u2192",
+              "left": 831.4375,
+              "right": 845.125,
+              "width": 13.6875,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "div",
+              "id": "",
+              "cls": "stage-step is-final",
+              "text": "07\nShared\nVisible to everyone",
+              "left": 853.125,
+              "right": 958.125,
+              "width": 105,
+              "display": "flex",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "span",
+              "id": "",
+              "cls": "stage-num",
+              "text": "07",
+              "left": 897.203125,
+              "right": 914.03125,
+              "width": 16.828125,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "strong",
+              "id": "",
+              "cls": "",
+              "text": "Shared",
+              "left": 885.6875,
+              "right": 925.546875,
+              "width": 39.859375,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "small",
+              "id": "",
+              "cls": "",
+              "text": "Visible to everyone",
+              "left": 864.125,
+              "right": 947.125,
+              "width": 83,
+              "display": "block",
+              "overflowX": "visible"
+            },
+            {
+              "tag": "span",
+              "id": "",
+              "cls": "notable-orbit",
+              "text": "",
+              "left": 165.68540954589844,
+              "right": 332.3145751953125,
+              "width": 166.62916564941406,
+              "display": "block",
+              "overflowX": "visible"
+            }
+          ]
+        },
+        "footer": [
+          {
+            "caption": "Limbaga Road Chapter",
+            "figure": {
+              "x": 54,
+              "y": 43600.890625,
+              "w": 138.90625,
+              "h": 122
+            },
+            "image": {
+              "x": 54,
+              "y": 43600.890625,
+              "w": 96,
+              "h": 96,
+              "naturalWidth": 0,
+              "naturalHeight": 0,
+              "complete": false
+            },
+            "overflow": false
+          },
+          {
+            "caption": "Zamboanga City Council",
+            "figure": {
+              "x": 54,
+              "y": 43736,
+              "w": 138.90625,
+              "h": 112
+            },
+            "image": {
+              "x": 54,
+              "y": 43736,
+              "w": 96,
+              "h": 86,
+              "naturalWidth": 0,
+              "naturalHeight": 0,
+              "complete": false
+            },
+            "overflow": false
+          }
+        ],
+        "portraits": [
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "founder-portrait founder-portrait--fallback",
+            "box": {
+              "x": 29,
+              "y": 10555.625,
+              "w": 262,
+              "h": 327.5
+            },
+            "objectFit": "fill",
+            "objectPosition": "50% 50%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          },
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "founder-portrait founder-portrait--fallback",
+            "box": {
+              "x": 29,
+              "y": 11230.359375,
+              "w": 262,
+              "h": 327.5
+            },
+            "objectFit": "fill",
+            "objectPosition": "50% 50%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          },
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "founder-portrait founder-portrait--fallback",
+            "box": {
+              "x": 29,
+              "y": 11905.09375,
+              "w": 262,
+              "h": 327.5
+            },
+            "objectFit": "fill",
+            "objectPosition": "50% 50%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          },
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "founder-portrait founder-portrait--fallback",
+            "box": {
+              "x": 29,
+              "y": 12623.34375,
+              "w": 262,
+              "h": 327.5
+            },
+            "objectFit": "fill",
+            "objectPosition": "50% 50%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          }
+        ],
+        "reducedMotion": {
+          "media": true,
+          "transitions": [
+            {
+              "tag": "A",
+              "cls": "skip-link",
+              "transition": "0.2s",
+              "animation": "0s"
+            },
+            {
+              "tag": "SPAN",
+              "cls": "brand-mark",
+              "transition": "0.2s, 0.2s",
+              "animation": "0s"
+            },
+            {
+              "tag": "A",
+              "cls": "nav-cta",
+              "transition": "0.2s",
+              "animation": "0s"
+            },
+            {
+              "tag": "A",
+              "cls": "nav-cta",
+              "transition": "0.2s",
+              "animation": "0s"
+            },
+            {
+              "tag": "A",
+              "cls": "button button-primary",
+              "transition": "0.25s",
+              "animation": "0s"
+            },
+            {
+              "tag": "A",
+              "cls": "button button-secondary",
+              "transition": "0.25s",
+              "animation": "0s"
+            },
+            {
+              "tag": "A",
+              "cls": "",
+              "transition": "0.2s, 0.2s, 0.2s",
+              "animation": "0s"
+            },
+            {
+              "tag": "A",
+              "cls": "",
+              "transition": "0.2s, 0.2s, 0.2s",
+              "animation": "0s"
+            },
+            {
+              "tag": "A",
+              "cls": "",
+              "transition": "0.2s, 0.2s, 0.2s",
+              "animation": "0s"
+            },
+            {
+              "tag": "A",
+              "cls": "",
+              "transition": "0.2s, 0.2s, 0.2s",
+              "animation": "0s"
+            },
+            {
+              "tag": "ARTICLE",
+              "cls": "founder-card founder-card--editorial",
+              "transition": "0.28s, 0.28s, 0.28s",
+              "animation": "0s"
+            },
+            {
+              "tag": "ARTICLE",
+              "cls": "founder-card founder-card--editorial",
+              "transition": "0.28s, 0.28s, 0.28s",
+              "animation": "0s"
+            },
+            {
+              "tag": "ARTICLE",
+              "cls": "founder-card founder-card--editorial",
+              "transition": "0.28s, 0.28s, 0.28s",
+              "animation": "0s"
+            },
+            {
+              "tag": "ARTICLE",
+              "cls": "founder-card founder-card--editorial",
+              "transition": "0.28s, 0.28s, 0.28s",
+              "animation": "0s"
+            },
+            {
+              "tag": "ARTICLE",
+              "cls": "genealogy-card",
+              "transition": "0.28s, 0.28s, 0.28s",
+              "animation": "0s"
+            }
+          ]
+        },
+        "screenshot": "C:\\Users\\Administrator\\Documents\\Client Projects\\02_Client Projects\\Triskelion de Zamboanga Digital Information & Community Hub\\artifacts\\parent-visual-qa\\home-320.png"
+      }
+    },
+    "personalities": {
+      "1440": {
+        "url": "http://localhost:4182/personalities/",
+        "title": "Notable personalities \u00b7 Tau Gamma Phi archive",
+        "overflow": {
+          "innerWidth": 1440,
+          "clientWidth": 1440,
+          "scrollWidth": 1440,
+          "bodyScrollWidth": 1440,
+          "offending": []
+        },
+        "footer": [
+          {
+            "caption": "Limbaga Road Chapter",
+            "figure": {
+              "x": 180,
+              "y": 8746.140625,
+              "w": 113.75,
+              "h": 84
+            },
+            "image": {
+              "x": 200.875,
+              "y": 8746.140625,
+              "w": 72,
+              "h": 72,
+              "naturalWidth": 0,
+              "naturalHeight": 0,
+              "complete": false
+            },
+            "overflow": false
+          },
+          {
+            "caption": "Zamboanga City Council",
+            "figure": {
+              "x": 309.75,
+              "y": 8746.140625,
+              "w": 120.453125,
+              "h": 84
+            },
+            "image": {
+              "x": 333.96875,
+              "y": 8746.140625,
+              "w": 72,
+              "h": 72,
+              "naturalWidth": 0,
+              "naturalHeight": 0,
+              "complete": false
+            },
+            "overflow": false
+          }
+        ],
+        "portraits": [
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "personality-card-portrait personality-monogram",
+            "box": {
+              "x": 205,
+              "y": 537.65625,
+              "w": 299.328125,
+              "h": 374.15625
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          },
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "personality-card-portrait personality-monogram",
+            "box": {
+              "x": 570.328125,
+              "y": 537.65625,
+              "w": 299.328125,
+              "h": 374.15625
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/joel-villanueva.webp",
+            "alt": "Portrait of Joel Villanueva",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 935.65625,
+              "y": 537.65625,
+              "w": 299.34375,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": true,
+            "naturalWidth": 284,
+            "naturalHeight": 368
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/ralph-recto.webp",
+            "alt": "Portrait of Ralph G. Recto",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 205,
+              "y": 1868.1875,
+              "w": 299.328125,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": true,
+            "naturalWidth": 767,
+            "naturalHeight": 960
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/richard-gomez.webp",
+            "alt": "Portrait of Richard Frank Gomez",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 570.328125,
+              "y": 1868.1875,
+              "w": 299.328125,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": true,
+            "naturalWidth": 673,
+            "naturalHeight": 720
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/jose-teves.webp",
+            "alt": "Portrait of Jose \u201cBong\u201d J. Teves Jr.",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 935.65625,
+              "y": 1868.1875,
+              "w": 299.34375,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": true,
+            "naturalWidth": 288,
+            "naturalHeight": 387
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/rommel-marbil.webp",
+            "alt": "Portrait of Rommel Francisco D. Marbil",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 205,
+              "y": 3198.71875,
+              "w": 299.328125,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": true,
+            "naturalWidth": 749,
+            "naturalHeight": 960
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/vicente-danao.webp",
+            "alt": "Portrait of Vicente Dupa Danao Jr.",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 570.328125,
+              "y": 3198.71875,
+              "w": 299.328125,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": true,
+            "naturalWidth": 309,
+            "naturalHeight": 380
+          },
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "personality-card-portrait personality-monogram",
+            "box": {
+              "x": 935.65625,
+              "y": 3198.71875,
+              "w": 299.34375,
+              "h": 374.171875
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/eumir-marcial.webp",
+            "alt": "Portrait of Eumir Felix Marcial",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 205,
+              "y": 4554.765625,
+              "w": 299.328125,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": false,
+            "naturalWidth": 0,
+            "naturalHeight": 0
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/raymond-almazan.webp",
+            "alt": "Portrait of Raymond Almazan",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 570.328125,
+              "y": 4554.765625,
+              "w": 299.328125,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": false,
+            "naturalWidth": 0,
+            "naturalHeight": 0
+          },
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "personality-card-portrait personality-monogram",
+            "box": {
+              "x": 935.65625,
+              "y": 4554.765625,
+              "w": 299.34375,
+              "h": 374.171875
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          },
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "personality-card-portrait personality-monogram",
+            "box": {
+              "x": 205,
+              "y": 5900.484375,
+              "w": 299.328125,
+              "h": 374.15625
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/jm-de-guzman.webp",
+            "alt": "Portrait of Juan Miguel \u201cJM\u201d Gob de Guzman",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 570.328125,
+              "y": 5900.484375,
+              "w": 299.328125,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": false,
+            "naturalWidth": 0,
+            "naturalHeight": 0
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/luis-manzano.webp",
+            "alt": "Portrait of Luis Philippe Santos Manzano",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 935.65625,
+              "y": 5900.484375,
+              "w": 299.34375,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": false,
+            "naturalWidth": 0,
+            "naturalHeight": 0
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/nathan-azarcon.webp",
+            "alt": "Portrait of Nathan Peter Hachero Azarcon",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 205,
+              "y": 7244.53125,
+              "w": 299.328125,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": false,
+            "naturalWidth": 0,
+            "naturalHeight": 0
+          }
+        ],
+        "reducedMotion": {
+          "media": true,
+          "transitions": []
+        },
+        "screenshot": "C:\\Users\\Administrator\\Documents\\Client Projects\\02_Client Projects\\Triskelion de Zamboanga Digital Information & Community Hub\\artifacts\\parent-visual-qa\\personalities-1440.png"
+      },
+      "390": {
+        "url": "http://localhost:4182/personalities/",
+        "title": "Notable personalities \u00b7 Tau Gamma Phi archive",
+        "overflow": {
+          "innerWidth": 390,
+          "clientWidth": 390,
+          "scrollWidth": 390,
+          "bodyScrollWidth": 390,
+          "offending": []
+        },
+        "footer": [
+          {
+            "caption": "Limbaga Road Chapter",
+            "figure": {
+              "x": 20,
+              "y": 18992.6875,
+              "w": 113.75,
+              "h": 84
+            },
+            "image": {
+              "x": 40.875,
+              "y": 18992.6875,
+              "w": 72,
+              "h": 72,
+              "naturalWidth": 0,
+              "naturalHeight": 0,
+              "complete": false
+            },
+            "overflow": false
+          },
+          {
+            "caption": "Zamboanga City Council",
+            "figure": {
+              "x": 149.75,
+              "y": 18992.6875,
+              "w": 120.453125,
+              "h": 84
+            },
+            "image": {
+              "x": 173.96875,
+              "y": 18992.6875,
+              "w": 72,
+              "h": 72,
+              "naturalWidth": 0,
+              "naturalHeight": 0,
+              "complete": false
+            },
+            "overflow": false
+          }
+        ],
+        "portraits": [
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "personality-card-portrait personality-monogram",
+            "box": {
+              "x": 45,
+              "y": 584.15625,
+              "w": 300,
+              "h": 375
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          },
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "personality-card-portrait personality-monogram",
+            "box": {
+              "x": 45,
+              "y": 1277.6875,
+              "w": 300,
+              "h": 375
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/joel-villanueva.webp",
+            "alt": "Portrait of Joel Villanueva",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 45,
+              "y": 1971.21875,
+              "w": 300,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": true,
+            "naturalWidth": 284,
+            "naturalHeight": 368
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/ralph-recto.webp",
+            "alt": "Portrait of Ralph G. Recto",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 45,
+              "y": 3301.75,
+              "w": 300,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": true,
+            "naturalWidth": 767,
+            "naturalHeight": 960
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/richard-gomez.webp",
+            "alt": "Portrait of Richard Frank Gomez",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 45,
+              "y": 4632.28125,
+              "w": 300,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": false,
+            "naturalWidth": 0,
+            "naturalHeight": 0
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/jose-teves.webp",
+            "alt": "Portrait of Jose \u201cBong\u201d J. Teves Jr.",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 45,
+              "y": 5962.8125,
+              "w": 300,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": false,
+            "naturalWidth": 0,
+            "naturalHeight": 0
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/rommel-marbil.webp",
+            "alt": "Portrait of Rommel Francisco D. Marbil",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 45,
+              "y": 7293.34375,
+              "w": 300,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": false,
+            "naturalWidth": 0,
+            "naturalHeight": 0
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/vicente-danao.webp",
+            "alt": "Portrait of Vicente Dupa Danao Jr.",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 45,
+              "y": 8649.390625,
+              "w": 300,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": false,
+            "naturalWidth": 0,
+            "naturalHeight": 0
+          },
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "personality-card-portrait personality-monogram",
+            "box": {
+              "x": 45,
+              "y": 9979.921875,
+              "w": 300,
+              "h": 375
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/eumir-marcial.webp",
+            "alt": "Portrait of Eumir Felix Marcial",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 45,
+              "y": 10671.78125,
+              "w": 300,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": false,
+            "naturalWidth": 0,
+            "naturalHeight": 0
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/raymond-almazan.webp",
+            "alt": "Portrait of Raymond Almazan",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 45,
+              "y": 12017.5,
+              "w": 300,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": false,
+            "naturalWidth": 0,
+            "naturalHeight": 0
+          },
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "personality-card-portrait personality-monogram",
+            "box": {
+              "x": 45,
+              "y": 13308.84375,
+              "w": 300,
+              "h": 375
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          },
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "personality-card-portrait personality-monogram",
+            "box": {
+              "x": 45,
+              "y": 14027.890625,
+              "w": 300,
+              "h": 375
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/jm-de-guzman.webp",
+            "alt": "Portrait of Juan Miguel \u201cJM\u201d Gob de Guzman",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 45,
+              "y": 14775.796875,
+              "w": 300,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": false,
+            "naturalWidth": 0,
+            "naturalHeight": 0
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/luis-manzano.webp",
+            "alt": "Portrait of Luis Philippe Santos Manzano",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 45,
+              "y": 16119.84375,
+              "w": 300,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": false,
+            "naturalWidth": 0,
+            "naturalHeight": 0
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/nathan-azarcon.webp",
+            "alt": "Portrait of Nathan Peter Hachero Azarcon",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 45,
+              "y": 17436.703125,
+              "w": 300,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": false,
+            "naturalWidth": 0,
+            "naturalHeight": 0
+          }
+        ],
+        "reducedMotion": {
+          "media": true,
+          "transitions": []
+        },
+        "screenshot": "C:\\Users\\Administrator\\Documents\\Client Projects\\02_Client Projects\\Triskelion de Zamboanga Digital Information & Community Hub\\artifacts\\parent-visual-qa\\personalities-390.png"
+      },
+      "320": {
+        "url": "http://localhost:4182/personalities/",
+        "title": "Notable personalities \u00b7 Tau Gamma Phi archive",
+        "overflow": {
+          "innerWidth": 320,
+          "clientWidth": 320,
+          "scrollWidth": 320,
+          "bodyScrollWidth": 320,
+          "offending": []
+        },
+        "footer": [
+          {
+            "caption": "Limbaga Road Chapter",
+            "figure": {
+              "x": 20,
+              "y": 19250.875,
+              "w": 113.75,
+              "h": 84
+            },
+            "image": {
+              "x": 40.875,
+              "y": 19250.875,
+              "w": 72,
+              "h": 72,
+              "naturalWidth": 0,
+              "naturalHeight": 0,
+              "complete": false
+            },
+            "overflow": false
+          },
+          {
+            "caption": "Zamboanga City Council",
+            "figure": {
+              "x": 149.75,
+              "y": 19250.875,
+              "w": 120.453125,
+              "h": 84
+            },
+            "image": {
+              "x": 173.96875,
+              "y": 19250.875,
+              "w": 72,
+              "h": 72,
+              "naturalWidth": 0,
+              "naturalHeight": 0,
+              "complete": false
+            },
+            "overflow": false
+          }
+        ],
+        "portraits": [
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "personality-card-portrait personality-monogram",
+            "box": {
+              "x": 45,
+              "y": 598.9375,
+              "w": 230,
+              "h": 287.5
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          },
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "personality-card-portrait personality-monogram",
+            "box": {
+              "x": 45,
+              "y": 1244.15625,
+              "w": 230,
+              "h": 287.5
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/joel-villanueva.webp",
+            "alt": "Portrait of Joel Villanueva",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 45,
+              "y": 1887.703125,
+              "w": 230,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": true,
+            "naturalWidth": 284,
+            "naturalHeight": 368
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/ralph-recto.webp",
+            "alt": "Portrait of Ralph G. Recto",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 45,
+              "y": 3245.421875,
+              "w": 230,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": true,
+            "naturalWidth": 767,
+            "naturalHeight": 960
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/richard-gomez.webp",
+            "alt": "Portrait of Richard Frank Gomez",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 45,
+              "y": 4575.953125,
+              "w": 230,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": false,
+            "naturalWidth": 0,
+            "naturalHeight": 0
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/jose-teves.webp",
+            "alt": "Portrait of Jose \u201cBong\u201d J. Teves Jr.",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 45,
+              "y": 5959.1875,
+              "w": 230,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": false,
+            "naturalWidth": 0,
+            "naturalHeight": 0
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/rommel-marbil.webp",
+            "alt": "Portrait of Rommel Francisco D. Marbil",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 45,
+              "y": 7342.421875,
+              "w": 230,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": false,
+            "naturalWidth": 0,
+            "naturalHeight": 0
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/vicente-danao.webp",
+            "alt": "Portrait of Vicente Dupa Danao Jr.",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 45,
+              "y": 8698.46875,
+              "w": 230,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": false,
+            "naturalWidth": 0,
+            "naturalHeight": 0
+          },
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "personality-card-portrait personality-monogram",
+            "box": {
+              "x": 45,
+              "y": 10081.703125,
+              "w": 230,
+              "h": 287.5
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/eumir-marcial.webp",
+            "alt": "Portrait of Eumir Felix Marcial",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 45,
+              "y": 10725.25,
+              "w": 230,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": false,
+            "naturalWidth": 0,
+            "naturalHeight": 0
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/raymond-almazan.webp",
+            "alt": "Portrait of Raymond Almazan",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 45,
+              "y": 12162.859375,
+              "w": 230,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": false,
+            "naturalWidth": 0,
+            "naturalHeight": 0
+          },
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "personality-card-portrait personality-monogram",
+            "box": {
+              "x": 45,
+              "y": 13493.390625,
+              "w": 230,
+              "h": 287.5
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          },
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "personality-card-portrait personality-monogram",
+            "box": {
+              "x": 45,
+              "y": 14164.125,
+              "w": 230,
+              "h": 287.5
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/jm-de-guzman.webp",
+            "alt": "Portrait of Juan Miguel \u201cJM\u201d Gob de Guzman",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 45,
+              "y": 14889.234375,
+              "w": 230,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": false,
+            "naturalWidth": 0,
+            "naturalHeight": 0
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/luis-manzano.webp",
+            "alt": "Portrait of Luis Philippe Santos Manzano",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 45,
+              "y": 16272.46875,
+              "w": 230,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": false,
+            "naturalWidth": 0,
+            "naturalHeight": 0
+          },
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/nathan-azarcon.webp",
+            "alt": "Portrait of Nathan Peter Hachero Azarcon",
+            "class": "personality-card-portrait",
+            "box": {
+              "x": 45,
+              "y": 17628.515625,
+              "w": 230,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": false,
+            "naturalWidth": 0,
+            "naturalHeight": 0
+          }
+        ],
+        "reducedMotion": {
+          "media": true,
+          "transitions": []
+        },
+        "screenshot": "C:\\Users\\Administrator\\Documents\\Client Projects\\02_Client Projects\\Triskelion de Zamboanga Digital Information & Community Hub\\artifacts\\parent-visual-qa\\personalities-320.png"
+      }
+    },
+    "joel-villanueva": {
+      "1440": {
+        "url": "http://localhost:4182/personalities/joel-villanueva/",
+        "title": "Joel Villanueva \u00b7 Tau Gamma Phi archive",
+        "overflow": {
+          "innerWidth": 1440,
+          "clientWidth": 1440,
+          "scrollWidth": 1440,
+          "bodyScrollWidth": 1440,
+          "offending": []
+        },
+        "footer": [
+          {
+            "caption": "Limbaga Road Chapter",
+            "figure": {
+              "x": 180,
+              "y": 2561.71875,
+              "w": 113.75,
+              "h": 84
+            },
+            "image": {
+              "x": 200.875,
+              "y": 2561.71875,
+              "w": 72,
+              "h": 72,
+              "naturalWidth": 1254,
+              "naturalHeight": 1254,
+              "complete": true
+            },
+            "overflow": false
+          },
+          {
+            "caption": "Zamboanga City Council",
+            "figure": {
+              "x": 309.75,
+              "y": 2561.71875,
+              "w": 120.453125,
+              "h": 84
+            },
+            "image": {
+              "x": 333.96875,
+              "y": 2561.71875,
+              "w": 72,
+              "h": 72,
+              "naturalWidth": 1327,
+              "naturalHeight": 1185,
+              "complete": true
+            },
+            "overflow": false
+          }
+        ],
+        "portraits": [
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/joel-villanueva.webp",
+            "alt": "Portrait of Joel Villanueva",
+            "class": "personality-hero-portrait",
+            "box": {
+              "x": 330,
+              "y": 175.78125,
+              "w": 420,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": true,
+            "naturalWidth": 284,
+            "naturalHeight": 368
+          }
+        ],
+        "reducedMotion": {
+          "media": true,
+          "transitions": []
+        },
+        "screenshot": "C:\\Users\\Administrator\\Documents\\Client Projects\\02_Client Projects\\Triskelion de Zamboanga Digital Information & Community Hub\\artifacts\\parent-visual-qa\\joel-villanueva-1440.png"
+      },
+      "390": {
+        "url": "http://localhost:4182/personalities/joel-villanueva/",
+        "title": "Joel Villanueva \u00b7 Tau Gamma Phi archive",
+        "overflow": {
+          "innerWidth": 390,
+          "clientWidth": 390,
+          "scrollWidth": 390,
+          "bodyScrollWidth": 390,
+          "offending": []
+        },
+        "footer": [
+          {
+            "caption": "Limbaga Road Chapter",
+            "figure": {
+              "x": 20,
+              "y": 3039.375,
+              "w": 113.75,
+              "h": 84
+            },
+            "image": {
+              "x": 40.875,
+              "y": 3039.375,
+              "w": 72,
+              "h": 72,
+              "naturalWidth": 1254,
+              "naturalHeight": 1254,
+              "complete": true
+            },
+            "overflow": false
+          },
+          {
+            "caption": "Zamboanga City Council",
+            "figure": {
+              "x": 149.75,
+              "y": 3039.375,
+              "w": 120.453125,
+              "h": 84
+            },
+            "image": {
+              "x": 173.96875,
+              "y": 3039.375,
+              "w": 72,
+              "h": 72,
+              "naturalWidth": 1327,
+              "naturalHeight": 1185,
+              "complete": true
+            },
+            "overflow": false
+          }
+        ],
+        "portraits": [
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/joel-villanueva.webp",
+            "alt": "Portrait of Joel Villanueva",
+            "class": "personality-hero-portrait",
+            "box": {
+              "x": 20,
+              "y": 195.15625,
+              "w": 350,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": true,
+            "naturalWidth": 284,
+            "naturalHeight": 368
+          }
+        ],
+        "reducedMotion": {
+          "media": true,
+          "transitions": []
+        },
+        "screenshot": "C:\\Users\\Administrator\\Documents\\Client Projects\\02_Client Projects\\Triskelion de Zamboanga Digital Information & Community Hub\\artifacts\\parent-visual-qa\\joel-villanueva-390.png"
+      },
+      "320": {
+        "url": "http://localhost:4182/personalities/joel-villanueva/",
+        "title": "Joel Villanueva \u00b7 Tau Gamma Phi archive",
+        "overflow": {
+          "innerWidth": 320,
+          "clientWidth": 320,
+          "scrollWidth": 320,
+          "bodyScrollWidth": 320,
+          "offending": []
+        },
+        "footer": [
+          {
+            "caption": "Limbaga Road Chapter",
+            "figure": {
+              "x": 20,
+              "y": 3366.03125,
+              "w": 113.75,
+              "h": 84
+            },
+            "image": {
+              "x": 40.875,
+              "y": 3366.03125,
+              "w": 72,
+              "h": 72,
+              "naturalWidth": 1254,
+              "naturalHeight": 1254,
+              "complete": true
+            },
+            "overflow": false
+          },
+          {
+            "caption": "Zamboanga City Council",
+            "figure": {
+              "x": 149.75,
+              "y": 3366.03125,
+              "w": 120.453125,
+              "h": 84
+            },
+            "image": {
+              "x": 173.96875,
+              "y": 3366.03125,
+              "w": 72,
+              "h": 72,
+              "naturalWidth": 1327,
+              "naturalHeight": 1185,
+              "complete": true
+            },
+            "overflow": false
+          }
+        ],
+        "portraits": [
+          {
+            "tag": "IMG",
+            "src": "/src/assets/personalities/joel-villanueva.webp",
+            "alt": "Portrait of Joel Villanueva",
+            "class": "personality-hero-portrait",
+            "box": {
+              "x": 20,
+              "y": 195.15625,
+              "w": 280,
+              "h": 1000
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": true,
+            "naturalWidth": 284,
+            "naturalHeight": 368
+          }
+        ],
+        "reducedMotion": {
+          "media": true,
+          "transitions": []
+        },
+        "screenshot": "C:\\Users\\Administrator\\Documents\\Client Projects\\02_Client Projects\\Triskelion de Zamboanga Digital Information & Community Hub\\artifacts\\parent-visual-qa\\joel-villanueva-320.png"
+      }
+    },
+    "roy-ordinario-initials": {
+      "1440": {
+        "url": "http://localhost:4182/personalities/roy-ordinario/",
+        "title": "Roy Ordinario \u00b7 Tau Gamma Phi archive",
+        "overflow": {
+          "innerWidth": 1440,
+          "clientWidth": 1440,
+          "scrollWidth": 1440,
+          "bodyScrollWidth": 1440,
+          "offending": []
+        },
+        "footer": [
+          {
+            "caption": "Limbaga Road Chapter",
+            "figure": {
+              "x": 180,
+              "y": 2121.71875,
+              "w": 113.75,
+              "h": 84
+            },
+            "image": {
+              "x": 200.875,
+              "y": 2121.71875,
+              "w": 72,
+              "h": 72,
+              "naturalWidth": 1254,
+              "naturalHeight": 1254,
+              "complete": true
+            },
+            "overflow": false
+          },
+          {
+            "caption": "Zamboanga City Council",
+            "figure": {
+              "x": 309.75,
+              "y": 2121.71875,
+              "w": 120.453125,
+              "h": 84
+            },
+            "image": {
+              "x": 333.96875,
+              "y": 2121.71875,
+              "w": 72,
+              "h": 72,
+              "naturalWidth": 1327,
+              "naturalHeight": 1185,
+              "complete": true
+            },
+            "overflow": false
+          }
+        ],
+        "portraits": [
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "personality-hero-portrait personality-monogram",
+            "box": {
+              "x": 330,
+              "y": 175.78125,
+              "w": 420,
+              "h": 560
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          }
+        ],
+        "reducedMotion": {
+          "media": true,
+          "transitions": []
+        },
+        "screenshot": "C:\\Users\\Administrator\\Documents\\Client Projects\\02_Client Projects\\Triskelion de Zamboanga Digital Information & Community Hub\\artifacts\\parent-visual-qa\\roy-ordinario-initials-1440.png"
+      },
+      "390": {
+        "url": "http://localhost:4182/personalities/roy-ordinario/",
+        "title": "Roy Ordinario \u00b7 Tau Gamma Phi archive",
+        "overflow": {
+          "innerWidth": 390,
+          "clientWidth": 390,
+          "scrollWidth": 390,
+          "bodyScrollWidth": 390,
+          "offending": []
+        },
+        "footer": [
+          {
+            "caption": "Limbaga Road Chapter",
+            "figure": {
+              "x": 20,
+              "y": 2533.21875,
+              "w": 113.75,
+              "h": 84
+            },
+            "image": {
+              "x": 40.875,
+              "y": 2533.21875,
+              "w": 72,
+              "h": 72,
+              "naturalWidth": 1254,
+              "naturalHeight": 1254,
+              "complete": true
+            },
+            "overflow": false
+          },
+          {
+            "caption": "Zamboanga City Council",
+            "figure": {
+              "x": 149.75,
+              "y": 2533.21875,
+              "w": 120.453125,
+              "h": 84
+            },
+            "image": {
+              "x": 173.96875,
+              "y": 2533.21875,
+              "w": 72,
+              "h": 72,
+              "naturalWidth": 1327,
+              "naturalHeight": 1185,
+              "complete": true
+            },
+            "overflow": false
+          }
+        ],
+        "portraits": [
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "personality-hero-portrait personality-monogram",
+            "box": {
+              "x": 20,
+              "y": 195.15625,
+              "w": 350,
+              "h": 466.65625
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          }
+        ],
+        "reducedMotion": {
+          "media": true,
+          "transitions": []
+        },
+        "screenshot": "C:\\Users\\Administrator\\Documents\\Client Projects\\02_Client Projects\\Triskelion de Zamboanga Digital Information & Community Hub\\artifacts\\parent-visual-qa\\roy-ordinario-initials-390.png"
+      },
+      "320": {
+        "url": "http://localhost:4182/personalities/roy-ordinario/",
+        "title": "Roy Ordinario \u00b7 Tau Gamma Phi archive",
+        "overflow": {
+          "innerWidth": 320,
+          "clientWidth": 320,
+          "scrollWidth": 320,
+          "bodyScrollWidth": 320,
+          "offending": []
+        },
+        "footer": [
+          {
+            "caption": "Limbaga Road Chapter",
+            "figure": {
+              "x": 20,
+              "y": 2739.359375,
+              "w": 113.75,
+              "h": 84
+            },
+            "image": {
+              "x": 40.875,
+              "y": 2739.359375,
+              "w": 72,
+              "h": 72,
+              "naturalWidth": 1254,
+              "naturalHeight": 1254,
+              "complete": true
+            },
+            "overflow": false
+          },
+          {
+            "caption": "Zamboanga City Council",
+            "figure": {
+              "x": 149.75,
+              "y": 2739.359375,
+              "w": 120.453125,
+              "h": 84
+            },
+            "image": {
+              "x": 173.96875,
+              "y": 2739.359375,
+              "w": 72,
+              "h": 72,
+              "naturalWidth": 1327,
+              "naturalHeight": 1185,
+              "complete": true
+            },
+            "overflow": false
+          }
+        ],
+        "portraits": [
+          {
+            "tag": "DIV",
+            "src": null,
+            "alt": null,
+            "class": "personality-hero-portrait personality-monogram",
+            "box": {
+              "x": 20,
+              "y": 195.15625,
+              "w": 280,
+              "h": 373.328125
+            },
+            "objectFit": "cover",
+            "objectPosition": "50% 35%",
+            "complete": null,
+            "naturalWidth": null,
+            "naturalHeight": null
+          }
+        ],
+        "reducedMotion": {
+          "media": true,
+          "transitions": []
+        },
+        "screenshot": "C:\\Users\\Administrator\\Documents\\Client Projects\\02_Client Projects\\Triskelion de Zamboanga Digital Information & Community Hub\\artifacts\\parent-visual-qa\\roy-ordinario-initials-320.png"
+      }
+    },
+    "story-records": {
+      "1440": {
+        "url": "http://localhost:4182/stories/tau-gamma-phi-national-records-and-membership/",
+        "title": "What the public record can\u2014and cannot\u2014say about Tau Gamma Phi\u2019s strength \u00b7 Tau Gamma Phi archive",
+        "overflow": {
+          "innerWidth": 1440,
+          "clientWidth": 1440,
+          "scrollWidth": 1440,
+          "bodyScrollWidth": 1440,
+          "offending": []
+        },
+        "footer": [
+          {
+            "caption": "Limbaga Road Chapter",
+            "figure": {
+              "x": 180,
+              "y": 5314.53125,
+              "w": 113.75,
+              "h": 84
+            },
+            "image": {
+              "x": 200.875,
+              "y": 5314.53125,
+              "w": 72,
+              "h": 72,
+              "naturalWidth": 0,
+              "naturalHeight": 0,
+              "complete": false
+            },
+            "overflow": false
+          },
+          {
+            "caption": "Zamboanga City Council",
+            "figure": {
+              "x": 309.75,
+              "y": 5314.53125,
+              "w": 120.453125,
+              "h": 84
+            },
+            "image": {
+              "x": 333.96875,
+              "y": 5314.53125,
+              "w": 72,
+              "h": 72,
+              "naturalWidth": 0,
+              "naturalHeight": 0,
+              "complete": false
+            },
+            "overflow": false
+          }
+        ],
+        "portraits": [],
+        "reducedMotion": {
+          "media": true,
+          "transitions": []
+        },
+        "screenshot": "C:\\Users\\Administrator\\Documents\\Client Projects\\02_Client Projects\\Triskelion de Zamboanga Digital Information & Community Hub\\artifacts\\parent-visual-qa\\story-records-1440.png"
+      },
+      "390": {
+        "url": "http://localhost:4182/stories/tau-gamma-phi-national-records-and-membership/",
+        "title": "What the public record can\u2014and cannot\u2014say about Tau Gamma Phi\u2019s strength \u00b7 Tau Gamma Phi archive",
+        "overflow": {
+          "innerWidth": 390,
+          "clientWidth": 390,
+          "scrollWidth": 390,
+          "bodyScrollWidth": 390,
+          "offending": []
+        },
+        "footer": [
+          {
+            "caption": "Limbaga Road Chapter",
+            "figure": {
+              "x": 20,
+              "y": 8241.09375,
+              "w": 113.75,
+              "h": 84
+            },
+            "image": {
+              "x": 40.875,
+              "y": 8241.09375,
+              "w": 72,
+              "h": 72,
+              "naturalWidth": 0,
+              "naturalHeight": 0,
+              "complete": false
+            },
+            "overflow": false
+          },
+          {
+            "caption": "Zamboanga City Council",
+            "figure": {
+              "x": 149.75,
+              "y": 8241.09375,
+              "w": 120.453125,
+              "h": 84
+            },
+            "image": {
+              "x": 173.96875,
+              "y": 8241.09375,
+              "w": 72,
+              "h": 72,
+              "naturalWidth": 0,
+              "naturalHeight": 0,
+              "complete": false
+            },
+            "overflow": false
+          }
+        ],
+        "portraits": [],
+        "reducedMotion": {
+          "media": true,
+          "transitions": []
+        },
+        "screenshot": "C:\\Users\\Administrator\\Documents\\Client Projects\\02_Client Projects\\Triskelion de Zamboanga Digital Information & Community Hub\\artifacts\\parent-visual-qa\\story-records-390.png"
+      },
+      "320": {
+        "url": "http://localhost:4182/stories/tau-gamma-phi-national-records-and-membership/",
+        "title": "What the public record can\u2014and cannot\u2014say about Tau Gamma Phi\u2019s strength \u00b7 Tau Gamma Phi archive",
+        "overflow": {
+          "innerWidth": 320,
+          "clientWidth": 320,
+          "scrollWidth": 320,
+          "bodyScrollWidth": 320,
+          "offending": []
+        },
+        "footer": [
+          {
+            "caption": "Limbaga Road Chapter",
+            "figure": {
+              "x": 20,
+              "y": 9627,
+              "w": 113.75,
+              "h": 84
+            },
+            "image": {
+              "x": 40.875,
+              "y": 9627,
+              "w": 72,
+              "h": 72,
+              "naturalWidth": 0,
+              "naturalHeight": 0,
+              "complete": false
+            },
+            "overflow": false
+          },
+          {
+            "caption": "Zamboanga City Council",
+            "figure": {
+              "x": 149.75,
+              "y": 9627,
+              "w": 120.453125,
+              "h": 84
+            },
+            "image": {
+              "x": 173.96875,
+              "y": 9627,
+              "w": 72,
+              "h": 72,
+              "naturalWidth": 0,
+              "naturalHeight": 0,
+              "complete": false
+            },
+            "overflow": false
+          }
+        ],
+        "portraits": [],
+        "reducedMotion": {
+          "media": true,
+          "transitions": []
+        },
+        "screenshot": "C:\\Users\\Administrator\\Documents\\Client Projects\\02_Client Projects\\Triskelion de Zamboanga Digital Information & Community Hub\\artifacts\\parent-visual-qa\\story-records-320.png"
+      }
+    }
+  },
+  "interactions": {
+    "initialMenu": [
+      {
+        "summary": "Discover",
+        "open": false,
+        "aria": "false"
+      },
+      {
+        "summary": "Our Story",
+        "open": false,
+        "aria": "false"
+      },
+      {
+        "summary": "Serve Together",
+        "open": false,
+        "aria": "false"
+      }
+    ],
+    "afterExploreClick": [
+      {
+        "summary": "Discover",
+        "open": true,
+        "aria": "true"
+      },
+      {
+        "summary": "Our Story",
+        "open": false,
+        "aria": "false"
+      },
+      {
+        "summary": "Serve Together",
+        "open": false,
+        "aria": "false"
+      }
+    ],
+    "afterSourcesClick": [
+      {
+        "summary": "Discover",
+        "open": false,
+        "aria": "false"
+      },
+      {
+        "summary": "Our Story",
+        "open": true,
+        "aria": "true"
+      },
+      {
+        "summary": "Serve Together",
+        "open": false,
+        "aria": "false"
+      }
+    ],
+    "afterEscape": {
+      "state": [
+        {
+          "summary": "Discover",
+          "open": false,
+          "aria": "false"
+        },
+        {
+          "summary": "Our Story",
+          "open": false,
+          "aria": "false"
+        },
+        {
+          "summary": "Serve Together",
+          "open": false,
+          "aria": "false"
+        }
+      ],
+      "active": {
+        "tag": "summary",
+        "text": "Our Story",
+        "id": "",
+        "outline": "rgba(214, 170, 75, 0.8) solid 3px",
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "boxShadow": "none",
+        "rect": {
+          "x": 897.453125,
+          "y": 20.28125,
+          "w": 68.59375,
+          "h": 42.421875
+        }
+      }
+    },
+    "afterOutsideClick": {
+      "state": [
+        {
+          "summary": "Discover",
+          "open": false,
+          "aria": "false"
+        },
+        {
+          "summary": "Our Story",
+          "open": false,
+          "aria": "false"
+        },
+        {
+          "summary": "Serve Together",
+          "open": false,
+          "aria": "false"
+        }
+      ],
+      "active": {
+        "tag": "main",
+        "text": "TAU GAMMA PHI \u00b7 NATIONAL HISTORY AND IMPACT\nNational preservation scope \u00b7 Counci",
+        "id": "main-content",
+        "outline": "rgb(18, 20, 23) none 3px",
+        "outlineWidth": "3px",
+        "outlineStyle": "none",
+        "boxShadow": "none",
+        "rect": {
+          "x": 0,
+          "y": 84,
+          "w": 1440,
+          "h": 22476.421875
+        }
+      }
+    },
+    "afterLinkSelection": {
+      "state": [
+        {
+          "summary": "Discover",
+          "open": false,
+          "aria": "false"
+        },
+        {
+          "summary": "Our Story",
+          "open": false,
+          "aria": "false"
+        },
+        {
+          "summary": "Serve Together",
+          "open": false,
+          "aria": "false"
+        }
+      ],
+      "url": "http://localhost:4182/#pillars",
+      "href": "#pillars",
+      "active": {
+        "tag": "body",
+        "text": "Skip to main content\nTAU GAMMA PHI\nTriskelions\u2019 Grand Fraternity \u00b7 National Hist",
+        "id": "",
+        "outline": "rgb(18, 20, 23) none 3px",
+        "outlineWidth": "3px",
+        "outlineStyle": "none",
+        "boxShadow": "none",
+        "rect": {
+          "x": 0,
+          "y": -626,
+          "w": 1440,
+          "h": 23566.640625
+        }
+      }
+    },
+    "keyboardEnter": {
+      "state": [
+        {
+          "summary": "Discover",
+          "open": true,
+          "aria": "true"
+        },
+        {
+          "summary": "Our Story",
+          "open": false,
+          "aria": "false"
+        },
+        {
+          "summary": "Serve Together",
+          "open": false,
+          "aria": "false"
+        }
+      ],
+      "active": {
+        "tag": "summary",
+        "text": "Discover",
+        "id": "",
+        "outline": "rgba(214, 170, 75, 0.8) solid 3px",
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "boxShadow": "none",
+        "rect": {
+          "x": 811.328125,
+          "y": 20.28125,
+          "w": 62.125,
+          "h": 42.421875
+        }
+      }
+    },
+    "skipLink": {
+      "active": {
+        "tag": "a",
+        "text": "Skip to main content",
+        "id": "",
+        "outline": "rgba(214, 170, 75, 0.8) solid 3px",
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "boxShadow": "none",
+        "rect": {
+          "x": 16,
+          "y": -36.50022506713867,
+          "w": 188.953125,
+          "h": 45.59375
+        }
+      },
+      "visible": true
+    },
+    "skipActivated": {
+      "active": {
+        "tag": "main",
+        "text": "TAU GAMMA PHI \u00b7 NATIONAL HISTORY AND IMPACT\nNational preservation scope \u00b7 Counci",
+        "id": "main-content",
+        "outline": "rgb(18, 20, 23) none 3px",
+        "outlineWidth": "3px",
+        "outlineStyle": "none",
+        "boxShadow": "none",
+        "rect": {
+          "x": 0,
+          "y": 84,
+          "w": 1440,
+          "h": 22476.421875
+        }
+      },
+      "hash": "#main-content"
+    },
+    "secondTabFocus": {
+      "tag": "a",
+      "text": "TAU GAMMA PHI\nTriskelions\u2019 Grand Fraternity \u00b7 National History and Impact Archiv",
+      "id": "",
+      "outline": "rgb(243, 202, 104) solid 3px",
+      "outlineWidth": "3px",
+      "outlineStyle": "solid",
+      "boxShadow": "none",
+      "rect": {
+        "x": 80,
+        "y": 18.5,
+        "w": 417.109375,
+        "h": 46
+      }
+    },
+    "reducedMotionNoPreference": {
+      "reduce": false,
+      "htmlClass": "",
+      "bodyClass": ""
+    }
+  },
+  "errors": []
+}

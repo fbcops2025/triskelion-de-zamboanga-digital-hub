@@ -15,6 +15,24 @@ const $ = (selector) => document.querySelector(selector);
 
 const siteNav = $('#site-nav');
 if (siteNav) initHeaderNavigation({ root: siteNav, menuToggle: '.menu-toggle', mobilePanel: siteNav });
+
+const verificationStepper = $('.stages-stepper');
+if (verificationStepper) {
+  const scrollStep = () => Math.max(verificationStepper.clientWidth * 0.8, 180);
+  verificationStepper.addEventListener('keydown', event => {
+    const movement = {
+      ArrowRight: scrollStep(),
+      ArrowDown: scrollStep(),
+      ArrowLeft: -scrollStep(),
+      ArrowUp: -scrollStep(),
+      Home: -verificationStepper.scrollWidth,
+      End: verificationStepper.scrollWidth,
+    }[event.key];
+    if (movement === undefined) return;
+    event.preventDefault();
+    verificationStepper.scrollBy({ left: movement, behavior: 'smooth' });
+  });
+}
 // ==========================================
 // 1. RENDER PLATFORM PILLARS
 // ==========================================

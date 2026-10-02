@@ -13,6 +13,8 @@ const [html, css, app] = await Promise.all([
 if (!html.includes('class="skip-link"') || !html.includes('id="main-content"')) throw new Error('skip link target missing');
 if (!html.includes('tabindex="0" aria-label="Seven-stage')) throw new Error('stepper keyboard affordance missing');
 if (!css.includes('.stages-stepper:focus-visible')) throw new Error('stepper focus styling missing');
+if (!app.includes("const verificationStepper = $('.stages-stepper');") || !app.includes('ArrowRight: scrollStep()') || !app.includes('End: verificationStepper.scrollWidth')) throw new Error('stepper keyboard scrolling is missing');
+if (!css.includes('animation-duration:.01ms!important') || !css.includes('transition-duration:.01ms!important')) throw new Error('reduced-motion coverage is incomplete');
 if (!css.includes('.timeline-node{min-width:0;grid-template-columns:50px minmax(0,1fr)}')) throw new Error('timeline grid must allow intrinsic width to shrink');
 if (!css.includes('.timeline-card{min-width:0;max-width:100%;box-sizing:border-box')) throw new Error('timeline card must contain intrinsic width at component level');
 if (css.includes('body{overflow-x:hidden') || css.includes('html{overflow-x:hidden')) throw new Error('page-level overflow hiding is not an acceptable responsive fix');

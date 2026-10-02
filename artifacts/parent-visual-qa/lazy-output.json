@@ -1,0 +1,194 @@
+{
+  "personalitiesImgs": [
+    {
+      "src": "http://localhost:4182/src/assets/personalities/joel-villanueva.webp",
+      "alt": "Portrait of Joel Villanueva",
+      "complete": true,
+      "naturalWidth": 284,
+      "naturalHeight": 368,
+      "rect": {
+        "x": 45,
+        "y": -16421.78125,
+        "w": 300,
+        "h": 1000
+      }
+    },
+    {
+      "src": "http://localhost:4182/src/assets/personalities/ralph-recto.webp",
+      "alt": "Portrait of Ralph G. Recto",
+      "complete": true,
+      "naturalWidth": 767,
+      "naturalHeight": 960,
+      "rect": {
+        "x": 45,
+        "y": -15091.25,
+        "w": 300,
+        "h": 1000
+      }
+    },
+    {
+      "src": "http://localhost:4182/src/assets/personalities/richard-gomez.webp",
+      "alt": "Portrait of Richard Frank Gomez",
+      "complete": true,
+      "naturalWidth": 673,
+      "naturalHeight": 720,
+      "rect": {
+        "x": 45,
+        "y": -13760.71875,
+        "w": 300,
+        "h": 1000
+      }
+    },
+    {
+      "src": "http://localhost:4182/src/assets/personalities/jose-teves.webp",
+      "alt": "Portrait of Jose \u201cBong\u201d J. Teves Jr.",
+      "complete": true,
+      "naturalWidth": 288,
+      "naturalHeight": 387,
+      "rect": {
+        "x": 45,
+        "y": -12430.1875,
+        "w": 300,
+        "h": 1000
+      }
+    },
+    {
+      "src": "http://localhost:4182/src/assets/personalities/rommel-marbil.webp",
+      "alt": "Portrait of Rommel Francisco D. Marbil",
+      "complete": true,
+      "naturalWidth": 749,
+      "naturalHeight": 960,
+      "rect": {
+        "x": 45,
+        "y": -11099.65625,
+        "w": 300,
+        "h": 1000
+      }
+    },
+    {
+      "src": "http://localhost:4182/src/assets/personalities/vicente-danao.webp",
+      "alt": "Portrait of Vicente Dupa Danao Jr.",
+      "complete": true,
+      "naturalWidth": 309,
+      "naturalHeight": 380,
+      "rect": {
+        "x": 45,
+        "y": -9743.609375,
+        "w": 300,
+        "h": 1000
+      }
+    },
+    {
+      "src": "http://localhost:4182/src/assets/personalities/eumir-marcial.webp",
+      "alt": "Portrait of Eumir Felix Marcial",
+      "complete": true,
+      "naturalWidth": 734,
+      "naturalHeight": 960,
+      "rect": {
+        "x": 45,
+        "y": -7721.21875,
+        "w": 300,
+        "h": 1000
+      }
+    },
+    {
+      "src": "http://localhost:4182/src/assets/personalities/raymond-almazan.webp",
+      "alt": "Portrait of Raymond Almazan",
+      "complete": true,
+      "naturalWidth": 433,
+      "naturalHeight": 960,
+      "rect": {
+        "x": 45,
+        "y": -6375.5,
+        "w": 300,
+        "h": 1000
+      }
+    },
+    {
+      "src": "http://localhost:4182/src/assets/personalities/jm-de-guzman.webp",
+      "alt": "Portrait of Juan Miguel \u201cJM\u201d Gob de Guzman",
+      "complete": true,
+      "naturalWidth": 684,
+      "naturalHeight": 960,
+      "rect": {
+        "x": 45,
+        "y": -3617.203125,
+        "w": 300,
+        "h": 1000
+      }
+    },
+    {
+      "src": "http://localhost:4182/src/assets/personalities/luis-manzano.webp",
+      "alt": "Portrait of Luis Philippe Santos Manzano",
+      "complete": true,
+      "naturalWidth": 622,
+      "naturalHeight": 897,
+      "rect": {
+        "x": 45,
+        "y": -2273.15625,
+        "w": 300,
+        "h": 1000
+      }
+    },
+    {
+      "src": "http://localhost:4182/src/assets/personalities/nathan-azarcon.webp",
+      "alt": "Portrait of Nathan Peter Hachero Azarcon",
+      "complete": true,
+      "naturalWidth": 489,
+      "naturalHeight": 800,
+      "rect": {
+        "x": 45,
+        "y": -956.296875,
+        "w": 300,
+        "h": 1000
+      }
+    },
+    {
+      "src": "http://localhost:4182/src/assets/branding/tau-gamma-phi-limbaga-road-chapter-crest.webp",
+      "alt": "Tau Gamma Phi Limbaga Road Chapter crest",
+      "complete": true,
+      "naturalWidth": 1254,
+      "naturalHeight": 1254,
+      "rect": {
+        "x": 40.875,
+        "y": 599.6875,
+        "w": 72,
+        "h": 72
+      }
+    },
+    {
+      "src": "http://localhost:4182/src/assets/branding/zamboanga-city-triskelion-council-crest.webp",
+      "alt": "Zamboanga City Triskelion Council crest",
+      "complete": true,
+      "naturalWidth": 1327,
+      "naturalHeight": 1185,
+      "rect": {
+        "x": 173.96875,
+        "y": 599.6875,
+        "w": 72,
+        "h": 72
+      }
+    }
+  ],
+  "footer": "<div class=\"footer-crest-pair\"><figure><img src=\"/src/assets/branding/tau-gamma-phi-limbaga-road-chapter-crest.webp\" alt=\"Tau Gamma Phi Limbaga Road Chapter crest\" width=\"96\" height=\"96\" loading=\"lazy\"><figcaption>Limbaga Road Chapter</figcaption></figure><figure><img src=\"/src/assets/branding/zamboanga-city-triskelion-council-crest.webp\" alt=\"Zamboanga City Triskelion Council crest\" width=\"96\" height=\"86\" loading=\"lazy\"><figcaption>Zamboanga City Council</figcaption></figure></div>",
+  "joelFooter": [
+    {
+      "alt": "Tau Gamma Phi Limbaga Road Chapter crest",
+      "complete": true,
+      "naturalWidth": 1254,
+      "naturalHeight": 1254
+    },
+    {
+      "alt": "Zamboanga City Triskelion Council crest",
+      "complete": true,
+      "naturalWidth": 1327,
+      "naturalHeight": 1185
+    }
+  ],
+  "history": {
+    "url": "http://localhost:4182/history/",
+    "title": "Tau Gamma Phi history \u00b7 Tau Gamma Phi archive",
+    "h1": "From a university beginning to a living Triskelion family",
+    "body": "TAU GAMMA PHI\nNational history & impact archive\nMenu\nHome\nHistory\n\nTAU GAMMA PHI \u00b7 HISTORY AND CONTEXT\n\nFrom a university beginning to a living Triskelion family\n\nA source-cited account of founding context, growth, service, and the safety responsibilities that shape the record today.\n\nResearch-led c"
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "viewports": [
+    {
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "overflow": false,
+      "missingImages": 0,
+      "unlabeledFields": []
+    },
+    {
+      "viewport": 768,
+      "scrollWidth": 768,
+      "overflow": false,
+      "missingImages": 0,
+      "unlabeledFields": []
+    },
+    {
+      "viewport": 390,
+      "scrollWidth": 390,
+      "overflow": false,
+      "missingImages": 0,
+      "unlabeledFields": []
+    },
+    {
+      "viewport": 320,
+      "scrollWidth": 320,
+      "overflow": false,
+      "missingImages": 0,
+      "unlabeledFields": []
+    }
+  ],
+  "simulated_failures": [
+    {
+      "form": "donor",
+      "message": "We could not confirm this pledge was submitted. Your entered values remain; please retry.",
+      "values_preserved": true,
+      "button_enabled": true
+    },
+    {
+      "form": "safety",
+      "message": "We could not submit this report. Nothing was confirmed; your entered values remain so you can retry or use another safe channel.",
+      "values_preserved": true,
+      "button_enabled": true
+    },
+    {
+      "form": "contribution",
+      "message": "We could not submit this contribution. Nothing was confirmed; your entered values remain so you can retry.",
+      "values_preserved": true,
+      "button_enabled": true
+    }
+  ],
+  "automated_accessibility": [
+    {
+      "width": 1440,
+      "violations": [],
+      "passes": 31,
+      "incomplete": 2
+    },
+    {
+      "width": 390,
+      "violations": [],
+      "passes": 31,
+      "incomplete": 2
+    }
+  ],
+  "runtime_errors": [],
+  "mobile_menu_escape": "passed",
+  "keyboard_skip_to_main": "passed",
+  "portal": {
+    "restored": true,
+    "privateDashboardHidden": true,
+    "mockRejectedLoginVisible": true
+  },
+  "intercepted_write_attempts_no_backend_contact": [
+    "blood_donations",
+    "safety_reports",
+    "historical_contributions"
+  ],
+  "limitations": "Automated local tests and controlled failure simulation. Not WCAG certification, live backend success verification, deployed-rule testing or official approval.",
+  "source_sha256": {
+    "index.html": "abb87031fb3726bf33db9bc9f5e7e15973ec2e53f0d32ef8aad64d1d4f266781",
+    "src\\styles.css": "fbfb2f0357fe2489a544eba1dd42ac16643c9bde54a037ee79a728ab2813acb1",
+    "src\\app.mjs": "5580ed0aaafe95248ccf5b4cdcbb8f36f548fa5956579206f364ac6db8b02e0f",
+    "src\\content.mjs": "dbf5eb6d9e3154a71b64cd51a6d303a1c383134f1c27662e86e158a9183977c4",
+    "scripts\\test.mjs": "5462e7ffef00e4e6cfe24fbdd6c94cd19b51d3981c01711ed5ccfd0fa430ab19",
+    "firestore.rules": "e9e3cfb5132d481d18fff39ac19ebaf9fe1fb43c39e52928661eb7c7fd3904ae"
+  }
+}

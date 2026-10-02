@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import { SEO_CONFIG, SEO_ORIGIN, editorialRecords, publishedRecords } from '../src/editorial/content.mjs';
 import { notableProfiles } from '../src/notables.mjs';
+import { portraitMap } from '../src/portrait-map.mjs';
 const assert = (ok, message) => { if (!ok) throw new Error(message); };
 assert(SEO_ORIGIN === 'https://triskelion-de-zamboanga-digital-hub.vercel.app', 'verified SEO origin changed');
 assert(editorialRecords.every(r => r.status === 'published' ? r.publication === 'public' : true), 'publication guard allows invalid record');
@@ -28,6 +29,7 @@ assert(personalityIndex.includes('PUBLIC PERSONALITY GALLERY') && personalityInd
 for (const profile of notableProfiles) {
   const profileHtml = await readFile(`dist/personalities/${profile.id}/index.html`, 'utf8');
   assert(profileHtml.includes('About this person') && profileHtml.includes('Notable work or public record') && profileHtml.includes('Evidence kept separate'), `profile page incomplete: ${profile.id}`);
+  if (portraitMap.has(profile.id)) assert(profileHtml.includes('style="height:auto"'), `profile portrait sizing guard missing: ${profile.id}`);
   assert(profileHtml.toLowerCase().includes('membership research pending') || profile.associationSource, `profile association status missing: ${profile.id}`);
 }
 assert(urls.filter(url => url.includes('/personalities/')).length === notableProfiles.length + 1, 'personality routes missing from sitemap');

@@ -1,9 +1,9 @@
 export const SEO_ORIGIN = 'https://triskelion-de-zamboanga-digital-hub.vercel.app';
 export const SEO_CONFIG = {
   origin: SEO_ORIGIN,
-  siteName: 'Tau Gamma Phi National History & Impact Archive',
-  homeTitle: 'Tau Gamma Phi | National History and Impact Archive',
-  homeDescription: 'Tau Gamma Phi national history and impact preservation archive. Public records remain subject to source review and approval.'
+  siteName: 'Tau Gamma Phi | Triskelions Grand Fraternity Philippines',
+  homeTitle: 'Tau Gamma Phi | Triskelions Grand Fraternity Philippines',
+  homeDescription: 'Explore the history, councils, chapters, community service, notable Triskelions, events, and historical archives of Tau Gamma Phi in the Philippines.'
 };
 
 /**

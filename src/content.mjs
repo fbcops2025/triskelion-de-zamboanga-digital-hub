@@ -1,8 +1,8 @@
 export const content = {
-  platformTitle: 'Tau Gamma Phi | National History and Impact Archive',
-  subtitle: 'Public history and impact preservation archive for Tau Gamma Phi (Triskelions’ Grand Fraternity) · Council context: Triskelion de Zamboanga Council, Zamboanga City',
+  platformTitle: 'Tau Gamma Phi | Triskelions Grand Fraternity Philippines',
+  subtitle: 'History, councils, chapters, community service, notable Triskelions, events, and historical archives across the Philippines.',
   motto: 'Fortis Voluntas Fraternitas · Est. October 4, 1968',
-  tagline: 'Preserving who we were, documenting what we do, and keeping the national record honest about what is verified.',
+  tagline: 'A brotherhood shaped by generations, strengthened by service, and carried forward through communities across the Philippines and beyond.',
   approvalNotice: 'Strict Verification Protocol: Raw submissions never become public truth without evidence attachment, independent corroboration, and governance review.',
 
   // Verification Stages (Section 3 of Charter)

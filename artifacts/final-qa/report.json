@@ -1,0 +1,50 @@
+{
+  "viewports": {
+    "1440": {
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "main": true,
+      "skip": true,
+      "stepperFocus": "0",
+      "horizontalOverflow": false,
+      "pageErrors": []
+    },
+    "768": {
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "main": true,
+      "skip": true,
+      "stepperFocus": "0",
+      "horizontalOverflow": false,
+      "pageErrors": []
+    },
+    "390": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "main": true,
+      "skip": true,
+      "stepperFocus": "0",
+      "horizontalOverflow": false,
+      "pageErrors": []
+    },
+    "320": {
+      "scrollWidth": 327,
+      "clientWidth": 320,
+      "main": true,
+      "skip": true,
+      "stepperFocus": "0",
+      "horizontalOverflow": true,
+      "pageErrors": []
+    }
+  },
+  "interactions": {
+    "menuExpandedAfterClick": "true",
+    "menuExpandedAfterEscape": "false",
+    "focusAfterEscape": "menu-toggle",
+    "focusAfterSkip": "main-content"
+  },
+  "axe": {
+    "desktop": [],
+    "mobile": []
+  }
+}
