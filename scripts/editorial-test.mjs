@@ -1,5 +1,6 @@
 import { readFile } from 'node:fs/promises';
 import { SEO_CONFIG, SEO_ORIGIN, editorialRecords, publishedRecords } from '../src/editorial/content.mjs';
+import { notableProfiles } from '../src/notables.mjs';
 const assert = (ok, message) => { if (!ok) throw new Error(message); };
 assert(SEO_ORIGIN === 'https://triskelion-de-zamboanga-digital-hub.vercel.app', 'verified SEO origin changed');
 assert(editorialRecords.every(r => r.status === 'published' ? r.publication === 'public' : true), 'publication guard allows invalid record');
@@ -22,4 +23,12 @@ assert(urls.every(url => url.startsWith(SEO_ORIGIN) && !url.includes('#') && !ur
 assert(news.includes('rel="canonical"') && news.includes('og:url'), 'collection metadata missing');
 assert(story.includes('BreadcrumbList') && story.includes('Source trail') && story.includes('Related context'), 'reader context missing');
 assert(!story.includes('NewsArticle'), 'unapproved story received NewsArticle schema');
-console.log(`editorial tests passed: ${publishedRecords.length} guarded public records, ${urls.length} canonical sitemap URLs, schema/source/draft guards verified`);
+const personalityIndex = await readFile('dist/personalities/index.html', 'utf8');
+assert(personalityIndex.includes('PUBLIC PERSONALITY GALLERY') && personalityIndex.includes('not an official membership roster'), 'personality gallery framing missing');
+for (const profile of notableProfiles) {
+  const profileHtml = await readFile(`dist/personalities/${profile.id}/index.html`, 'utf8');
+  assert(profileHtml.includes('About this person') && profileHtml.includes('Notable work or public record') && profileHtml.includes('Evidence kept separate'), `profile page incomplete: ${profile.id}`);
+  assert(profileHtml.toLowerCase().includes('membership research pending') || profile.associationSource, `profile association status missing: ${profile.id}`);
+}
+assert(urls.filter(url => url.includes('/personalities/')).length === notableProfiles.length + 1, 'personality routes missing from sitemap');
+console.log(`editorial tests passed: ${publishedRecords.length} guarded public records, ${notableProfiles.length} personality profiles, ${urls.length} canonical sitemap URLs, schema/source/draft guards verified`);

@@ -1,0 +1,74 @@
+{
+  "schema": "footer-crest-asset-pack/v1",
+  "prepared_utc": "2026-10-02T13:35:06.942179+00:00",
+  "authorization": "User explicitly authorized both supplied crests for the public footer.",
+  "owner_scope": "Independent asset preparation only; footer UI remains owned by deleg_737a681/task-1 until explicit release.",
+  "assets": [
+    {
+      "source_file": "Zamboanga City Triskelion Crest.png",
+      "source_sha256": "4dae490eed6a4772d00305c5153109facb7a5bc18d3ff12e35cb0d34c129c448",
+      "output_file": "src/assets/branding/zamboanga-city-triskelion-council-crest.webp",
+      "label": "Zamboanga City Council shield crest",
+      "relationship": "Zamboanga City Council",
+      "source_format": "PNG",
+      "source_mode": "RGBA",
+      "source_dimensions": {
+        "width": 1327,
+        "height": 1185
+      },
+      "source_alpha_bbox": {
+        "left": 13,
+        "top": 15,
+        "right": 1314,
+        "bottom": 1173
+      },
+      "source_aspect_ratio": 1.11983122,
+      "output_dimensions": {
+        "width": 1327,
+        "height": 1185
+      },
+      "output_mode": "RGBA",
+      "output_bytes": 1172724,
+      "preservation": [
+        "lossless RGBA WebP",
+        "no crop",
+        "no recolor",
+        "no distortion",
+        "original canvas dimensions retained"
+      ]
+    },
+    {
+      "source_file": "Tau Gamma Phi Limbaga Road Crest.png",
+      "source_sha256": "d3d68e1b9aa3a0b91d6592176a5d8a367d2c78cf64e4e7702929d0129a99d9eb",
+      "output_file": "src/assets/branding/tau-gamma-phi-limbaga-road-chapter-crest.webp",
+      "label": "Tau Gamma Phi Limbaga Road Chapter round crest",
+      "relationship": "Limbaga Road Chapter",
+      "source_format": "PNG",
+      "source_mode": "RGBA",
+      "source_dimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "source_alpha_bbox": {
+        "left": 15,
+        "top": 1,
+        "right": 1230,
+        "bottom": 1207
+      },
+      "source_aspect_ratio": 1.0,
+      "output_dimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "output_mode": "RGBA",
+      "output_bytes": 1205586,
+      "preservation": [
+        "lossless RGBA WebP",
+        "no crop",
+        "no recolor",
+        "no distortion",
+        "original canvas dimensions retained"
+      ]
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 import { content } from './content.mjs';
 import { notableDomains, notableProfiles } from './notables.mjs';
+import { portraitMap } from './portrait-map.mjs';
+import { initHeaderNavigation } from './header-navigation.mjs';
 import * as d3 from 'd3';
 import {
   auth,
@@ -11,6 +13,8 @@ import {
 
 const $ = (selector) => document.querySelector(selector);
 
+const siteNav = $('#site-nav');
+if (siteNav) initHeaderNavigation({ root: siteNav, menuToggle: '.menu-toggle', mobilePanel: siteNav });
 // ==========================================
 // 1. RENDER PLATFORM PILLARS
 // ==========================================
@@ -312,7 +316,7 @@ function renderNotables(domain = 'all') {
   notablesGrid.innerHTML = visibleProfiles.map((profile, index) => `
     <button class="notable-card" type="button" data-notable-id="${escapeArticleHtml(profile.id)}" style="--notable-index:${index}" aria-pressed="false">
       <span class="notable-orbit" aria-hidden="true"></span>
-      <span class="notable-monogram" aria-hidden="true">${escapeArticleHtml(profile.initials)}</span>
+      <span class="notable-monogram" aria-hidden="true">${portraitMap.get(profile.id) ? `<img src="${escapeArticleHtml(portraitMap.get(profile.id))}" alt="" width="320" height="400" loading="lazy" decoding="async" />` : escapeArticleHtml(profile.initials)}</span>
       <span class="notable-field-tag">${escapeArticleHtml(profile.domain)}</span>
       <h3>${escapeArticleHtml(profile.name)}</h3>
       <span class="notable-role">${escapeArticleHtml(profile.role)}</span>
